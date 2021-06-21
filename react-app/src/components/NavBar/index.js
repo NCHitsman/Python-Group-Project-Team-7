@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <nav>
       <div className="left">
-        <a href="/"><img src={logo} /></a>
+        <a href="/"><img src={logo} alt='logo' /></a>
         {!isLoggedin ?
         <></> :
         <>

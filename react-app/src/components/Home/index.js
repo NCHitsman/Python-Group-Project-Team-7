@@ -1,12 +1,16 @@
 import React from "react"
 import LoggedOutHome from "./LoggedOutHome"
 import LoggedInHome from "./LoggedInHome"
+import { useSelector } from "react-redux"
 
-const Home = ({authenticated}) => {
+const Home = () => {
 
 
-    if (authenticated) {
-        return (<LoggedInHome />)
+    const user = useSelector((state) => state.session.user)
+
+
+    if (user) {
+        return (<LoggedInHome User={user} />)
     } else {
         return (<LoggedOutHome />)
     }

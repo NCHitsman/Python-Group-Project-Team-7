@@ -12,14 +12,12 @@ import { authenticate } from "./store/session";
 function App() {
   const dispatch = useDispatch();
 
-  const [authenticated, setAuthenticated] = useState(false);
+  // const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
-      let res = await dispatch(authenticate());
-      console.log('res >> ', res)
-      if (res) setAuthenticated(true)
+      await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -32,9 +30,6 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/" exact={true}>
-          <h1>My Home Page</h1>
-        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
