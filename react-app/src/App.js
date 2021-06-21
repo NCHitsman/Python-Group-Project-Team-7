@@ -4,21 +4,23 @@ import { useDispatch } from 'react-redux';
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
+import UsersList from "./components/User/UsersList";
 import User from "./components/User";
+import Home from './components/Home'
 import { authenticate } from "./store/session";
 
 function App() {
+  const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
-      await dispatch(authenticate());
+      let res = await dispatch(authenticate());
+      if (res) setAuthenticated(true)
       setLoaded(true);
     })();
-  }, []);
+  }, [dispatch]);
 
   if (!loaded) {
     return null;
@@ -37,15 +39,15 @@ function App() {
         <Route path="/join" exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path="/users/:userId" exact={true}>
+        <Route path="/users" exact={true}>
+          <UsersList/>
+        </Route>
+        <Route path="/users/:userId" exact={true}>
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true}>
-          <User />
-        </ProtectedRoute>
+        </Route>
+        <Route path="/" exact={true}>
+        <Home authenticated={authenticated}/>
+        </Route>
       </Switch>
     </BrowserRouter>
   );

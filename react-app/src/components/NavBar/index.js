@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
 import logo from '../images/robinhoop-logo-light.png';
 
+import LogoutButton from '../auth/LogoutButton';
 
 const NavBar = () => {
 
