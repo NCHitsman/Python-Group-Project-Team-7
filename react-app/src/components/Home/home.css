@@ -1,0 +1,17 @@
+.home__image {
+    transform: scaleX(-1);
+}
+
+.parent__cont {
+    width: 100%;
+}
+
+.signup__info__flexcont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.signup__info__text__cont,
+.signup__info__img__cont {
+    max-width: 50%;
+}

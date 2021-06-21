@@ -1,18 +1,21 @@
 import React from "react"
+import image from "../../images/robinhoop-background-basketballhoop.jpg"
+import "./home.css"
 
 const LoggedOutHome = () => {
     return (
-        <div className='parent__cont'>
+        <div className="content">
+          <div className='parent__cont'>
             <div className='signup__info__parent__cont'>
                 <div className='signup__info__flexcont'>
-                    <div className='signup__info__img__cont'>
-                        <div className='signup__info__title__text'>Robinhood Crypt</div>
-                        <div className='signup__info__body__text'>Buy and sell Bitcoin, Ethereum, Dogecoin, and other cryptocurrencies 24/7 and commission-free with Robinhood Crypto</div>
-                        <button>Sign Up</button>
-                        <div className='signup__info__disclaimer__text'>Crypto Risk Disclosur</div>
-                    </div>
                     <div className='signup__info__text__cont'>
-                        <img className='home__image' src='placeholder.png' alt='placeholder'></img>
+                        <div className='signup__info__title__text'>Robinhoop Investing</div>
+                        <div className='signup__info__body__text'>Robinhoop is a simulated clone of the Robinhood Stock Trading app, but focused on Basketball. With Robinhoop, users can invest in their favorite basketball teams (or the ones that are actually winning games). Robinhoop users buy, sell, and keep tabs on NBA basketball teams to see which ones they want to buy stock in, or sell their stock in.</div>
+                        <button>Sign Up</button>
+                        <div className='signup__info__disclaimer__text'>Play as Demo User</div>
+                    </div>
+                    <div className='signup__info__img__cont'>
+                        <img className='home__image' src={image} />
                     </div>
                 </div>
             </div>
@@ -27,6 +30,7 @@ const LoggedOutHome = () => {
                     </div>
                 </div>
             </div>
+          </div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-/* TODO Add site wide styles */
+/* Navigation Style */
 body {
     margin: 0;
 }
@@ -59,4 +59,10 @@ nav a:hover {
     background: #FFAA01;
     padding: 15px;
     border-radius: 35px;
+}
+
+
+/* Global Styles */
+.content {
+    padding-top: 65px;
 }
