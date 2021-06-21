@@ -90,8 +90,8 @@ form > button:hover {
 }
 
 form.demo {
-    position: absolute;
-    top: 68.6%
+    position: relative;
+    margin-top: 5px;
 }
 
 
