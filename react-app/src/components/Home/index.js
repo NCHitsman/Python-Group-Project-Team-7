@@ -8,7 +8,7 @@ const Home = () => {
             <div className='signup__info__parent__cont'>
                 <div className='signup__info__flexcont'>
                     <div className='signup__info__img__cont'>
-                        <div className='signup__info__title__text'>Robinhood Crypt</div>
+                        <div className='signup__info__title__text'>Robinhoop</div>
                         <div className='signup__info__body__text'>Buy and sell Bitcoin, Ethereum, Dogecoin, and other cryptocurrencies 24/7 and commission-free with Robinhood Crypto</div>
                         <button>Sign Up</button>
                         <div className='signup__info__disclaimer__text'>Crypto Risk Disclosur</div>
