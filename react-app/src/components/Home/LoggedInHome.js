@@ -64,7 +64,7 @@ const LoggedInHome = () => {
             loser_score: 5,
             date: new Date()
         }
-    ]
+    ] // example of return value from dispatch eventually
 
     return (
         <>
