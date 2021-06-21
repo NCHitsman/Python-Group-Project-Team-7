@@ -1,1 +1,53 @@
 /* TODO Add site wide styles */
+body {
+    margin: 0;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000;
+}
+
+nav .left {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .right {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+nav a:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
+#sign-up {
+    background: #097A00;
+    padding: 15px;
+    border-radius: 35px;
+}
+
+#sign-up:hover {
+    transition: .5s;
+    color: #000;
+    background: #FFAA01;
+    padding: 15px;
+    border-radius: 35px;
+}

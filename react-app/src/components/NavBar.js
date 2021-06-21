@@ -1,35 +1,34 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
+import logo from '../images/robinhoop-logo-light.png';
+
 
 const NavBar = () => {
+
+  const isLoggedin = useSelector(state => state.session.user);
+
   return (
     <nav>
-      <ul>
-        <li>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
-          </NavLink>
-        </li>
-        <li>
+      <div className="left">
+        <a href="/"><img src={logo} /></a>
+        <NavLink to="/users" exact={true} activeClassName="active">
+          Portfolio
+        </NavLink>
+      </div>
+      <div className="right">
+        {!isLoggedin ?
+        <>
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
+          <NavLink to="/sign-up" exact={true} id="sign-up" activeClassName="active">
+           Sign Up
+         </NavLink>
+        </>
+        : <LogoutButton /> }
+      </div>
     </nav>
   );
 }

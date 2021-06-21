@@ -1,4 +1,106 @@
+html, body, #root {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#error-list > div {
+    background: rgba(353, 98, 41, .3) ;
+    padding: 5px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.left-side {
+    background-image: url("../../images/robinhoop-background-basketballgame.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50%;
+}
+
+.right-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form .greeting {
+    color: #fff;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+form .greeting a {
+    color: #FFAA01;
+    text-decoration: none;
+}
+
+form .greeting h1 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 input {
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+input:hover {
+    transition: .5s;
+    border: 2px solid #FFAA01;
+}
+
+label {
+    display: none;
+}
+
+form > button {
     padding: 15px;
-    background: #eee;
+    border: 0px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+    background: #097A00;
+    color: #fff;
+}
+
+form > button:hover {
+    transition: .5s;
+    color: #000;
+    background: #FFAA01;
+}
+
+
+@media screen and (max-width: 540px) {
+    .left-side {
+        width: 100%;
+    }
+
+    .right-side {
+        width: 100%;
+        justify-content: center;
+    }
+
+    form > div {
+        max-width: 95%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .right-side {
+        max-width: 80%;
+        margin: 0 auto;
+    }
 }
