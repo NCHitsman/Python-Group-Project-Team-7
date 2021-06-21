@@ -23,7 +23,7 @@ const NavBar = () => {
           <NavLink to="/login" exact={true} activeClassName="active">
             Login
           </NavLink>
-          <NavLink to="/sign-up" exact={true} id="sign-up" activeClassName="active">
+          <NavLink to="/join" exact={true} id="sign-up" activeClassName="active">
            Sign Up
          </NavLink>
         </>
