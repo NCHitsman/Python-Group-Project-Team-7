@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/index";
 import UsersList from "./components/User/UsersList";
-import User from "./components/User";
+import User from "./components/User/index";
 import Home from './components/Home'
 import { authenticate } from "./store/session";
 
@@ -30,9 +30,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <ProtectedRoute path="/" exact={true}>
+        <Route path="/" exact={true}>
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>

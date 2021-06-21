@@ -5,10 +5,6 @@ import session from './session';
 const rootReducer = combineReducers({
     session
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 let enhancer;
 
 if (process.env.NODE_ENV === 'production') {

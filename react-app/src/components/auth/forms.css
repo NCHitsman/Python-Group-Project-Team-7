@@ -90,7 +90,7 @@ form > button:hover {
 }
 
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 767px) {
     .left-side {
         width: 100%;
     }
