@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     (async() => {
       let res = await dispatch(authenticate());
+      console.log('res >> ', res)
       if (res) setAuthenticated(true)
       setLoaded(true);
     })();
