@@ -1,17 +1,26 @@
-.home__image {
-    transform: scaleX(-1);
-}
-
 .parent__cont {
     width: 100%;
+    color: #fff;
+    background: #000;
 }
 
 .signup__info__flexcont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column wrap;
+    background-image: linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,0)), url("../../images/robinhoop-background-court-image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
-.signup__info__text__cont,
-.signup__info__img__cont {
-    max-width: 50%;
+.signup__info__text__cont {
+    width: 50%;
+    margin: 5%;
+    color: #fff;
+    font-family: 'Roboto', sans-serif
+}
+
+.signup__info__disclaimer__text {
+    display: block;
+    font-size: 16px;;
 }

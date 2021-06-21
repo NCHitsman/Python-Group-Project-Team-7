@@ -66,3 +66,29 @@ nav a:hover {
 .content {
     padding-top: 65px;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+button {
+    padding: 15px;
+    border: 0px;
+    border-radius: 35px;
+    background: #097A00;
+    color: #fff;
+    font-size: 18px;
+}
+
+button:hover {
+    transition: .5s;
+    color: #000;
+    background: #FFAA01;
+    padding: 15px;
+    border-radius: 35px;
+}
