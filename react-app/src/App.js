@@ -10,7 +10,6 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 
 function App() {
-  // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
 
@@ -35,8 +34,11 @@ function App() {
         <Route path="/join" exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path="/users" exact={true}>
-          <UsersList/>
+        <ProtectedRoute path="/users/:userId" exact={true}>
+          <User />
+        </ProtectedRoute>
+        <ProtectedRoute path="/users/:userId" exact={true}>
+          <User />
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />

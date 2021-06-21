@@ -33,7 +33,7 @@ const LoginForm = () => {
 
   return (
     <div className="container">
-      <div className="left-side">
+      <div className="left-side login">
       </div>
       <div className="right-side">
       <form onSubmit={onLogin}>
@@ -44,7 +44,7 @@ const LoginForm = () => {
         </div>
         <div className="greeting">
           <h1>Sign in</h1>
-          <p>Don't have an Robinhoop account? <a href="/join">Join Now</a></p>
+          <p>Don't have a Robinhoop account? <a href="/join">Join Now</a></p>
         </div>
         <div>
           <label htmlFor="email">Email</label>

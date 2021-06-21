@@ -41,12 +41,12 @@ const SignUpForm = () => {
 
   return (
     <div className="container">
-      <div className="left-side">
+      <div className="left-side join">
       </div>
       <div className="right-side">
       <form onSubmit={onSignUp}>
       <div className="greeting">
-          <h1>Join</h1>
+          <h1>Join Robinhoop</h1>
           <p>Already have a Robinhoop account? <a href="/login">Login</a></p>
         </div>
         <div>
@@ -90,7 +90,7 @@ const SignUpForm = () => {
             required={true}
           ></input>
         </div>
-       <button type="submit">Sign Up</button>
+       <button type="submit">Join the Game</button>
       </form>
     </div>
     </div>

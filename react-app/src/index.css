@@ -22,11 +22,12 @@ nav .left {
 nav .right {
     display: flex;
     flex-direction: row wrap;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
 }
 
 nav a {
+    margin: 0 5%;
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -38,13 +39,21 @@ nav a:hover {
     color: #FFAA01;
 }
 
-#sign-up {
+#logout {
+    border: 0px;
+    margin: 0 5%;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#sign-up, #logout {
     background: #097A00;
     padding: 15px;
     border-radius: 35px;
 }
 
-#sign-up:hover {
+#sign-up:hover, #logout:hover {
     transition: .5s;
     color: #000;
     background: #FFAA01;

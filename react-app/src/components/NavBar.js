@@ -13,9 +13,14 @@ const NavBar = () => {
     <nav>
       <div className="left">
         <a href="/"><img src={logo} /></a>
-        <NavLink to="/users" exact={true} activeClassName="active">
-          Portfolio
-        </NavLink>
+        {!isLoggedin ?
+        <></> :
+        <>
+          <NavLink to="/users" exact={true} activeClassName="active">
+            Portfolio
+          </NavLink>
+        </>
+        }
       </div>
       <div className="right">
         {!isLoggedin ?
@@ -24,7 +29,7 @@ const NavBar = () => {
             Login
           </NavLink>
           <NavLink to="/join" exact={true} id="sign-up" activeClassName="active">
-           Sign Up
+           Join Now
          </NavLink>
         </>
         : <LogoutButton /> }
