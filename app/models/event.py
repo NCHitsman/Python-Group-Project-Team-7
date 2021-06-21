@@ -10,8 +10,8 @@ class Event(db.Model):
     loser_id = db.Column(db.Integer, db.ForeignKey('teams.id'), nullable=False)
     loser_score = db.Column(db.Integer, nullable=False)
 
-    team = db.relationship('Team')
-
+    winner = db.relationship('Team', foreign_keys=[winner_id])
+    loser = db.relationship('Team', foreign_keys=[loser_id])
 
     def to_dict(self):
         return {
