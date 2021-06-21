@@ -3,20 +3,23 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
+import NavBar from "./components/NavBar/index";
+import UsersList from "./components/User/UsersList";
+import User from "./components/User/index";
+import Home from './components/Home'
 import { authenticate } from "./store/session";
 
 function App() {
-  // const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
+
+  const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
-      await dispatch(authenticate());
+      let res = await dispatch(authenticate());
+      console.log('res >> ', res)
+      if (res) setAuthenticated(true)
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -29,21 +32,24 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <h1>My Home Page</h1>
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
-        <Route path="/sign-up" exact={true}>
+        <Route path="/join" exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path="/users" exact={true}>
+        <Route path="/users" exact={true}>
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true}>
+        </Route>
+        <Route path="/users/:userId" exact={true}>
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true}>
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
+        <Route path="/" exact={true}>
+        <Home />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

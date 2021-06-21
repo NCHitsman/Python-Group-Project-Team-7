@@ -1,1 +1,66 @@
+<<<<<<< HEAD
 
+=======
+/* TODO Add site wide styles */
+body {
+    margin: 0;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000;
+}
+
+nav .left {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .right {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 5%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+nav a:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
+#logout {
+    border: 0px;
+    margin: 0 5%;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#sign-up, #logout {
+    background: #097A00;
+    padding: 15px;
+    border-radius: 35px;
+}
+
+#sign-up:hover, #logout:hover {
+    transition: .5s;
+    color: #000;
+    background: #FFAA01;
+    padding: 15px;
+    border-radius: 35px;
+}
+>>>>>>> 6a11cdf0bb0697c5514912f80e0babf69aff29f6

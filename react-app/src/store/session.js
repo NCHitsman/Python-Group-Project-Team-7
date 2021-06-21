@@ -27,6 +27,8 @@ export const authenticate = () => async(dispatch) => {
     }
 
     dispatch(setUser(data))
+
+    return true;
   }
 
   export const login = (email, password) => async (dispatch) => {
@@ -58,7 +60,7 @@ export const authenticate = () => async(dispatch) => {
       }
     });
 
-    const data = await response.json();
+    await response.json();
 
     dispatch(removeUser())
   };
