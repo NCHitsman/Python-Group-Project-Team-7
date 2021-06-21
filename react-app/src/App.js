@@ -10,8 +10,9 @@ import Home from './components/Home'
 import { authenticate } from "./store/session";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
   const dispatch = useDispatch();
+
+  const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ function App() {
           <User />
         </Route>
         <Route path="/" exact={true}>
-        <Home authenticated={authenticated}/>
+        <Home />
         </Route>
       </Switch>
     </BrowserRouter>
