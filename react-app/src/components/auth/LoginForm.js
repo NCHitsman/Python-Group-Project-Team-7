@@ -19,6 +19,14 @@ const LoginForm = () => {
     }
   };
 
+  const onDemoLogin = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login("testuser@test.com", "password"));
+    if (data.errors) {
+      setErrors(data.errors);
+    }
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -36,39 +44,42 @@ const LoginForm = () => {
       <div className="left-side login">
       </div>
       <div className="right-side">
-      <form onSubmit={onLogin}>
-        <div id="error-list">
-          {errors.map((error) => (
-            <div>{error}</div>
-         ))}
-        </div>
-        <div className="greeting">
-          <h1>Sign in</h1>
-          <p>Don't have a Robinhoop account? <a href="/join">Join Now</a></p>
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="text"
-            placeholder="Email"
-            value={email}
-            onChange={updateEmail}
+        <form onSubmit={onLogin}>
+          <div id="error-list">
+            {errors.map((error) => (
+              <div>{error}</div>
+          ))}
+          </div>
+          <div className="greeting">
+            <h1>Sign in</h1>
+            <p>Don't have a Robinhoop account? <a href="/join">Join Now</a></p>
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={updateEmail}
+              />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                value={password}
+              onChange={updatePassword}
             />
-        </div>
-        <div>
-         <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-           onChange={updatePassword}
-           />
-       </div>
-         <button type="submit">Login</button>
-     </form>
-    </div>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <form class="demo" onSubmit={onDemoLogin}>
+          <button type="submit">Demo Login</button>
+        </form>
+      </div>
     </div>
   );
 };
