@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import logo from '../../images/robinhoop-logo-light.png';
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
         <footer>
             <div className="footer-top">
             <div className="footer-left">
-                <a href="/"><img src={logo} /></a>
+                <a href="/"><img src={logo} alt="Robinhoop Investing Logo"/></a>
             </div>
             <div className="footer-middle">
                 <h6>About Robinhoop</h6>
