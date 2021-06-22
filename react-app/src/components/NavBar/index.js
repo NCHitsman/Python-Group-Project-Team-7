@@ -37,12 +37,13 @@ const NavBar = () => {
            Join Now
          </NavLink>
         </>
-        : <>
-          <NavLink to="/account/:id" exact={true} activeClassName="active">
-            Account
-          </NavLink>
-        <LogoutButton />
-        </> }
+          : <>
+              <NavLink to="/users/edit-account" exact={true} activeClassName="active">
+                Edit Account
+              </NavLink>
+              <LogoutButton />
+          </>
+        }
       </div>
     </nav>
   );
