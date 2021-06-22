@@ -2,7 +2,7 @@ from .db import db
 
 
 class History(db.Model):
-    __tablename__ = 'History'
+    __tablename__ = 'history'
 
     id = db.Column(db.Integer, primary_key=True)
     team_id = db.Column(db.Integer, db.ForeignKey('teams.id'), nullable=False)

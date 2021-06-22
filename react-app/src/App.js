@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import EditUserForm from "./components/auth/EditUserForm";
@@ -9,6 +9,7 @@ import Footer from "./components/Footer/index";
 import Home from "./components/Home/index"
 import UsersList from "./components/User/UsersList";
 import User from "./components/User/index";
+import StockPage from "./components/StockPage";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -24,9 +25,13 @@ function App() {
     })();
   }, [dispatch]);
 
+  const currentUser = useSelector((state) => state.session.user)
+  
   if (!loaded) {
     return null;
   }
+
+
 
   return (
     <BrowserRouter>
@@ -49,6 +54,9 @@ function App() {
         </Route>
         <Route path="/users/:userId" exact={true}>
           <User />
+        </Route>
+        <Route path="/stock/:stockId" exact={true}>
+          <StockPage currentUser={currentUser}/>
         </Route>
         <Route path="/" exact={true}>
         <Home />
