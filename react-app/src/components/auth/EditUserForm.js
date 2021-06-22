@@ -16,6 +16,7 @@ const EditUserForm = () => {
         e.preventDefault();
         if (password === repeatPassword) {
             await dispatch(edit(username, email, password, repeatPassword));
+            return <Redirect to="/" />
         }
     }
 
@@ -40,50 +41,63 @@ const EditUserForm = () => {
     }
 
     return (
-        <div className="container">
-            <form onSubmit={onEdit} method="POST">
-                <div>
-                    <label>User Name</label>
-                    <input
-                        type="text"
-                        name="username"
-                        placeholder={user["username"]}
-                        onChange={updateUsername}
-                        value={username}
-                    ></input>
+        <div className="content">
+            <div className="container">
+                <div className="left-side change">
+
                 </div>
-                <div>
-                    <label>Email</label>
-                    <input
-                        type="text"
-                        name="email"
-                        placeholder={user["email"]}
-                        onChange={updateEmail}
-                        value={email}
-                    ></input>
+                <div className="right-side">
+                    <div className="edit-wrapper">
+                        <form onSubmit={onEdit} method="POST">
+                            <div className="greeting">
+                                <h1>Edit Account Info</h1>
+                                <p></p>
+                            </div>
+                            <div>
+                                <label>User Name</label>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    placeholder={user["username"]}
+                                    onChange={updateUsername}
+                                    value={username}
+                                ></input>
+                            </div>
+                            <div>
+                                <label>Email</label>
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder={user["email"]}
+                                    onChange={updateEmail}
+                                    value={email}
+                                ></input>
+                            </div>
+                            <div>
+                                <label>Password</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    onChange={updatePassword}
+                                    value={password}
+                                ></input>
+                            </div>
+                            <div>
+                                <label>Repeat Password</label>
+                                <input
+                                    type="password"
+                                    name="repeat_password"
+                                    placeholder="Confirm Password"
+                                    onChange={updateRepeatPassword}
+                                    value={repeatPassword}
+                                ></input>
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        onChange={updatePassword}
-                        value={password}
-                    ></input>
-                </div>
-                <div>
-                    <label>Repeat Password</label>
-                    <input
-                        type="password"
-                        name="repeat_password"
-                        placeholder="Repeat Password"
-                        onChange={updateRepeatPassword}
-                        value={repeatPassword}
-                    ></input>
-                </div>
-                <button type="submit">Edit Your Information</button>
-            </form>
+            </div>
         </div>
     );
 };

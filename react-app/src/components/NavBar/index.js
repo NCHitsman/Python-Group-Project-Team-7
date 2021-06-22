@@ -39,7 +39,7 @@ const NavBar = () => {
         </>
           : <>
               <NavLink to="/users/edit-account" exact={true} activeClassName="active">
-                Edit Account
+                Account
               </NavLink>
               <LogoutButton />
           </>
