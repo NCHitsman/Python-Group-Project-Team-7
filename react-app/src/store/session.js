@@ -95,7 +95,7 @@ export const authenticate = () => async(dispatch) => {
   }
 
 
-  export const edit = (username, email, password) => async (dispatch) => {
+  export const edit = (username, email, password, repeat_password) => async (dispatch) => {
     const response = await fetch("/api/users/edit-account", {
       method: "POST",
       headers: {
@@ -105,6 +105,7 @@ export const authenticate = () => async(dispatch) => {
         username,
         email,
         password,
+        repeat_password
       }),
     });
 

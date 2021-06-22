@@ -7,15 +7,15 @@ import "./forms.css";
 const EditUserForm = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const [username, setUsername] = useState(user["username"])
-    const [email, setEmail] = useState(user["email"])
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
 
     const onEdit = async (e) => {
         e.preventDefault();
         if (password === repeatPassword) {
-            await dispatch(edit(username, email, password));
+            await dispatch(edit(username, email, password, repeatPassword));
         }
     }
 
@@ -47,7 +47,7 @@ const EditUserForm = () => {
                     <input
                         type="text"
                         name="username"
-                        placeholder={username}
+                        placeholder={user["username"]}
                         onChange={updateUsername}
                         value={username}
                     ></input>
@@ -57,7 +57,7 @@ const EditUserForm = () => {
                     <input
                         type="text"
                         name="email"
-                        placeholder={email}
+                        placeholder={user["email"]}
                         onChange={updateEmail}
                         value={email}
                     ></input>
