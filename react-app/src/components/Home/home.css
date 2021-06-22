@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column wrap;
     background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0)), url("../../images/robinhoop-background-court-image.jpg");
-    background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     border-bottom: 2px solid #FFAA01;
@@ -82,9 +81,13 @@ a.signup__info__disclaimer__text:hover {
 /* LOGGED In User Homepage */
 
 .GreetUser {
-    background: #F0E7E0;
-    padding: 3%;
+    /* background: #F0E7E0; */
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("../../images/robinhoop-background-basketballgame.jpg");
+    background-size: cover;
+    background-position: center center;
+    padding: 5%;
     border-bottom: 2px solid #FFAA01;
+    color: #fff;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
     text-transform: capitalize;
