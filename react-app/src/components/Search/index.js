@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import placeholder from "../../images/robinhoop-background-ball.jpg";
 import { useHistory } from "react-router-dom";
 
 const SearchBar = ({ teamDatas }) => {
@@ -122,7 +123,7 @@ const SearchBar = ({ teamDatas }) => {
                     <ul className="search-list">
                         {filteredTeams.map((team) => (
                             <a key={team.id} href={`/teams/${team.id}`} className="search-result">
-                                <img className="icon" src="../../images/robinhoop-background-ball" alt=""></img>
+                                <img className="icon" src={placeholder} alt=""></img>
                                 <p>{team.name} ({team.short_name})</p>
                             </a>
                         ))}
