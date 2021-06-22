@@ -7,20 +7,76 @@
 .signup__info__flexcont {
     display: flex;
     flex-direction: column wrap;
-    background-image: linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,0)), url("../../images/robinhoop-background-court-image.jpg");
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0)), url("../../images/robinhoop-background-court-image.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    border-bottom: 2px solid #FFAA01;
+}
+
+.solo__info__flexcont {
+    display: flex;
+    flex-direction: column wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .signup__info__text__cont {
     width: 50%;
-    margin: 5%;
+    margin: 8% 4%;
     color: #fff;
     font-family: 'Roboto', sans-serif
 }
 
 .signup__info__disclaimer__text {
     display: block;
-    font-size: 16px;;
+    font-size: 16px;
+}
+
+a.signup__info__disclaimer__text {
+    color: #fff;
+    margin-top: 24px;
+    text-decoration: none;
+}
+
+a.signup__info__disclaimer__text:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
+.material-icons {
+    font-size: 16px;
+}
+
+.solo__info__img__cont,
+.solo__info__text__cont {
+    padding: 4%;
+}
+
+.solo__info__img__cont img {
+    max-width: 500px;
+}
+
+.solo__info__title__text h2 {
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 767px) {
+    .signup__info__flexcont {
+        background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,.3)), url("../../images/robinhoop-background-court-image.jpg");
+    }
+
+    .solo__info__flexcont,
+    .signup__info__text__cont {
+        width: 100%;
+    }
+
+    .solo__info__flexcont {
+        display: block;
+    }
+
+    .solo__info__img__cont img {
+        margin: 0 auto;
+        width: 100%;
+    }
 }
