@@ -5,9 +5,10 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import EditUserForm from "./components/auth/EditUserForm";
 import NavBar from "./components/NavBar/index";
+import Footer from "./components/Footer/index";
+import Home from "./components/Home/index"
 import UsersList from "./components/User/UsersList";
 import User from "./components/User/index";
-import Home from './components/Home'
 import { authenticate } from "./store/session";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <Home />
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
@@ -50,6 +54,7 @@ function App() {
         <Home />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

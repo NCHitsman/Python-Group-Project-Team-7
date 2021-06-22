@@ -15,8 +15,14 @@ const NavBar = () => {
         {!isLoggedin ?
         <></> :
         <>
-          <NavLink to="/users" exact={true} activeClassName="active">
+          <NavLink to="/" exact={true} activeClassName="active">
             Portfolio
+          </NavLink>
+          <NavLink to="/buy" exact={true} activeClassName="active">
+            Buy
+          </NavLink>
+          <NavLink to="/watchlist" exact={true} activeClassName="active">
+            Watchlist
           </NavLink>
         </>
         }

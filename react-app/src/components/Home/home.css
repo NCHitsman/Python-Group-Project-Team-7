@@ -1,0 +1,136 @@
+/* NOT Logged in User Homepage */
+.parent__cont {
+    width: 100%;
+    color: #fff;
+    background: #000;
+}
+
+.signup__info__flexcont {
+    display: flex;
+    flex-direction: column wrap;
+    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0)), url("../../images/robinhoop-background-court-image.jpg");
+    background-size: cover;
+    background-position: center center;
+    border-bottom: 2px solid #FFAA01;
+}
+
+.solo__info__flexcont {
+    display: flex;
+    flex-direction: column wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.signup__info__text__cont {
+    width: 50%;
+    margin: 8% 4%;
+    color: #fff;
+    font-family: 'Roboto', sans-serif
+}
+
+.signup__info__disclaimer__text {
+    display: block;
+    font-size: 16px;
+}
+
+a.signup__info__disclaimer__text {
+    color: #fff;
+    margin-top: 24px;
+    text-decoration: none;
+}
+
+a.signup__info__disclaimer__text:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
+.material-icons {
+    font-size: 16px;
+}
+
+.solo__info__img__cont,
+.solo__info__text__cont {
+    padding: 4%;
+}
+
+.solo__info__img__cont img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.solo__info__title__text h2 {
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 767px) {
+    .signup__info__flexcont {
+        background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,.3)), url("../../images/robinhoop-background-court-image.jpg");
+    }
+
+    .solo__info__flexcont,
+    .signup__info__text__cont {
+        width: 100%;
+    }
+
+    .solo__info__flexcont {
+        display: block;
+    }
+}
+
+
+/* LOGGED In User Homepage */
+
+.GreetUser {
+    /* background: #F0E7E0; */
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("../../images/robinhoop-background-basketballgame.jpg");
+    background-size: cover;
+    background-position: center center;
+    padding: 5%;
+    border-bottom: 2px solid #FFAA01;
+    color: #fff;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: capitalize;
+    font-size: 28px;
+}
+
+.section-headers {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+}
+
+.section-headers h2 {
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+
+.section-headers h3 {
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+
+.TeamStockCard__carosel {
+    display: flex;
+    flex-direction: column wrap;
+    background: #000;
+    overflow-x: scroll;
+}
+
+.TeamStockCard__carosel > div {
+    margin: 2% 3%;
+}
+
+.Article__cont {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background: #000;
+    padding: 2%;
+}
+
+.Article__cont > div {
+    margin: 1%;
+}

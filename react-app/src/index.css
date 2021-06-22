@@ -1,3 +1,4 @@
+/* Navigation Style */
 body {
     margin: 0;
 }
@@ -5,7 +6,7 @@ body {
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     width: 100%;
     background: #000;
@@ -58,4 +59,131 @@ nav a:hover {
     background: #FFAA01;
     padding: 15px;
     border-radius: 35px;
+}
+
+@media screen and (max-width: 870px) {
+    #sign-up, #logout {
+        padding: 10px;
+    }
+    #sign-up:hover, #logout:hover {
+        padding: 10px;
+    }
+}
+
+/* Global Styles */
+.content {
+    padding-top: 65px;
+    background: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+button {
+    padding: 15px;
+    border: 0px;
+    border-radius: 35px;
+    background: #097A00;
+    color: #fff;
+    font-size: 18px;
+}
+
+button:hover {
+    transition: .5s;
+    color: #000;
+    background: #FFAA01;
+    padding: 15px;
+    border-radius: 35px;
+}
+
+@media screen and (max-width: 870px) {
+    .content {
+        padding-top: 68px;
+    }
+}
+
+/* Footer */
+footer .footer-top {
+    display: flex;
+    flex-direction: column wrap;
+    justify-content: space-between;
+    align-items: top;
+    padding: 10px 4%;
+    border-top: 2px solid #FFAA01;
+    color: #fff;
+    background: #000;
+}
+
+footer .footer-left {
+    width: 25%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+footer .footer-middle {
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+footer .footer-right {
+    width: 25%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+footer .bottom-bar {
+    padding: 10px 4%;
+    color: #fff;
+    background: #000;
+}
+
+footer .bottom-bar hr {
+    border: 1px solid #555;
+}
+
+footer h6 {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+footer p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
+@media screen and (max-width: 870px) {
+
+    footer .footer-top {
+        max-width: 100%;
+        display: block;
+        padding: 10px;
+    }
+
+    footer .footer-left {
+        width: 95%;
+    }
+
+    footer .footer-middle {
+        width: 95%;
+    }
+
+    footer .footer-right {
+        width: 95%;
+    }
 }

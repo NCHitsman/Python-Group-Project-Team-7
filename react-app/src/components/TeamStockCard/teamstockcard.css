@@ -1,0 +1,36 @@
+.TeamStockCard__cont {
+    min-width: 150px;
+    padding: 5%;
+    border: 1px solid #FFAA01;
+    border-radius: 5px;
+    /* margin: 10% auto; */
+    background: #fff;
+}
+
+.TeamStockCard__name {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: capitalize;
+    font-size: 21px;
+}
+
+.TeamStockCard__short_name {
+    margin-left: 8px;
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.TeamStockCard__conference {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.TeamStockCard__price {
+    margin-top: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    color: #097A00;
+}

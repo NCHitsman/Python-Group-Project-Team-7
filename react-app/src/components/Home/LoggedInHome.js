@@ -1,8 +1,11 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import TeamStockCard from '../TeamStockCard'
 import ArticleCard from "../ArticleCard"
 
 const LoggedInHome = () => {
+
+    const user = useSelector(state => state.session.user)
 
     let teamStockList = [
         {
@@ -33,13 +36,41 @@ const LoggedInHome = () => {
             conference: 'West',
             price: 15
         },
+        {
+            id: 5,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
+        {
+            id: 6,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
+        {
+            id: 7,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
+        {
+            id: 8,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
     ] // example of return value from dispatch eventually
 
     let articles = [
         {
             id: 1,
             winner: {
-                id: 1,
+                id: 2,
                 name: 'lakers'
             },
             winner_score: 10,
@@ -63,11 +94,57 @@ const LoggedInHome = () => {
             },
             loser_score: 5,
             date: new Date()
-        }
+        },
+        {
+            id: 3,
+            winner: {
+                id: 2,
+                name: 'lakers'
+            },
+            winner_score: 10,
+            loser: {
+                id: 1,
+                name: 'suns'
+            },
+            loser_score: 5,
+            date: new Date()
+        },
+        {
+            id: 4,
+            winner: {
+                id: 2,
+                name: 'lakers'
+            },
+            winner_score: 10,
+            loser: {
+                id: 1,
+                name: 'suns'
+            },
+            loser_score: 5,
+            date: new Date()
+        },
+        {
+            id: 5,
+            winner: {
+                id: 2,
+                name: 'lakers'
+            },
+            winner_score: 10,
+            loser: {
+                id: 1,
+                name: 'suns'
+            },
+            loser_score: 5,
+            date: new Date()
+        },
     ] // example of return value from dispatch eventually
 
     return (
-        <>
+        <div className="content">
+            <div className="GreetUser">{user.username}'s Portfolio</div>
+            <div className="section-headers">
+                <h2>Stocks</h2>
+            </div>
             <div className='TeamStockCard__carosel'>
                 {teamStockList.map(stock => {
                     return (
@@ -76,6 +153,9 @@ const LoggedInHome = () => {
                         </div>
                     )
                 })}
+            </div>
+            <div className="section-headers">
+                <h3>Scores</h3>
             </div>
             <div className='Article__cont'>
                 {articles.map(article => {
@@ -86,7 +166,7 @@ const LoggedInHome = () => {
                     )
                 })}
             </div>
-        </>
+        </div>
     )
 }
 
