@@ -6,7 +6,7 @@ body {
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     width: 100%;
     background: #000;
@@ -61,6 +61,19 @@ nav a:hover {
     border-radius: 35px;
 }
 
+@media screen and (max-width: 870px) {
+    nav .left a img {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    #sign-up, #logout {
+        padding: 10px;
+    }
+    #sign-up:hover, #logout:hover {
+        padding: 10px;
+    }
+}
 
 /* Global Styles */
 .content {
@@ -91,6 +104,12 @@ button:hover {
     background: #FFAA01;
     padding: 15px;
     border-radius: 35px;
+}
+
+@media screen and (max-width: 870px) {
+    .content {
+        padding-top: 45px;
+    }
 }
 
 /* Footer */
@@ -153,19 +172,22 @@ footer a:hover {
 }
 
 @media screen and (max-width: 870px) {
+
     footer .footer-top {
+        max-width: 100%;
         display: block;
+        padding: 10px;
     }
 
     footer .footer-left {
-        width: 100%;
+        width: 95%;
     }
 
     footer .footer-middle {
-        width: 100%;
+        width: 95%;
     }
 
     footer .footer-right {
-        width: 100%;
+        width: 95%;
     }
 }
