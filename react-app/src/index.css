@@ -94,19 +94,78 @@ button:hover {
 }
 
 /* Footer */
-footer {
+footer .footer-top {
     display: flex;
     flex-direction: column wrap;
     justify-content: space-between;
     align-items: top;
     padding: 10px 4%;
     border-top: 2px solid #FFAA01;
-    font-size: 14px;
     color: #fff;
     background: #000;
+}
+
+footer .footer-left {
+    width: 25%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+footer .footer-middle {
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+footer .footer-right {
+    width: 25%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+footer .bottom-bar {
+    padding: 10px 4%;
+    color: #fff;
+    background: #000;
+}
+
+footer .bottom-bar hr {
+    border: 1px solid #555;
 }
 
 footer h6 {
     margin: 8px 0;
     font-size: 16px;
+}
+
+footer p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
+@media screen and (max-width: 870px) {
+    footer .footer-top {
+        display: block;
+    }
+
+    footer .footer-left {
+        width: 100%;
+    }
+
+    footer .footer-middle {
+        width: 100%;
+    }
+
+    footer .footer-right {
+        width: 100%;
+    }
 }
