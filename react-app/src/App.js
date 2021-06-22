@@ -13,14 +13,12 @@ import { authenticate } from "./store/session";
 function App() {
   const dispatch = useDispatch();
 
-  const [authenticated, setAuthenticated] = useState(false);
+  // const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
-      let res = await dispatch(authenticate());
-      console.log('res >> ', res)
-      if (res) setAuthenticated(true)
+      await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
