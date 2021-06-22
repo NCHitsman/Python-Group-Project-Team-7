@@ -1,8 +1,11 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import TeamStockCard from '../TeamStockCard'
 import ArticleCard from "../ArticleCard"
 
 const LoggedInHome = () => {
+
+    const user = useSelector(state => state.session.user)
 
     let teamStockList = [
         {
@@ -28,6 +31,34 @@ const LoggedInHome = () => {
         },
         {
             id: 4,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
+        {
+            id: 5,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
+        {
+            id: 6,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
+        {
+            id: 7,
+            name: 'lakers',
+            short_name: 'lak',
+            conference: 'West',
+            price: 15
+        },
+        {
+            id: 8,
             name: 'lakers',
             short_name: 'lak',
             conference: 'West',
@@ -67,7 +98,8 @@ const LoggedInHome = () => {
     ] // example of return value from dispatch eventually
 
     return (
-        <>
+        <div className="content">
+            <div className="GreetUser">{user.username}'s Portfolio</div>
             <div className='TeamStockCard__carosel'>
                 {teamStockList.map(stock => {
                     return (
@@ -86,7 +118,7 @@ const LoggedInHome = () => {
                     )
                 })}
             </div>
-        </>
+        </div>
     )
 }
 

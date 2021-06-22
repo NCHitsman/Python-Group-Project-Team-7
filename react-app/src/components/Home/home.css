@@ -1,3 +1,4 @@
+/* NOT Logged in User Homepage */
 .parent__cont {
     width: 100%;
     color: #fff;
@@ -75,4 +76,28 @@ a.signup__info__disclaimer__text:hover {
     .solo__info__flexcont {
         display: block;
     }
+}
+
+
+/* LOGGED In User Homepage */
+
+.GreetUser {
+    background: #F0E7E0;
+    padding: 3%;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: capitalize;
+    font-size: 28px;
+}
+
+.TeamStockCard__carosel {
+    display: flex;
+    flex-direction: column wrap;
+    border-top: 2px solid #FFAA01;
+    background: #000;
+    overflow-x: scroll;
+}
+
+.TeamStockCard__carosel > div {
+    margin: 3%;
 }

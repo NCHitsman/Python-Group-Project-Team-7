@@ -62,10 +62,10 @@ nav a:hover {
 }
 
 @media screen and (max-width: 870px) {
-    nav .left a img {
+    /* nav .left a img {
         width: 100%;
         max-width: 150px;
-    }
+    } */
 
     #sign-up, #logout {
         padding: 10px;
@@ -108,7 +108,7 @@ button:hover {
 
 @media screen and (max-width: 870px) {
     .content {
-        padding-top: 45px;
+        padding-top: 68px;
     }
 }
 
