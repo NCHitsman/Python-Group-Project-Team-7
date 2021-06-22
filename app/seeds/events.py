@@ -1,4 +1,4 @@
-from app.models import db, Event 
+from app.models import db, Event
 
 def seed_event():
 

@@ -2,11 +2,11 @@ from .db import db
 
 
 class Watchlist(db.Model):
-    __tablename__ = 'Watchlists'
+    __tablename__ = 'watchlists'
 
     id = db.Column(db.Integer, primary_key=True)
-    team_id = db.Column(db.Integer, db.ForeignKey('Teams.id'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
+    team_id = db.Column(db.Integer, db.ForeignKey('teams.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     
 
     team = db.relationship('Team')
