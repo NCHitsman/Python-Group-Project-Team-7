@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
+import EditUserForm from "./components/auth/EditUserForm";
 import NavBar from "./components/NavBar/index";
 import UsersList from "./components/User/UsersList";
 import User from "./components/User/index";
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route path="/users" exact={true}>
           <UsersList/>
+        </Route>
+        <Route path="/users/edit-account" exact={true}>
+          <EditUserForm/>
         </Route>
         <Route path="/users/:userId" exact={true}>
           <User />
