@@ -61,6 +61,60 @@ nav a:hover {
     border-radius: 35px;
 }
 
+.search-form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+.search-list {
+    position: absolute;
+    background-color:#101010;
+    width: 204px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-result {
+    height: 40px;
+    padding: 0px;
+    border-top: 1px white solid;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+img.icon {
+    height: 20px;
+    width: 20px;
+    margin: 0px 5px;
+}
+
+.search-input {
+    width: 180px;
+    margin: 5px 0px;
+}
+
+.search-results {
+    display: none;
+}
+
+.search-input:focus ~ .search-results {
+    display: block;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
 @media screen and (max-width: 870px) {
     #sign-up, #logout {
         padding: 10px;

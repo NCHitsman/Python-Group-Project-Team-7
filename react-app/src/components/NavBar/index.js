@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
+import SearchBar from "../Search/index";
 import logo from '../../images/robinhoop-logo-light.png';
 
 const NavBar = () => {
@@ -26,6 +27,7 @@ const NavBar = () => {
           </NavLink>
         </>
         }
+        <SearchBar />
       </div>
       <div className="right">
         {!isLoggedin ?
@@ -39,7 +41,7 @@ const NavBar = () => {
         </>
           : <>
               <NavLink to="/users/edit-account" exact={true} activeClassName="active">
-                Edit Account
+                Account
               </NavLink>
               <LogoutButton />
           </>
