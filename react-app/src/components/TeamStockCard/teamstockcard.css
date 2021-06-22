@@ -1,9 +1,8 @@
 .TeamStockCard__cont {
     min-width: 150px;
-    padding: 5%;
+    padding: 10%;
     border: 1px solid #FFAA01;
     border-radius: 5px;
-    /* margin: 10% auto; */
     background: #fff;
 }
 

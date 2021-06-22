@@ -1,8 +1,13 @@
 // Constants
+const GET_LIST = "watchlist/GET_LIST"
 const ADD_TO = "watchlist/ADD_TO"
 const REMOVE_FROM = "watchlist/REMOVE_FROM"
 
 // Action Creators
+const getList = (user) => ({
+    type: GET_LIST,
+    payload: user
+})
 
 const addTo = (stock) => ({
     type: ADD_TO,
@@ -14,13 +19,22 @@ const removeFrom = (stock) => ({
     payload: stock
 })
 
+//Thunks
+export const getUserList = (userId) => async (dispatch) => {
+    const response = await fetch()
+    const user = response.json()
+    dispatch(getList(user))
+    return response
+}
+
 
 // Reducer
-
-const initialState = {watchlist: []}
+const initialState = {watching: []}
 
 export default function reducer(state=initialState, action) {
     switch (action.type) {
+        case GET_LIST:
+            return {...state}
         case ADD_TO:
             return {...state, watchlist: [action.payload, ...state.watchlist]}
         case REMOVE_FROM:
