@@ -123,7 +123,7 @@ const SearchBar = ({ teamDatas }) => {
                         {filteredTeams.map((team) => (
                             <a key={team.id} href={`/teams/${team.id}`} className="search-result">
                                 <img className="icon" src="../../images/robinhoop-background-ball" alt=""></img>
-                                <p>{team.name}</p>
+                                <p>{team.name} ({team.short_name})</p>
                             </a>
                         ))}
                     </ul>
