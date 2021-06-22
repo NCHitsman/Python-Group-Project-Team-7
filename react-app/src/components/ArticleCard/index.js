@@ -1,4 +1,5 @@
 import React from 'react'
+import "./articlecard.css"
 
 const articleDataCard = ({articleData}) => {
 

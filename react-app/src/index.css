@@ -78,6 +78,7 @@ nav a:hover {
 /* Global Styles */
 .content {
     padding-top: 65px;
+    background: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {

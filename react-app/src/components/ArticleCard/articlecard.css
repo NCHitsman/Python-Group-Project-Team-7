@@ -1,0 +1,24 @@
+.ArticleCard__cont {
+    padding: 5%;
+    border: 1px solid #FFAA01;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.ArticleCard__title {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: capitalize;
+    font-size: 21px;
+}
+
+.ArticleCard__score {
+    margin-top: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    color: #097A00;
+}
+
+.ArticleCard__date {
+
+}
