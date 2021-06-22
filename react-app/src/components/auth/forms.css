@@ -32,6 +32,10 @@ html, body, #root {
     background-image: url("../../images/robinhoop-background-basketballcourt.jpg");
 }
 
+.left-side.change {
+    background-image: url("../../images/robinhoop-background-ball.jpg");
+}
+
 .right-side {
     width: 50%;
     display: flex;
@@ -92,6 +96,13 @@ form > button:hover {
 form.demo {
     position: relative;
     margin-top: 5px;
+}
+
+.edit-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 10% 0px
 }
 
 
