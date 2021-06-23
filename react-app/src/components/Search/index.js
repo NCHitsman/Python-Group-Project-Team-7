@@ -16,88 +16,15 @@ const SearchBar = () => {
         fetchData();
     }, []);
 
-    const teamData = [ // remove after migrations done
-        {
-            id: 1,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 2,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 3,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 4,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 5,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 6,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 7,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 8,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 9,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 10,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        }
-    ]
-
     const filterTeams = (teams, query) => {
         if (!query) {
             return [];
         }
 
         return teams.filter((team) => {
-            const teamName = team.name;
-            const teamAbbr = team.short_name;
-            return teamName.includes(query) || teamAbbr.includes(query);
+            const teamName = team.name.toLowerCase();
+            const teamAbbr = team.short_name.toLowerCase();
+            return teamName.includes(query.toLowerCase()) || teamAbbr.includes(query.toLowerCase());
         })
     }
 
@@ -105,7 +32,7 @@ const SearchBar = () => {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || "");
-    const filteredTeams = filterTeams(teams, searchQuery); // change teamData to teams once migrations done
+    const filteredTeams = filterTeams(teams, searchQuery);
 
     const onSubmit = e => {
         history.push(`?s=${searchQuery}`)
