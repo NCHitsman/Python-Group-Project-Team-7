@@ -10,5 +10,7 @@ def watchlist():
     """
     Retrieves a logged in user's watchlist
     """
-    userId = session.user.id
-    print('>>>', user)
+    user = User.query.all()
+    list = Watchlist.query.filter(Watchlist.user_id == user.id).first()
+    print(list)
+    return list

@@ -99,10 +99,10 @@ form.demo {
 }
 
 .edit-wrapper {
-    position: relative;
+    /* position: relative; */
     display: flex;
     justify-content: center;
-    padding: 10% 0px
+    /* padding: 10% 0px; */
 }
 
 

@@ -41,10 +41,8 @@ const EditUserForm = () => {
     }
 
     return (
-        <div className="content">
             <div className="container">
                 <div className="left-side change">
-
                 </div>
                 <div className="right-side">
                     <div className="edit-wrapper">
@@ -98,7 +96,6 @@ const EditUserForm = () => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 
