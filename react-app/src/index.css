@@ -6,7 +6,7 @@ body {
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     width: 100%;
     background: #000;
@@ -36,6 +36,10 @@ nav a {
 
 nav a:hover {
     transition: .5s;
+    color: #FFAA01;
+}
+
+nav .active {
     color: #FFAA01;
 }
 

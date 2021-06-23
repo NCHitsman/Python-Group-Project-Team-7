@@ -1,0 +1,16 @@
+.watchlist {
+    background: #000;
+    text-align: center;
+}
+
+.empty-list {
+    padding: 10%;
+    height: 100%;
+}
+
+.empty-list h3 {
+    font-size: 24px;
+    margin-top: 0;
+    color: #fff;
+    opacity: .7;
+}

@@ -44,6 +44,14 @@ a.signup__info__disclaimer__text:hover {
     color: #FFAA01;
 }
 
+form.demo-link button {
+    background: rgba(0, 0, 0, 0);
+}
+
+form.demo-link button:hover {
+    color: #FFAA01;
+}
+
 .material-icons {
     font-size: 16px;
 }
@@ -122,15 +130,24 @@ a.signup__info__disclaimer__text:hover {
 }
 
 .Article__cont {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3%;
+    row-gap: 3%;
     background: #000;
-    padding: 2%;
+    padding: 0 2% 2%;
 }
 
 .Article__cont > div {
-    margin: 1%;
+
+}
+
+@media screen and (max-width: 902px) {
+    .Article__cont {
+        display: block;
+    }
+    .Article__cont > div {
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
 }
