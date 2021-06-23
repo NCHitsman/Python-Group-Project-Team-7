@@ -4,9 +4,9 @@ const ADD_TO = "watchlist/ADD_TO"
 const REMOVE_FROM = "watchlist/REMOVE_FROM"
 
 // Action Creators
-const getList = (user) => ({
+const getList = (list) => ({
     type: GET_LIST,
-    payload: user
+    payload: list
 })
 
 const addTo = (stock) => ({
@@ -20,10 +20,10 @@ const removeFrom = (stock) => ({
 })
 
 //Thunks
-export const getUserList = (userId) => async (dispatch) => {
-    const response = await fetch()
-    const user = response.json()
-    dispatch(getList(user))
+export const getUserList = () => async (dispatch) => {
+    const response = await fetch('/api/watchlist')
+    const list = response.json()
+    dispatch(getList(list))
     return response
 }
 

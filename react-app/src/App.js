@@ -7,6 +7,7 @@ import EditUserForm from "./components/auth/EditUserForm";
 import NavBar from "./components/NavBar/index";
 import Footer from "./components/Footer/index";
 import Home from "./components/Home/index"
+import Watchlist from "./components/Watchlist";
 import UsersList from "./components/User/UsersList";
 import User from "./components/User/index";
 import StockPage from "./components/StockPage";
@@ -26,7 +27,8 @@ function App() {
   }, [dispatch]);
 
   const currentUser = useSelector((state) => state.session.user)
-  
+  const list = useSelector((state) => state.watchlist.watching)
+
   if (!loaded) {
     return null;
   }
@@ -49,8 +51,11 @@ function App() {
         <Route path="/users" exact={true}>
           <UsersList/>
         </Route>
+        <Route path="/watchlist" exact={true}>
+          <Watchlist list={list}/>
+        </Route>
         <Route path="/users/edit-account" exact={true}>
-          <EditUserForm/>
+          <EditUserForm />
         </Route>
         <Route path="/users/:userId" exact={true}>
           <User />
