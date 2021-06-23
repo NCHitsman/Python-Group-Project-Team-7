@@ -12,6 +12,14 @@ def stock(stockId):
     stocks = Team.query.get(stockId)
     return stocks.to_dict()
 
+
+@team_routes.route('/<int:id>')
+@login_required
+def team(id):
+    team = Team.query.get(id)
+    return team.to_dict()
+
+
 @team_routes.route('/articles')
 @login_required
 def articles():
