@@ -39,6 +39,10 @@ nav a:hover {
     color: #FFAA01;
 }
 
+nav .active {
+    color: #FFAA01;
+}
+
 #logout {
     border: 0px;
     margin: 0 5%;
