@@ -6,7 +6,7 @@ button.TeamStockCard__cont {
     border: 1px solid #FFAA01;
     border-radius: 5px;
     color: #000;
-    background: #ddd;
+    background: rgba(250, 250, 250, .9);
 }
 
 button.TeamStockCard__cont:hover {
@@ -15,7 +15,7 @@ button.TeamStockCard__cont:hover {
     padding: 10%;
     border: 1px solid #FFAA01;
     color: #000;
-    background: #fff;
+    background: rgba(250, 250, 250, 1);
 }
 
 .TeamStockCard__name {
@@ -26,7 +26,6 @@ button.TeamStockCard__cont:hover {
 }
 
 .TeamStockCard__short_name {
-    margin-left: 8px;
     display: inline-block;
     font-family: 'Josefin Sans', sans-serif;
     text-transform: uppercase;
