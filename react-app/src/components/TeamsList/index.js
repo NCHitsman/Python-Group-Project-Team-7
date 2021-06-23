@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./teams-list.css"
 
