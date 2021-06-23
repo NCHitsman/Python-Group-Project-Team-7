@@ -65,7 +65,7 @@ function TeamsList() {
                             <p>${team.price}</p>
                         </div>
                         <div class="team-details">
-                            <a href={`/buy/${team.id}`}>Details</a>
+                            <a href={`/stock/${team.id}`}>Details</a>
                         </div>
                     </div>
                 )
