@@ -8,7 +8,7 @@ import articles from './articles'
 const rootReducer = combineReducers({
     session,
     stocks,
-    watchlist
+    watchlist,
     articles
 });
 let enhancer;
