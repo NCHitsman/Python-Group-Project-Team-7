@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import { useHistory } from "react-router-dom";
 
-const SearchBar = ({ teamDatas }) => {
+const SearchBar = () => {
 
     const history = useHistory();
+    // const [teams, setTeams] = useState([]);
 
-    const teamData = [
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const response = await fetch("/api/teams/");
+    //         const responseData = await response.json();
+    //         setTeams(responseData.teams);
+    //     }
+    //     fetchData();
+    // }, []);
+
+    const teamData = [ // remove after migrations done
         {
             id: 1,
             name: 'lakers',
@@ -95,7 +105,7 @@ const SearchBar = ({ teamDatas }) => {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || "");
-    const filteredTeams = filterTeams(teamData, searchQuery);
+    const filteredTeams = filterTeams(teamData, searchQuery); // change teamData to teams once migrations done
 
     const onSubmit = e => {
         history.push(`?s=${searchQuery}`)
