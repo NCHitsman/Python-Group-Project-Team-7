@@ -12,6 +12,14 @@ def teams():
     teams = Team.query.all()
     return {"teams": [team.to_dict() for team in teams]}
 
+
+@team_routes.route('/<int:id>')
+@login_required
+def team(id):
+    team = Team.query.get(id)
+    return team.to_dict()
+
+
 @team_routes.route('/articles')
 @login_required
 def articles():
