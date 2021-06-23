@@ -19,7 +19,7 @@ def team(id):
     team = Team.query.get(id)
     return team.to_dict()
 
-    
+
 @team_routes.route('/articles')
 @login_required
 def articles():
