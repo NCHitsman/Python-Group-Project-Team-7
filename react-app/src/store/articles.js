@@ -17,7 +17,7 @@ export const getArticles = () => async (dispatch) => {
 const reducer = (state={}, action) => {
     switch (action.type) {
         case GET_ARTICLES:
-            action.payload.articles.map(article => {
+            action.payload.articles.forEach(article => {
                 state[article.id] = article
             })
             return state
