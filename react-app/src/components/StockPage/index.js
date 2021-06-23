@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {useParams} from 'react-router-dom'
 import { getAStock, getUserShares } from '../../store/stocks'
+import "./stockpage.css"
 
 const StockPage= ({currentUser}) => {
     const dispatch = useDispatch()
@@ -30,7 +31,7 @@ const StockPage= ({currentUser}) => {
     }
 
         return (
-            <>
+            <div className="container">
                 <div className='parent__cont'>
                     <div className='graph__cont'></div>
                     <div className='info__buy__sell__parent__cont'>
@@ -77,7 +78,7 @@ const StockPage= ({currentUser}) => {
 
                     </div>
                 </div>
-            </>
+            </div>
         )
 }
 
