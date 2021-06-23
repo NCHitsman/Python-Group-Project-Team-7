@@ -73,7 +73,7 @@ nav .active {
 .search-list {
     position: absolute;
     background-color:#101010;
-    width: 204px;
+    width: 250px;
     margin: 0px;
     padding: 0px;
     border-radius: 5px;
@@ -90,6 +90,10 @@ nav .active {
     justify-content: flex-start;
 }
 
+.search-result > p {
+    font-size: 10pt;
+}
+
 img.icon {
     height: 20px;
     width: 20px;
@@ -97,7 +101,7 @@ img.icon {
 }
 
 .search-input {
-    width: 180px;
+    width: 226px;
     margin: 5px 0px;
 }
 

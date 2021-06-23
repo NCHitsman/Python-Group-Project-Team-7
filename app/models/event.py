@@ -20,8 +20,8 @@ class Event(db.Model):
         return {
             "id": self.id,
             "date": self.date,
-            "winner_id": self.team_id,
-            "winner_score": self.price,
-            "loser_id": self.team_id,
-            "loser_score": self.price,
+            "winner_id": self.winner_id,
+            "winner_score": self.winner_score,
+            "loser_id": self.loser_id,
+            "loser_score": self.loser_score,
         }
