@@ -123,6 +123,12 @@ img.icon {
     width: 1px;
 }
 
+@media screen and (max-width: 1100px) {
+    .search-container {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 870px) {
     #sign-up, #logout {
         padding: 10px;
