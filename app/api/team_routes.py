@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import User, Team, Event, UserShare
+from app.models import User, Team, Event, UserShare, History
 from app import db
 
 team_routes = Blueprint('teams', __name__)
@@ -37,3 +37,9 @@ def teams():
 def userShare(userId, stockId):
     sserShare = UserShare.query.filter(UserShare.user_id == userId).filter(UserShare.team_id == stockId).one()
     return sserShare.to_dict()
+
+@team_routes.route('/history/<int:stockId>')
+@login_required
+def history(stockId):
+    historys = History.query.filter(History.team_id == stockId).order_by(History.date).limit(20).all()
+    return {"history": [history.to_dict() for history in historys]}
