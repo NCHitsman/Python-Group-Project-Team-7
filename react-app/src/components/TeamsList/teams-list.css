@@ -1,3 +1,7 @@
+.BrowseTeamHeader {
+    margin-bottom: 20px;
+}
+
 .buy-page {
     background-image: url("../../images/robinhoop-background-dark.jpg");
     padding-bottom: 15px;
@@ -13,6 +17,7 @@
     grid-template-columns: 1fr 3fr 1fr 2fr 1fr 2fr 1fr;
     border: 1px solid white;
     margin: 0% 10%;
+    color: #fff;
 }
 
 .team-container div {
@@ -29,6 +34,17 @@
 .team-details {
     display: flex;
     align-items: center;
+}
+
+.team-details a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.team-details a:hover {
+    transition: .5s;
+    color: #FFAA01;
 }
 
 .team-icon {

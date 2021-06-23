@@ -16,9 +16,10 @@ function TeamsList() {
 
     return (
         <div class="content buy-page">
-            <div class="team-header">
+            <div className="GreetUser BrowseTeamHeader">Browse Teams</div>
+            {/* <div class="team-header">
                 <h1>Browse Teams</h1>
-            </div>
+            </div> */}
             <div class="team-container">
                 <div class="team-icon">
                     <p>Team</p>
