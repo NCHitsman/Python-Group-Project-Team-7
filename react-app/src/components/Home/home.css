@@ -130,27 +130,24 @@ form.demo-link button:hover {
 }
 
 .Article__cont {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: right;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3%;
+    row-gap: 3%;
     background: #000;
-    padding: 2%;
+    padding: 0 2% 2%;
 }
 
 .Article__cont > div {
-    margin: 1%;
-    max-width: 30%;
+
 }
 
 @media screen and (max-width: 902px) {
     .Article__cont {
-        justify-content: center;
+        display: block;
     }
-
     .Article__cont > div {
-        margin: 1%;
-        max-width: 90%;
+        padding-top: 1%;
+        padding-bottom: 1%;
     }
 }

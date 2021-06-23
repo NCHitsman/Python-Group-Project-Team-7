@@ -1,8 +1,20 @@
-.TeamStockCard__cont {
+button.TeamStockCard__cont {
+    transition: .5s;
     min-width: 150px;
+    height: 100%;
     padding: 10%;
     border: 1px solid #FFAA01;
     border-radius: 5px;
+    color: #000;
+    background: #ddd;
+}
+
+button.TeamStockCard__cont:hover {
+    transition: .5s;
+    min-width: 150px;
+    padding: 10%;
+    border: 1px solid #FFAA01;
+    color: #000;
     background: #fff;
 }
 
