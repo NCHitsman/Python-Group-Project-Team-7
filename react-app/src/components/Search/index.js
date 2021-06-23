@@ -5,16 +5,16 @@ import { useHistory } from "react-router-dom";
 const SearchBar = () => {
 
     const history = useHistory();
-    // const [teams, setTeams] = useState([]);
+    const [teams, setTeams] = useState([]);
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         const response = await fetch("/api/teams/");
-    //         const responseData = await response.json();
-    //         setTeams(responseData.teams);
-    //     }
-    //     fetchData();
-    // }, []);
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch("/api/teams/");
+            const responseData = await response.json();
+            setTeams(responseData.teams);
+        }
+        fetchData();
+    }, []);
 
     const teamData = [ // remove after migrations done
         {
@@ -105,7 +105,7 @@ const SearchBar = () => {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || "");
-    const filteredTeams = filterTeams(teamData, searchQuery); // change teamData to teams once migrations done
+    const filteredTeams = filterTeams(teams, searchQuery); // change teamData to teams once migrations done
 
     const onSubmit = e => {
         history.push(`?s=${searchQuery}`)
