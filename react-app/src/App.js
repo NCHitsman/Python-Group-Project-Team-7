@@ -10,6 +10,7 @@ import Home from "./components/Home/index"
 import UsersList from "./components/User/UsersList";
 import User from "./components/User/index";
 import StockPage from "./components/StockPage";
+import TeamsList from "./components/TeamsList/index";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
   }, [dispatch]);
 
   const currentUser = useSelector((state) => state.session.user)
-  
+
   if (!loaded) {
     return null;
   }
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route path="/join" exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path="/teams" exact={true}>
+          <TeamsList/>
         </Route>
         <Route path="/users" exact={true}>
           <UsersList/>
