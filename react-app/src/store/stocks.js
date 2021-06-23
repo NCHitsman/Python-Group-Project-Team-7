@@ -3,6 +3,7 @@
 const GET_STOCK = 'stocks/GET_STOCK'
 const ALL_STOCKS = 'stocks/ALL_STOCKS'
 const USER_SHARES = 'stocks/USER_SHARES'
+const GET_HISTORY = 'stocks/GET_HISTORY'
 
 const getStock = (stock) => ({
     type: GET_STOCK,
@@ -17,6 +18,11 @@ const allStocks = (stocks) => ({
 const userShares = (shares) => ({
     type: USER_SHARES,
     payload: shares
+})
+
+const getHistory = (history) => ({
+    type: GET_HISTORY,
+    payload: history
 })
 
 export const getAStock = (stockId) => async (dispatch) => {
@@ -40,25 +46,35 @@ export const getUserShares = (userId, stockId) => async (dispatch) => {
     return data
 }
 
+export const getStockHistory = (stockId) => async (dispatch) => {
+    const response = await fetch(`/api/teams/history/${stockId}`)
+    const data = await response.json()
+    dispatch(getHistory(data))
+    return data
+}
 
-const reducer = (state = {currentStock: null, allStocks: {}, userShares: null}, action) => {
+
+const reducer = (state = {currentStock: null, allStocks: {}, userShares: null, history: {}}, action) => {
     let newState;
 
     switch (action.type) {
         case GET_STOCK:
-            newState = {currentStock: null, allStocks: state.allStocks, userShares: state.userShares}
+            newState = {currentStock: null, allStocks: state.allStocks, userShares: state.userShares, history: state.history}
             newState.currentStock = action.payload
             return newState
         case ALL_STOCKS:
-            newState = {currentStock: state.stock, allStocks: {}, userShares: state.userShares}
+            newState = {currentStock: state.stock, allStocks: {}, userShares: state.userShares, history: state.history}
             action.payload.teams.forEach(stock => {
                 newState.allStocks[stock.id] = stock
             })
             return newState
         case USER_SHARES:
-            console.log(state.allStocks)
-            newState = {currentStock: state.currentStock, allStocks: state.allStocks, userShares: null}
+            newState = {currentStock: state.currentStock, allStocks: state.allStocks, userShares: null, history: state.history}
             newState.userShares = action.payload
+            return newState
+        case GET_HISTORY:
+            newState = {currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {}}
+            newState.history = action.payload
             return newState
         default:
             return state
