@@ -16,78 +16,78 @@ const SearchBar = () => {
         fetchData();
     }, []);
 
-    const teamData = [ // remove after migrations done
-        {
-            id: 1,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 2,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 3,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 4,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 5,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 6,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 7,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 8,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        },
-        {
-            id: 9,
-            name: 'lakers',
-            short_name: 'lak',
-            conference: 'West',
-            price: 15
-        },
-        {
-            id: 10,
-            name: 'warriors',
-            short_name: 'gsw',
-            conference: 'West',
-            price: 20
-        }
-    ]
+    // const teamData = [ // remove after migrations done
+    //     {
+    //         id: 1,
+    //         name: 'lakers',
+    //         short_name: 'lak',
+    //         conference: 'West',
+    //         price: 15
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'warriors',
+    //         short_name: 'gsw',
+    //         conference: 'West',
+    //         price: 20
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'lakers',
+    //         short_name: 'lak',
+    //         conference: 'West',
+    //         price: 15
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'warriors',
+    //         short_name: 'gsw',
+    //         conference: 'West',
+    //         price: 20
+    //     },
+    //     {
+    //         id: 5,
+    //         name: 'lakers',
+    //         short_name: 'lak',
+    //         conference: 'West',
+    //         price: 15
+    //     },
+    //     {
+    //         id: 6,
+    //         name: 'warriors',
+    //         short_name: 'gsw',
+    //         conference: 'West',
+    //         price: 20
+    //     },
+    //     {
+    //         id: 7,
+    //         name: 'lakers',
+    //         short_name: 'lak',
+    //         conference: 'West',
+    //         price: 15
+    //     },
+    //     {
+    //         id: 8,
+    //         name: 'warriors',
+    //         short_name: 'gsw',
+    //         conference: 'West',
+    //         price: 20
+    //     },
+    //     {
+    //         id: 9,
+    //         name: 'lakers',
+    //         short_name: 'lak',
+    //         conference: 'West',
+    //         price: 15
+    //     },
+    //     {
+    //         id: 10,
+    //         name: 'warriors',
+    //         short_name: 'gsw',
+    //         conference: 'West',
+    //         price: 20
+    //     }
+    // ]
 
     const filterTeams = (teams, query) => {
         if (!query) {
