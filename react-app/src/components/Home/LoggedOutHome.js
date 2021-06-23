@@ -35,7 +35,7 @@ const LoggedOutHome = () => {
             <div className='solo__info__parent__cont'>
                 <div className='solo__info__flexcont'>
                     <div className='solo__info__img__cont'>
-                        <img src={graph} alt="Stock Chart Graphic"/>
+                        <img src={graph} alt='graph' />
                     </div>
                     <div className='solo__info__text__cont'>
                         <h2 className='solo__info__title__text'>Lorum Ipsum</h2>
