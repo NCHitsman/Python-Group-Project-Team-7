@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import placeholder from "../../images/robinhoop-background-ball.jpg";
 import { useHistory } from "react-router-dom";
 
-const SearchBar = ({ teamDatas }) => {
+const SearchBar = () => {
 
     const history = useHistory();
+    const [teams, setTeams] = useState([]);
 
-    const teamData = [
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch("/api/teams/");
+            const responseData = await response.json();
+            setTeams(responseData.teams);
+        }
+        fetchData();
+    }, []);
+
+    const teamData = [ // remove after migrations done
         {
             id: 1,
             name: 'lakers',
@@ -94,7 +105,7 @@ const SearchBar = ({ teamDatas }) => {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || "");
-    const filteredTeams = filterTeams(teamData, searchQuery);
+    const filteredTeams = filterTeams(teams, searchQuery); // change teamData to teams once migrations done
 
     const onSubmit = e => {
         history.push(`?s=${searchQuery}`)
@@ -122,7 +133,7 @@ const SearchBar = ({ teamDatas }) => {
                     <ul className="search-list">
                         {filteredTeams.map((team) => (
                             <a key={team.id} href={`/teams/${team.id}`} className="search-result">
-                                <img className="icon" src="../../images/robinhoop-background-ball" alt=""></img>
+                                <img className="icon" src={placeholder} alt=""></img>
                                 <p>{team.name} ({team.short_name})</p>
                             </a>
                         ))}
