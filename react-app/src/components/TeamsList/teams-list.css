@@ -1,0 +1,44 @@
+.buy-page {
+    background-image: url("../../images/robinhoop-background-dark.jpg");
+    /* padding: 10px; */
+    padding-bottom: 15px;
+}
+
+.team-header {
+    display: flex;
+    justify-content: center;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 2fr 2fr 1fr 1fr;
+    border: 1px solid white;
+    margin: 0px 20px;
+}
+
+.team-container div {
+    padding: 0px 10px;
+}
+
+.team-conf,
+.team-shares,
+.team-price,
+.team-details {
+    border-left: 1px solid white;
+}
+
+.team-details {
+    display: flex;
+    align-items: center;
+}
+
+.team-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-icon img {
+    height: 40px;
+    width: 40px;
+}

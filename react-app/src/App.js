@@ -47,7 +47,7 @@ function App() {
         <Route path="/join" exact={true}>
           <SignUpForm />
         </Route>
-        <Route path="/teams" exact={true}>
+        <Route path="/buy" exact={true}>
           <TeamsList/>
         </Route>
         <Route path="/users" exact={true}>
