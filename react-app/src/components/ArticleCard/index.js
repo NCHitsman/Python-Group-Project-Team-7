@@ -1,12 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import "./articlecard.css"
 
-const articleDataCard = ({articleData}) => {
+const ArticleDataCard = ({articleData}) => {
+
+    const stocks = useSelector((state) => state.stocks.allStocks)
+
+    const winner = stocks[articleData.winner_id]
+
+    const loser = stocks[articleData.loser_id]
 
     return (
         <div className='ArticleCard__cont'>
             <div className='ArticleCard__title'>
-            {`${articleData.winner.name} beat ${articleData.loser.name}`}
+            {`${winner.name} beat ${loser.name}`}
             </div>
             <div className='ArticleCard__score'>{articleData.winner_score} to {articleData.loser_score}</div>
             <div className='ArticleCard__date'>{String(articleData.date)}</div>
@@ -15,4 +22,4 @@ const articleDataCard = ({articleData}) => {
 }
 
 
-export default articleDataCard
+export default ArticleDataCard
