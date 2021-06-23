@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import placeholder from "../../images/robinhoop-background-ball.jpg";
-import background from "../../images/robinhoop-background-dark.jpg"
 import "./teams-list.css"
 
 function TeamsList() {
@@ -28,7 +27,6 @@ function TeamsList() {
 
     return (
         <div class="content buy-page">
-            {/* <img src={background} className="buy-background"></img> */}
             <div class="team-header">
                 <h1>Browse Teams</h1>
             </div>
