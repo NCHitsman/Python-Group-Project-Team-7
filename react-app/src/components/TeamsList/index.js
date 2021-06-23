@@ -15,16 +15,6 @@ function TeamsList() {
         fetchData();
     }, []);
 
-    const teamComponents = teams.map((team) => {
-        return (
-            <div>
-                <a key={team.id}>
-                    <NavLink to={`/teams/${team.id}`}>{team.name} ({team.short_name})</NavLink>
-                </a>
-            </div>
-        );
-    });
-
     return (
         <div class="content buy-page">
             <div class="team-header">
