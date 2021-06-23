@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {useParams} from 'react-router-dom'
-import { getAStock, getUserShares } from '../../store/stocks'
+import { getAStock, getUserShares, getStockHistory } from '../../store/stocks'
+
 import "./stockpage.css"
+import GraphCanvas from '../Graph'
+
 
 const StockPage= ({currentUser}) => {
     const dispatch = useDispatch()
@@ -12,15 +15,16 @@ const StockPage= ({currentUser}) => {
 
     useEffect(() => {
         dispatch(getAStock(stockId))
-    }, [dispatch])
-
-    useEffect(() => {
+        dispatch(getStockHistory(stockId))
         dispatch(getUserShares(currentUser.id, stockId))
     }, [dispatch])
 
     const stock = useSelector((state) => state.stocks.currentStock)
 
     const userShare = useSelector((state) => state.stocks.userShares)
+
+    const history = useSelector((state) => state.stocks.history.history)
+
 
     const buyHandler = () => {
 
@@ -33,7 +37,9 @@ const StockPage= ({currentUser}) => {
         return (
             <div className="container">
                 <div className='parent__cont'>
-                    <div className='graph__cont'></div>
+                    <div className='graph__cont'>
+                        <GraphCanvas history={history}/>
+                    </div>
                     <div className='info__buy__sell__parent__cont'>
 
                         <div className='info__cont'>
