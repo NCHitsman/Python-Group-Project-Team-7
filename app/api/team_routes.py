@@ -24,7 +24,7 @@ def team(id):
 @team_routes.route('/articles')
 @login_required
 def articles():
-    articles = Event.query.order_by(Event.date).limit(10).all()
+    articles = Event.query.order_by(Event.date.desc()).limit(10).all()
     return {"articles": [article.to_dict() for article in articles]}
 
 
@@ -44,7 +44,7 @@ def make_article():
     db.session.add(new_event)
     db.session.commit()
 
-    articles = Event.query.order_by(Event.date).limit(10).all()
+    articles = Event.query.order_by(Event.id).limit(10).all()
     return {"articles": [article.to_dict() for article in articles]}
 
 
@@ -65,7 +65,10 @@ def edit_teams(stockId):
     price = request.json['price']
     currentTeam = Team.query.get(stockId)
 
-    currentTeam.price = price
+    if price < 0:
+        currentTeam.price = 0
+    else:
+        currentTeam.price = price
     db.session.commit()
 
     teams = Team.query.all()

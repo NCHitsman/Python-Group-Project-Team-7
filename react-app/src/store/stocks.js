@@ -35,9 +35,23 @@ export const getAStock = (stockId) => async (dispatch) => {
 export const updateStock = (stockId, diff, win) => async (dispatch) => {
     const response = await fetch(`/api/teams/${stockId}`)
     const stockData = await response.json()
-    const newPrice = win ?
-    stockData.price + (+parseFloat((diff * (Math.random() * (1.5 - 0.75) + 0.75)).toString()).toFixed(2))
-    : stockData.price - (+parseFloat((diff * (Math.random() * (1.5 - 0.75) + 0.75)).toString()).toFixed(2))
+
+    console.log('diff =>> ', diff)
+
+
+    const differ = (Math.random() * 0.1)
+    const comb = diff * differ
+    const fixed = comb.toFixed(2)
+    const stockChange = parseFloat(fixed)
+    console.log(' differ =>> ', differ, ' comb =>> ', comb, ' fixed =>> ', fixed, ' parse =>> ', stockChange)
+
+
+
+    const stockAdd = parseFloat(stockData.price.toFixed(2))
+    console.log('stockAdd =>> ', stockAdd)
+
+
+    const newPrice = win ? stockAdd + stockChange : stockAdd - stockChange
     const res = await fetch(`api/teams/editPrice/${stockId}`, {
         method: 'PUT',
         headers: {

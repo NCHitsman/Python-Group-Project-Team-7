@@ -15,6 +15,8 @@ import TeamsList from "./components/TeamsList/index";
 import { authenticate } from "./store/session";
 import {newArticle} from './store/articles'
 import {makeStockHistory, updateStock} from './store/stocks'
+import { getAllStocks } from "./store/stocks.js"
+import { getArticles } from './store/articles'
 
 function App() {
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ function App() {
   const currentUser = useSelector((state) => state.session.user)
   const list = useSelector((state) => state.watchlist.watching)
 
-  const loop = async () => {
+  const loop = () => {setInterval(async () => {
     let teamIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
 
     while (teamIds.length) {
@@ -64,8 +66,10 @@ function App() {
       await dispatch(updateStock(home[0], diff, home[2]))
       await dispatch(updateStock(away[0], diff, away[2]))
 
+      dispatch(getAllStocks())
+      dispatch(getArticles())
     }
-  }
+  }, 10000)}
 
 
   useEffect(() =>
