@@ -52,7 +52,7 @@ export const updateStock = (stockId, diff, win) => async (dispatch) => {
 
 
     const newPrice = win ? Number((stockAdd + stockChange).toFixed(2)) : Number((stockAdd - stockChange).toFixed(2))
-    const res = await fetch(`api/teams/editPrice/${stockId}`, {
+    const res = await fetch(`/api/teams/editPrice/${stockId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -91,7 +91,7 @@ export const makeStockHistory = (stockId) => async (dispatch) => {
     console.log(stockId)
     const response = await fetch(`/api/teams/${stockId}`)
     const stockData = await response.json()
-    const res = await fetch('api/teams/history/create', {
+    const res = await fetch('/api/teams/history/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

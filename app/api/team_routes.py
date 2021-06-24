@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import User, Team, Event, UserShare, History
 from app import db
+from sqlalchemy import desc
 import datetime
 
 team_routes = Blueprint('teams', __name__)
@@ -21,7 +22,7 @@ def team(id):
 
 @team_routes.route('/articles')
 def articles():
-    articles = Event.query.order_by(Event.date.desc()).limit(10).all()
+    articles = Event.query.order_by(desc(Event.date)).limit(10).all()
     return {"articles": [article.to_dict() for article in articles]}
 
 
