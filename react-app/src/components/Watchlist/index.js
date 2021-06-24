@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import TeamStockCard from '../TeamStockCard'
 import { getUserList } from '../../store/watchlist'
 import "./watchlist.css"
 
 
-export const Watchlist = (list) => {
+export const Watchlist = (userId) => {
 
     const dispatch = useDispatch()
+    const list = useSelector(state => state.watchlist.watching)
 
     useEffect(() => {
         (async() => {
-          await dispatch(getUserList())
+          await dispatch(getUserList(userId))
         })();
-      }, [dispatch]);
+      }, [dispatch, userId]);
 
     return (
         <div className="content">

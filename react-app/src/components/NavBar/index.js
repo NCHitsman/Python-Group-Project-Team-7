@@ -22,7 +22,7 @@ const NavBar = () => {
           <NavLink to="/buy" exact={true} activeClassName="active">
             Buy
           </NavLink>
-          <NavLink to="/watchlist" exact={true} activeClassName="active">
+          <NavLink to={`/watchlist/${isLoggedin.id}`} exact={true} activeClassName="active">
             Watchlist
           </NavLink>
         </>

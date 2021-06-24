@@ -28,7 +28,6 @@ function App() {
   }, [dispatch]);
 
   const currentUser = useSelector((state) => state.session.user)
-  const list = useSelector((state) => state.watchlist.watching)
 
   if (!loaded) {
     return null;
@@ -55,8 +54,8 @@ function App() {
         <Route path="/users" exact={true}>
           <UsersList/>
         </Route>
-        <Route path="/watchlist" exact={true}>
-          <Watchlist list={list}/>
+        <Route path={`/watchlist/${currentUser.id}`} exact={true}>
+          <Watchlist userId={currentUser.id}/>
         </Route>
         <Route path="/users/edit-account" exact={true}>
           <EditUserForm />

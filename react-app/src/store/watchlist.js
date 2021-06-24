@@ -20,8 +20,8 @@ const removeFrom = (stock) => ({
 })
 
 //Thunks
-export const getUserList = () => async (dispatch) => {
-    const response = await fetch('/api/watchlist', {
+export const getUserList = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/watchlist/${userId}`, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -42,7 +42,7 @@ export default function reducer(state=initialState, action) {
         case ADD_TO:
             return {...state, watchlist: [action.payload, ...state.watchlist]}
         case REMOVE_FROM:
-
+            return;
         default:
             return state;
     }
