@@ -19,13 +19,18 @@ const StockPage= ({currentUser}) => {
 
     const history = useSelector((state) => state.stocks.history.history)
 
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
 
         return (
             <div className="container">
                 <GraphCanvas history={history}/>
                 <StockPageInfo stockId={stockId}/>
             </div>
-        )
+        </div>
+    )
 }
 
 export default StockPage

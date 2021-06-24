@@ -24,7 +24,8 @@ const SearchBar = () => {
         return teams.filter((team) => {
             const teamName = team.name.toLowerCase();
             const teamAbbr = team.short_name.toLowerCase();
-            return teamName.includes(query.toLowerCase()) || teamAbbr.includes(query.toLowerCase());
+            const teamConf = team.conference.toLowerCase();
+            return teamName.includes(query.toLowerCase()) || teamAbbr.includes(query.toLowerCase()) || teamConf.includes(query.toLowerCase());
         })
     }
 
