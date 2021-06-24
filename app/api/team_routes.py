@@ -8,29 +8,24 @@ team_routes = Blueprint('teams', __name__)
 
 
 @team_routes.route('/<int:stockId>')
-@login_required
 def stock(stockId):
     stocks = Team.query.get(stockId)
     return stocks.to_dict()
 
 
 @team_routes.route('/<int:id>')
-@login_required
 def team(id):
     team = Team.query.get(id)
     return team.to_dict()
 
 
 @team_routes.route('/articles')
-@login_required
 def articles():
     articles = Event.query.order_by(Event.date.desc()).limit(10).all()
     return {"articles": [article.to_dict() for article in articles]}
 
 
-
-@team_routes.route('/articles/new',methods=['POST'])
-@login_required
+@team_routes.route('/articles/new', methods=['POST'])
 def make_article():
     winner_id = request.json['winner_id']
     winner_score = request.json['winner_score']
@@ -38,8 +33,13 @@ def make_article():
     loser_score = request.json['loser_score']
     newDate = datetime.date.today()
 
-    new_event = Event(winner_id=winner_id, winner_score=winner_score, loser_id=loser_id, loser_score=loser_score, date=newDate)
-
+    new_event = Event(
+        winner_id=winner_id,
+        winner_score=winner_score,
+        loser_id=loser_id,
+        loser_score=loser_score,
+        date=newDate
+    )
 
     db.session.add(new_event)
     db.session.commit()
@@ -48,18 +48,13 @@ def make_article():
     return {"articles": [article.to_dict() for article in articles]}
 
 
-
 @team_routes.route('/')
-@login_required
 def teams():
     teams = Team.query.all()
     return {"teams": [team.to_dict() for team in teams]}
 
 
-
-
-@team_routes.route('/editPrice/<int:stockId>',methods=['PUT'])
-@login_required
+@team_routes.route('/editPrice/<int:stockId>', methods=['PUT'])
 def edit_teams(stockId):
 
     price = request.json['price']
@@ -75,22 +70,27 @@ def edit_teams(stockId):
     return {"teams": [team.to_dict() for team in teams]}
 
 
-
-
 @team_routes.route('/userShares/<int:userId>/<int:stockId>')
-@login_required
 def userShare(userId, stockId):
-    sserShare = UserShare.query.filter(UserShare.user_id == userId).filter(UserShare.team_id == stockId).one()
+    sserShare = UserShare.query.filter(
+        UserShare.user_id == userId
+    ).filter(
+        UserShare.team_id == stockId
+    ).one()
     return sserShare.to_dict()
 
+
 @team_routes.route('/history/<int:stockId>')
-@login_required
 def history(stockId):
-    historys = History.query.filter(History.team_id == stockId).order_by(History.date).limit(20).all()
+    historys = History.query.filter(
+        History.team_id == stockId
+    ).order_by(
+        History.date
+    ).limit(20).all()
     return {"history": [history.to_dict() for history in historys]}
 
-@team_routes.route('/history/create',methods=['POST'])
-@login_required
+
+@team_routes.route('/history/create', methods=['POST'])
 def make_history():
     team_id = request.json['team_id']
     price = request.json['price']
