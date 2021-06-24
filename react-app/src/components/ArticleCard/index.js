@@ -16,7 +16,7 @@ const ArticleDataCard = ({articleData}) => {
             {`${winner?.name} beat ${loser?.name}`}
             </div>
             <div className='ArticleCard__score'>{articleData?.winner_score} to {articleData?.loser_score}</div>
-            <div className='ArticleCard__date'>{String(articleData?.date)}</div>
+            <div className='ArticleCard__date'>{String(articleData?.date.slice(0, 16))}</div>
         </div>
     )
 }

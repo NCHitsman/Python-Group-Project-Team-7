@@ -35,7 +35,7 @@ export const getAStock = (stockId) => async (dispatch) => {
 export const updateStock = (stockId, diff, win) => async (dispatch) => {
     const response = await fetch(`/api/teams/${stockId}`)
     const stockData = await response.json()
-    const differ = (Math.random() * 0.1)
+    const differ = (Math.random() * 5)
     const comb = diff * differ // * 100 round /100
     const fixed = comb.toFixed(2)
     const stockChange = parseFloat(fixed)
@@ -96,26 +96,26 @@ export const makeStockHistory = (stockId) => async (dispatch) => {
 }
 
 
-const reducer = (state = {currentStock: null, allStocks: {}, userShares: null, history: {}}, action) => {
+const reducer = (state = { currentStock: null, allStocks: {}, userShares: null, history: {} }, action) => {
     let newState;
 
     switch (action.type) {
         case GET_STOCK:
-            newState = {currentStock: null, allStocks: state.allStocks, userShares: state.userShares, history: state.history}
+            newState = { currentStock: null, allStocks: state.allStocks, userShares: state.userShares, history: state.history }
             newState.currentStock = action.payload
             return newState
         case ALL_STOCKS:
-            newState = {currentStock: state.stock, allStocks: {}, userShares: state.userShares, history: state.history}
+            newState = { currentStock: state.stock, allStocks: {}, userShares: state.userShares, history: state.history }
             action.payload.teams.forEach(stock => {
                 newState.allStocks[stock.id] = stock
             })
             return newState
         case USER_SHARES:
-            newState = {currentStock: state.currentStock, allStocks: state.allStocks, userShares: null, history: state.history}
+            newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: null, history: state.history }
             newState.userShares = action.payload
             return newState
         case GET_HISTORY:
-            newState = {currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {}}
+            newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {} }
             newState.history = action.payload
             return newState
         default:
