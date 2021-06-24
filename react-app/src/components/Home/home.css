@@ -88,6 +88,10 @@ form.demo-link button:hover {
 
 /* LOGGED In User Homepage */
 
+.logged-in-homepage {
+
+}
+
 .GreetUser {
     /* background: #F0E7E0; */
     background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("../../images/robinhoop-background-basketballgame.jpg");
@@ -130,16 +134,16 @@ form.demo-link button:hover {
 }
 
 .Article__cont {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 3%;
-    row-gap: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     background: #000;
-    padding: 0 2% 2%;
+    padding-bottom: 2%;
 }
 
 .Article__cont > div {
-
+    max-width: 450px;
+    width: 100%;
 }
 
 @media screen and (max-width: 902px) {
@@ -147,6 +151,7 @@ form.demo-link button:hover {
         display: block;
     }
     .Article__cont > div {
+        max-width: 100%;
         padding-top: 1%;
         padding-bottom: 1%;
     }
