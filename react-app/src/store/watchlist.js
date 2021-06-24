@@ -20,13 +20,16 @@ const removeFrom = (stock) => ({
 })
 
 //Thunks
-export const getUserList = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/watchlist/${userId}`, {
+export const getUserList = (user) => async (dispatch) => {
+    console.log('=========', user.userId)
+
+    const response = await fetch(`/api/watchlist/${user.userId}`, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
     const list = response.json()
+    console.log('+++++++', list)
     dispatch(getList(list))
     return response
 }
