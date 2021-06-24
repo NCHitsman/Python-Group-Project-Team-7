@@ -41,8 +41,11 @@ const GraphCanvas = ({ history }) => {
                 },
             ],
         },
+        animation: {
+            duration: 0
+        },
         elements: {
-            point:{
+            point: {
                 radius: 1.5
             }
         }

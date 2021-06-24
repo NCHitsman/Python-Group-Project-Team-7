@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./teams-list.css"
 
 function TeamsList() {
-    const [teams, setTeams] = useState([]);
+    const teams = useSelector((state) => state.stocks.allStocks)
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch("/api/teams/");
-            const responseData = await response.json();
-            setTeams(responseData.teams);
-        }
-        fetchData();
-    }, []);
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
 
     return (
         <div class="content buy-page">
             <div className="GreetUser BrowseTeamHeader">Browse Teams</div>
-            {/* <div class="team-header">
-                <h1>Browse Teams</h1>
-            </div> */}
             <div class="team-container">
                 <div class="team-icon">
                     <p>Team</p>
@@ -43,7 +37,7 @@ function TeamsList() {
                     <p>Page</p>
                 </div>
             </div>
-            {teams.map((team) => {
+            {Object.values(teams).map((team) => {
                 return (
                     <div key={team.id} class="team-container">
                         <div class="team-icon">
@@ -59,13 +53,13 @@ function TeamsList() {
                             <p>{team.conference}</p>
                         </div>
                         <div class="team-shares">
-                            <p>{team.shares}</p>
+                            <p>{new Intl.NumberFormat().format(team.shares)}</p>
                         </div>
                         <div class="team-price">
-                            <p>${team.price}</p>
+                            <p>{formatter.format(team.price)}</p>
                         </div>
                         <div class="team-details">
-                            <a href={`/buy/${team.id}`}>Details</a>
+                            <a href={`/stock/${team.id}`}>Details</a>
                         </div>
                     </div>
                 )
