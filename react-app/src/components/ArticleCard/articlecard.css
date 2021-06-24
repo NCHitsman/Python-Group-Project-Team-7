@@ -12,7 +12,7 @@
 .ArticleCard__title {
     display: inline-block;
     font-family: 'Josefin Sans', sans-serif;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     font-size: 21px;
 }
 
