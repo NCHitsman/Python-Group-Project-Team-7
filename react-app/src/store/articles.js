@@ -33,12 +33,14 @@ export const newArticle = (winner_id, loser_id, winner_score, loser_score) => as
 }
 
 const reducer = (state={}, action) => {
+    const newState = {}
+
     switch (action.type) {
         case GET_ARTICLES:
             action.payload.articles.forEach(article => {
-                state[article.id] = article
+                newState[article.id] = article
             })
-            return state
+            return newState
         default:
             return state
     }

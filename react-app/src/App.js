@@ -66,9 +66,9 @@ function App() {
       await dispatch(updateStock(home[0], diff, home[2]))
       await dispatch(updateStock(away[0], diff, away[2]))
 
-      dispatch(getAllStocks())
-      dispatch(getArticles())
     }
+    // dispatch(getAllStocks())
+    // dispatch(getArticles())
   }, 10000)}
 
 

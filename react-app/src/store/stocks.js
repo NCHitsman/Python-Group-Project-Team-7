@@ -40,7 +40,7 @@ export const updateStock = (stockId, diff, win) => async (dispatch) => {
 
 
     const differ = (Math.random() * 0.1)
-    const comb = diff * differ
+    const comb = diff * differ // * 100 round /100
     const fixed = comb.toFixed(2)
     const stockChange = parseFloat(fixed)
     console.log(' differ =>> ', differ, ' comb =>> ', comb, ' fixed =>> ', fixed, ' parse =>> ', stockChange)
@@ -51,7 +51,7 @@ export const updateStock = (stockId, diff, win) => async (dispatch) => {
     console.log('stockAdd =>> ', stockAdd)
 
 
-    const newPrice = win ? stockAdd + stockChange : stockAdd - stockChange
+    const newPrice = win ? parseFloat((stockAdd + stockChange).toFixed(2)) : parseFloat((stockAdd - stockChange).toFixed(2))
     const res = await fetch(`api/teams/editPrice/${stockId}`, {
         method: 'PUT',
         headers: {

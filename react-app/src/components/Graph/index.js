@@ -11,7 +11,7 @@ const GraphCanvas = ({ history }) => {
         datasets: [
             {
                 label: 'Price',
-                data: [0],
+                data: [],
                 fill: false,
                 backgroundColor: 'white',
                 borderColor: 'green',
