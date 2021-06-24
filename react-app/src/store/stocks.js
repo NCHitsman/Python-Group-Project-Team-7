@@ -32,6 +32,40 @@ export const getAStock = (stockId) => async (dispatch) => {
     return response
 }
 
+export const updateStock = (stockId, diff, win) => async (dispatch) => {
+    const response = await fetch(`/api/teams/${stockId}`)
+    const stockData = await response.json()
+
+    console.log('diff =>> ', diff)
+
+
+    const differ = (Math.random() * 0.1)
+    const comb = diff * differ
+    const fixed = comb.toFixed(2)
+    const stockChange = parseFloat(fixed)
+    console.log(' differ =>> ', differ, ' comb =>> ', comb, ' fixed =>> ', fixed, ' parse =>> ', stockChange)
+
+
+
+    const stockAdd = parseFloat(stockData.price.toFixed(2))
+    console.log('stockAdd =>> ', stockAdd)
+
+
+    const newPrice = win ? stockAdd + stockChange : stockAdd - stockChange
+    const res = await fetch(`api/teams/editPrice/${stockId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            price: newPrice
+        })
+    })
+    const data = await res.json()
+    dispatch(allStocks(data))
+    return data
+}
+
 export const getAllStocks = () => async (dispatch) => {
     const response = await fetch('/api/teams/')
     const data = await response.json()
@@ -50,6 +84,24 @@ export const getStockHistory = (stockId) => async (dispatch) => {
     const response = await fetch(`/api/teams/history/${stockId}`)
     const data = await response.json()
     dispatch(getHistory(data))
+    return data
+}
+
+export const makeStockHistory = (stockId) => async (dispatch) => {
+    console.log(stockId)
+    const response = await fetch(`/api/teams/${stockId}`)
+    const stockData = await response.json()
+    const res = await fetch('api/teams/history/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            team_id: stockId,
+            price: stockData.price
+        })
+    })
+    const data = await res.json()
     return data
 }
 
