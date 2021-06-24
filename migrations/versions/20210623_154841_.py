@@ -45,7 +45,7 @@ def upgrade():
         'history',
         sa.Column('id', sa.Integer(), nullable=False),
         sa.Column('team_id', sa.Integer(), nullable=False),
-        sa.Column('price', sa.Integer(), nullable=False),
+        sa.Column('price', sa.Float(), nullable=False),
         sa.Column('date', sa.Date(), nullable=False),
         sa.ForeignKeyConstraint(['team_id'], ['teams.id'], ),
         sa.PrimaryKeyConstraint('id')

@@ -35,23 +35,18 @@ export const getAStock = (stockId) => async (dispatch) => {
 export const updateStock = (stockId, diff, win) => async (dispatch) => {
     const response = await fetch(`/api/teams/${stockId}`)
     const stockData = await response.json()
-
-    console.log('diff =>> ', diff)
-
-
-    const differ = (Math.random() * 0.1)
-    const comb = diff * differ
+    const differ = (Math.random() * 5)
+    const comb = diff * differ // * 100 round /100
     const fixed = comb.toFixed(2)
     const stockChange = parseFloat(fixed)
-    console.log(' differ =>> ', differ, ' comb =>> ', comb, ' fixed =>> ', fixed, ' parse =>> ', stockChange)
-
-
 
     const stockAdd = parseFloat(stockData.price.toFixed(2))
-    console.log('stockAdd =>> ', stockAdd)
 
-
+<<<<<<< HEAD
     const newPrice = win ? stockAdd + stockChange : stockAdd - stockChange
+=======
+    const newPrice = win ? parseFloat((stockAdd + stockChange).toFixed(2)) : parseFloat((stockAdd - stockChange).toFixed(2))
+>>>>>>> main
     const res = await fetch(`/api/teams/editPrice/${stockId}`, {
         method: 'PUT',
         headers: {
@@ -88,7 +83,6 @@ export const getStockHistory = (stockId) => async (dispatch) => {
 }
 
 export const makeStockHistory = (stockId) => async (dispatch) => {
-    console.log(stockId)
     const response = await fetch(`/api/teams/${stockId}`)
     const stockData = await response.json()
     const res = await fetch('/api/teams/history/create', {
@@ -106,26 +100,26 @@ export const makeStockHistory = (stockId) => async (dispatch) => {
 }
 
 
-const reducer = (state = {currentStock: null, allStocks: {}, userShares: null, history: {}}, action) => {
+const reducer = (state = { currentStock: null, allStocks: {}, userShares: null, history: {} }, action) => {
     let newState;
 
     switch (action.type) {
         case GET_STOCK:
-            newState = {currentStock: null, allStocks: state.allStocks, userShares: state.userShares, history: state.history}
+            newState = { currentStock: null, allStocks: state.allStocks, userShares: state.userShares, history: state.history }
             newState.currentStock = action.payload
             return newState
         case ALL_STOCKS:
-            newState = {currentStock: state.stock, allStocks: {}, userShares: state.userShares, history: state.history}
+            newState = { currentStock: state.stock, allStocks: {}, userShares: state.userShares, history: state.history }
             action.payload.teams.forEach(stock => {
                 newState.allStocks[stock.id] = stock
             })
             return newState
         case USER_SHARES:
-            newState = {currentStock: state.currentStock, allStocks: state.allStocks, userShares: null, history: state.history}
+            newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: null, history: state.history }
             newState.userShares = action.payload
             return newState
         case GET_HISTORY:
-            newState = {currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {}}
+            newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {} }
             newState.history = action.payload
             return newState
         default:
