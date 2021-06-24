@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
 import SearchBar from "../Search/index";
 import logo from '../../images/robinhoop-logo-light.png';
-import { getAllStocks, makeStockHistory, updateStock } from "../../store/stocks.js"
+import { getAllStocks, getStockHistory, makeStockHistory, updateStock } from "../../store/stocks.js"
 import { getArticles, newArticle } from '../../store/articles.js'
 
 const NavBar = () => {

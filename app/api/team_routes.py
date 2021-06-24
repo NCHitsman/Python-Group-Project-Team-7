@@ -75,6 +75,7 @@ def edit_teams(stockId):
 @login_required
 def userShare(userId, stockId):
     sserShare = UserShare.query.filter(UserShare.user_id == userId).filter(UserShare.team_id == stockId).one()
+    
     return sserShare.to_dict()
 
 @team_routes.route('/history/<int:stockId>')

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Graph.css'
 import { Line } from 'react-chartjs-2';
 
 const GraphCanvas = ({ history }) => {
+
+    const ref = useRef()
 
     const down = (context, value) => context.p0.parsed.y > context.p1.parsed.y ? value : undefined;
 
@@ -40,17 +42,33 @@ const GraphCanvas = ({ history }) => {
                     },
                 },
             ],
+            xAxes: [
+                {
+                  type: "realtime",
+                  realtime: {
+                    onRefresh: function() {
+                      data.datasets[0].data.unshift(5000);
+                    },
+                    delay: 1
+                  }
+                }
+              ]
         },
         elements: {
             point:{
                 radius: 1.5
             }
-        }
+        },
+
+        // animation: {
+        //     duration: 0
+        // },
+        reponsive: true
     };
 
     return (
         <>
-            <Line style={{ backgroundColor: 'white' }} data={data} options={options} />
+            <Line ref={ref} style={{ backgroundColor: 'white' }} data={data} options={options} />
         </>
     )
 }
