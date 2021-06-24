@@ -27,8 +27,8 @@ export const newArticle = (winner_id, loser_id, winner_score, loser_score) => as
             loser_score
         })
     })
-    const data = await response.json()
-    dispatch(articles(data))
+    // const data = await response.json()
+    // dispatch(articles(data))
     return response
 }
 
