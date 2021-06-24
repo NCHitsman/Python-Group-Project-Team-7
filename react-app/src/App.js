@@ -56,7 +56,7 @@ function App() {
         diff = away[1] - home[1]
         home.push(true)
       }
-      
+
       await dispatch(makeStockHistory(home[0]))
       await dispatch(makeStockHistory(away[0]))
 
@@ -71,7 +71,7 @@ function App() {
 
   useEffect(() =>
     loop()
-  , [dispatch])
+  , [dispatch, loop])
 
 
 
