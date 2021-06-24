@@ -24,11 +24,11 @@ const StockPage= ({currentUser}) => {
         currency: 'USD'
     });
 
-    return (
-        <div className="container">
-            <GraphCanvas history={history}/>
-            <StockPageInfo stockId={stockId}/>
-        </div>
+        return (
+            <div className="container">
+                <GraphCanvas history={history}/>
+                <StockPageInfo stockId={stockId}/>
+            </div>
     )
 }
 

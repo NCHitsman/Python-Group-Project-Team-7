@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LogoutButton from '../auth/LogoutButton';
 import SearchBar from "../Search/index";
 import logo from '../../images/robinhoop-logo-light.png';
-import { getAllStocks, getStockHistory, makeStockHistory, updateStock } from "../../store/stocks.js"
+import { getAllStocks, makeStockHistory, updateStock } from "../../store/stocks.js"
 import { getArticles, newArticle } from '../../store/articles.js'
 
 const NavBar = () => {
@@ -43,7 +43,7 @@ const NavBar = () => {
 
           home.push(Math.round(Math.random() * (125 - 75) + 75))
           away.push(Math.round(Math.random() * (125 - 75) + 75))
-          while (home[1] == away[1]) {
+          while (home[1] === away[1]) {
             away[1] = (Math.round(Math.random() * (125 - 75) + 75))
           }
           let diff;
