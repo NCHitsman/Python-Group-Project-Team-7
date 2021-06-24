@@ -45,6 +45,9 @@ function App() {
 
       home.push(Math.round(Math.random() * (125 - 75) + 75))
       away.push(Math.round(Math.random() * (125 - 75) + 75))
+      while (home[1] == away[1]) {
+        away[1] = (Math.round(Math.random() * (125 - 75) + 75))
+      }
       let diff;
 
       if (home[1] > away[1]) {

@@ -87,8 +87,8 @@ def history(stockId):
     historys = History.query.filter(
         History.team_id == stockId
     ).order_by(
-        History.date
-    ).limit(50).all()
+        History.id.desc()
+    ).all()
     return {"history": [history.to_dict() for history in historys]}
 
 
