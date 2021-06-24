@@ -3,7 +3,6 @@
 }
 
 .buy-page {
-    background-image: url("../../images/robinhoop-background-dark.jpg");
     padding-bottom: 15px;
 }
 
@@ -12,23 +11,39 @@
     justify-content: center;
 }
 
+.team-container:nth-child(odd) {
+    background: rgba(250, 250, 250, .3);
+}
+
+.team-container:nth-child(even) {
+    background: rgba(250, 250, 250, .15);
+}
+
+.team-container.head {
+    background: #000;
+    border-bottom: 2px solid #FFAA01;
+    border-radius: 0px;
+}
+
+.team-container:nth-child(odd):hover,
+.team-container:nth-child(even):hover {
+    background: rgba(255, 170, 1, .75)
+}
+
+.team-container.head:hover {
+    background: #000;
+}
+
 .team-container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr 2fr 1fr 2fr 1fr;
-    border: 1px solid white;
-    margin: 0% 10%;
+    border-radius: 35px;
+    margin: 5px 10%;
     color: #fff;
 }
 
 .team-container div {
     padding: 0px 10px;
-}
-
-.team-conf,
-.team-shares,
-.team-price,
-.team-details {
-    border-left: 1px solid white;
 }
 
 .team-details {
@@ -44,7 +59,7 @@
 
 .team-details a:hover {
     transition: .5s;
-    color: #FFAA01;
+    color: #000;
 }
 
 .team-icon {
@@ -75,4 +90,9 @@
     .team-abbr {
         display: none;
     }
+
+    .team-container {
+        border-radius: 0px;
+    }
+
 }

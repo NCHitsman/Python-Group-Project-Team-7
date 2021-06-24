@@ -19,7 +19,7 @@ const LoggedOutHome = () => {
 
     return (
         <div className="content">
-          <div className='parent__cont'>
+          <div className='parent__content'>
             <div className='signup__info__parent__cont'>
                 <div className='signup__info__flexcont'>
                     <div className='signup__info__text__cont'>
