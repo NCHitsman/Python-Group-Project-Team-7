@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import TeamStockCard from '../TeamStockCard'
+// import TeamStockCard from '../TeamStockCard'
 import { getUserList } from '../../store/watchlist'
+import WatchlistTeamCard from '../WatchlistTeamCard/watchlistteamcard';
 import "./watchlist.css"
 
 
@@ -16,14 +17,15 @@ export const Watchlist = (userId) => {
         })();
       }, [dispatch, userId]);
 
+
     return (
         <div className="content">
             <div className="GreetUser">Watchlist</div>
             <div className="watchlist">
-                {list.length > 0 ? list.map(stock => {
+                {list ? list.map(item => {
                     return (
-                        <div key={stock.id}>
-                            <TeamStockCard teamStockData={stock} />
+                        <div key={item.id}>
+                            <WatchlistTeamCard teamId={item.team_id} />
                         </div>
                     )
                 }):

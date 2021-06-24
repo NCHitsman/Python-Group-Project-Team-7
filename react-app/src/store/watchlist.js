@@ -9,39 +9,58 @@ const getList = (list) => ({
     payload: list
 })
 
-const addTo = (stock) => ({
+const addTo = (team) => ({
     type: ADD_TO,
-    payload: stock
+    payload: team
 })
 
-const removeFrom = (stock) => ({
+const removeFrom = (team) => ({
     type: REMOVE_FROM,
-    payload: stock
+    payload: team
 })
 
 //Thunks
 export const getUserList = (user) => async (dispatch) => {
-    console.log('=========', user.userId)
 
     const response = await fetch(`/api/watchlist/${user.userId}`, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
-    const list = response.json()
-    console.log('+++++++', list)
+      console.log("++++++", response)
+    const list = await response.json()
+    console.log('##########', list)
     dispatch(getList(list))
+    return list
+}
+
+
+export const addToWatchlist = (user, team) => async (dispatch) => {
+    // console.log('=========', user.userId, "//", team)
+
+    const response = await fetch(`/api/watchlist/${user.userId}/${team}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            team_id: team.id,
+            user_id: user.userId
+        })
+    })
+    const team = response.json()
+    dispatch(addTo(team))
     return response
 }
 
 
 // Reducer
-const initialState = {watching: []}
+const initialState = {}
 
 export default function reducer(state=initialState, action) {
     switch (action.type) {
         case GET_LIST:
-            return {...state}
+            return {...state, watching: [action.payload]}
         case ADD_TO:
             return {...state, watchlist: [action.payload, ...state.watchlist]}
         case REMOVE_FROM:

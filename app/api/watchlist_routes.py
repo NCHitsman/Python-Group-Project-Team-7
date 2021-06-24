@@ -8,10 +8,8 @@ watchlist_routes = Blueprint("watchlists", __name__)
 @watchlist_routes.route('/<int:id>')
 @login_required
 def get_watchlist(id):
-    print('>>>>>>', id)
     list = Watchlist.query.filter(Watchlist.user_id == id).first()
-    print('<><><><><>', list)
-    return list
+    return jsonify(list.to_dict())
 
 @watchlist_routes.route('/add', methods=['post'])
 @login_required
