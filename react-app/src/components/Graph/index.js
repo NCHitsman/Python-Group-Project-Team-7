@@ -37,6 +37,9 @@ const GraphCanvas = ({ history }) => {
                 },
             ],
         },
+        animation: {
+            duration: 0
+        }
     };
 
     return (

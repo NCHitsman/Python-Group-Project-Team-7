@@ -6,12 +6,14 @@ import "./teams-list.css"
 function TeamsList() {
     const teams = useSelector((state) => state.stocks.allStocks)
 
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+
     return (
         <div class="content buy-page">
             <div className="GreetUser BrowseTeamHeader">Browse Teams</div>
-            {/* <div class="team-header">
-                <h1>Browse Teams</h1>
-            </div> */}
             <div class="team-container">
                 <div class="team-icon">
                     <p>Team</p>
@@ -54,7 +56,7 @@ function TeamsList() {
                             <p>{team.shares}</p>
                         </div>
                         <div class="team-price">
-                            <p>${team.price}</p>
+                            <p>{formatter.format(team.price)}</p>
                         </div>
                         <div class="team-details">
                             <a href={`/stock/${team.id}`}>Details</a>

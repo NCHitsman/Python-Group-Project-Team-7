@@ -1,7 +1,93 @@
-.buy__cont {
-    
+.parent__cont {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.sell__cont {
+.graph__cont {
+    width: 60%;
+    height: 60%;
+}
 
+.info__buy__sell__parent__cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info__cont {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    margin: 20px;
+}
+
+.info__cont div {
+    padding: 5px;
+}
+
+.info__stock__name,
+.info__stock__conference,
+.info__stock__short_name,
+.info__stock__price,
+.info__stock__icon {
+    display: flex;
+    justify-content: center;
+}
+
+.info__stock__name {
+    font-weight: bold;
+    font-size: 30pt;
+}
+
+.info__stock__short_name {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.info__stock__conference,
+.info__stock__short_name {
+    font-size: 16pt;
+}
+
+.info__stock__price {
+    font-size: 24pt;
+}
+
+.info__stock__icon img {
+    height: 100px;
+    width: 100px;
+}
+
+.buy__sell__cont {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.buy__cont,
+.sell__cont {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.buy__cont div,
+.sell__cont div {
+    padding: 5px;
+    font-size: 16pt;
+}
+
+.buy__title,
+.sell__title {
+    font-weight: bold;
+}
+
+.buy__quant__input,
+.sell__quant__input {
+    padding: 5px;
+    margin: 0px;
 }
