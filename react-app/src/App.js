@@ -56,20 +56,17 @@ function App() {
         diff = away[1] - home[1]
         home.push(true)
       }
-
-      console.log(home, away, diff)
-
-      console.log()
+      
       await dispatch(makeStockHistory(home[0]))
       await dispatch(makeStockHistory(away[0]))
 
       await dispatch(updateStock(home[0], diff, home[2]))
       await dispatch(updateStock(away[0], diff, away[2]))
 
-      dispatch(getAllStocks())
-      dispatch(getArticles())
     }
-  }, 10000)}
+    dispatch(getAllStocks())
+    dispatch(getArticles())
+  }, 1000)}
 
 
   useEffect(() =>

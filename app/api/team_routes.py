@@ -14,19 +14,20 @@ def stock(stockId):
     return stocks.to_dict()
 
 
-@team_routes.route('/<int:id>')
-def team(id):
-    team = Team.query.get(id)
-    return team.to_dict()
+# @team_routes.route('/<int:id>')
+# def team(id):
+#     team = Team.query.get(id)
+#     return team.to_dict()
 
 
 @team_routes.route('/articles')
 def articles():
-    articles = Event.query.order_by(desc(Event.date)).limit(10).all()
+    articles = Event.query.order_by(Event.id.desc()).limit(9).all()
     return {"articles": [article.to_dict() for article in articles]}
 
 
-@team_routes.route('/articles/new', methods=['POST'])
+
+@team_routes.route('/articles/new',methods=['POST'])
 def make_article():
     winner_id = request.json['winner_id']
     winner_score = request.json['winner_score']
@@ -45,7 +46,7 @@ def make_article():
     db.session.add(new_event)
     db.session.commit()
 
-    articles = Event.query.order_by(Event.id).limit(10).all()
+    articles = Event.query.order_by(Event.id.desc()).limit(9).all()
     return {"articles": [article.to_dict() for article in articles]}
 
 
@@ -87,7 +88,7 @@ def history(stockId):
         History.team_id == stockId
     ).order_by(
         History.date
-    ).limit(20).all()
+    ).limit(50).all()
     return {"history": [history.to_dict() for history in historys]}
 
 
