@@ -16,7 +16,7 @@ const StockPage= ({currentUser}) => {
         dispatch(getAStock(stockId))
         dispatch(getStockHistory(stockId))
         dispatch(getUserShares(currentUser.id, stockId))
-    }, [dispatch])
+    }, [dispatch, currentUser.id, stockId])
 
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
 
@@ -53,7 +53,7 @@ const StockPage= ({currentUser}) => {
                             <div className='info__stock__shares'>{new Intl.NumberFormat().format(stock?.shares)} shares</div>
                             <div className='info__stock__price'>{formatter.format(stock?.price)}</div>
                             <div className='info__stock__icon'>
-                                <img src={placeholder}></img>
+                                <img src={placeholder} alt=""></img>
                             </div>
                         </div>
                         <div className='buy__sell__cont'>
