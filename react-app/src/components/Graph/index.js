@@ -13,7 +13,7 @@ const GraphCanvas = ({ history }) => {
                 label: 'Price',
                 data: [],
                 fill: false,
-                backgroundColor: 'white',
+                backgroundColor: 'black',
                 borderColor: 'green',
                 segment: {
                     borderColor: context => down(context, 'red'),
@@ -22,10 +22,13 @@ const GraphCanvas = ({ history }) => {
         ],
     };
 
-
+    let lastHistory;
     for (let i = history?.length - 1; i >=0 ; i--) {
-        data.labels.push(`${history[i].date.slice(8 , 11)}  ${history[i].date.slice(5, 7)}`)
-        data.datasets[0].data.push(history[i].price)
+        if (history[i].price !== lastHistory) {
+            data.labels.push(`${history[i].date.slice(8 , 11)}  ${history[i].date.slice(5, 7)}`)
+            data.datasets[0].data.push(history[i].price)
+            lastHistory = history[i].price
+        }
     }
 
     const options = {
@@ -38,6 +41,11 @@ const GraphCanvas = ({ history }) => {
                 },
             ],
         },
+        elements: {
+            point:{
+                radius: 1.5
+            }
+        }
     };
 
     return (
