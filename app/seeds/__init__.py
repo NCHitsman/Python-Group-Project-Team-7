@@ -7,6 +7,7 @@ from .events import seed_event, undo_event
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
 
+
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
@@ -14,6 +15,7 @@ def seed():
     seed_team()
     seed_event()
     # Add other seed functions here
+
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')

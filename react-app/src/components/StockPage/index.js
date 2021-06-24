@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {useParams} from 'react-router-dom'
 import { getAStock, getUserShares, getStockHistory } from '../../store/stocks'
+
+import "./stockpage.css"
 import GraphCanvas from '../Graph'
 
 const StockPage= ({currentUser}) => {
@@ -32,7 +34,7 @@ const StockPage= ({currentUser}) => {
     }
 
         return (
-            <>
+            <div className="container">
                 <div className='parent__cont'>
                     <div className='graph__cont'>
                         <GraphCanvas history={history}/>
@@ -81,7 +83,7 @@ const StockPage= ({currentUser}) => {
 
                     </div>
                 </div>
-            </>
+            </div>
         )
 }
 

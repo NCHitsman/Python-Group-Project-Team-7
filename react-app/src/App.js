@@ -7,6 +7,7 @@ import EditUserForm from "./components/auth/EditUserForm";
 import NavBar from "./components/NavBar/index";
 import Footer from "./components/Footer/index";
 import Home from "./components/Home/index"
+import Watchlist from "./components/Watchlist";
 import UsersList from "./components/User/UsersList";
 import User from "./components/User/index";
 import StockPage from "./components/StockPage";
@@ -29,6 +30,7 @@ function App() {
   }, [dispatch]);
 
   const currentUser = useSelector((state) => state.session.user)
+  const list = useSelector((state) => state.watchlist.watching)
 
   const loop = async () => {
     let teamIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
@@ -97,6 +99,9 @@ function App() {
         </Route>
         <Route path="/users" exact={true}>
           <UsersList />
+        </Route>
+        <Route path="/watchlist" exact={true}>
+          <Watchlist list={list}/>
         </Route>
         <Route path="/users/edit-account" exact={true}>
           <EditUserForm />

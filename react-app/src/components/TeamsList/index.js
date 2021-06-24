@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./teams-list.css"
 
@@ -15,21 +14,12 @@ function TeamsList() {
         fetchData();
     }, []);
 
-    const teamComponents = teams.map((team) => {
-        return (
-            <div>
-                <a key={team.id}>
-                    <NavLink to={`/teams/${team.id}`}>{team.name} ({team.short_name})</NavLink>
-                </a>
-            </div>
-        );
-    });
-
     return (
         <div class="content buy-page">
-            <div class="team-header">
+            <div className="GreetUser BrowseTeamHeader">Browse Teams</div>
+            {/* <div class="team-header">
                 <h1>Browse Teams</h1>
-            </div>
+            </div> */}
             <div class="team-container">
                 <div class="team-icon">
                     <p>Team</p>
@@ -47,15 +37,15 @@ function TeamsList() {
                     <p>Shares</p>
                 </div>
                 <div class="team-price">
-                    <p>Value</p>
+                    <p>Share Value</p>
                 </div>
-                <div class="team-details">
-                    <p>Details</p>
+                <div class="team-details team-details-header">
+                    <p>Page</p>
                 </div>
             </div>
             {teams.map((team) => {
                 return (
-                    <div class="team-container">
+                    <div key={team.id} class="team-container">
                         <div class="team-icon">
                             <img src={placeholder} alt=""></img>
                         </div>
@@ -72,10 +62,10 @@ function TeamsList() {
                             <p>{team.shares}</p>
                         </div>
                         <div class="team-price">
-                            <p>{team.price}</p>
+                            <p>${team.price}</p>
                         </div>
                         <div class="team-details">
-                            <a href={`/buy/${team.id}`}>More</a>
+                            <a href={`/buy/${team.id}`}>Details</a>
                         </div>
                     </div>
                 )

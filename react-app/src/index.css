@@ -6,7 +6,7 @@ body {
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     width: 100%;
     background: #000;
@@ -36,6 +36,10 @@ nav a {
 
 nav a:hover {
     transition: .5s;
+    color: #FFAA01;
+}
+
+nav .active {
     color: #FFAA01;
 }
 
@@ -117,6 +121,12 @@ img.icon {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+
+@media screen and (max-width: 1100px) {
+    .search-container {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 870px) {

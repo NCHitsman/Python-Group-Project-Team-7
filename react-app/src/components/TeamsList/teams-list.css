@@ -1,6 +1,9 @@
+.BrowseTeamHeader {
+    margin-bottom: 20px;
+}
+
 .buy-page {
     background-image: url("../../images/robinhoop-background-dark.jpg");
-    /* padding: 10px; */
     padding-bottom: 15px;
 }
 
@@ -11,9 +14,10 @@
 
 .team-container {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr 2fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr 2fr 1fr;
     border: 1px solid white;
-    margin: 0px 20px;
+    margin: 0% 10%;
+    color: #fff;
 }
 
 .team-container div {
@@ -32,6 +36,17 @@
     align-items: center;
 }
 
+.team-details a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.team-details a:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
 .team-icon {
     display: flex;
     justify-content: center;
@@ -41,4 +56,23 @@
 .team-icon img {
     height: 40px;
     width: 40px;
+}
+
+@media screen and (max-width: 1050px) {
+    .team-conf,
+    .team-shares,
+    .team-price {
+        display: none;
+    }
+
+    .team-container {
+        grid-template-columns: 1fr 3fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .team-details-header,
+    .team-abbr {
+        display: none;
+    }
 }
