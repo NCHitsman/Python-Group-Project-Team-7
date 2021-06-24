@@ -106,10 +106,10 @@ const NavBar = () => {
               <NavLink to="/users/edit-account" exact={true} activeClassName="active">
                 Account
               </NavLink>
-          <button id='simulator'
-          onClick={(e) => triggerSimulation()}
-          >{buttonText} Simulation</button>
-          <div id='running-simulator' style={{ display: hidden ? "none" : "block"}}>Running</div>
+              <button id='simulator'
+              onClick={(e) => triggerSimulation()}
+              >{buttonText} Simulation</button>
+              <div id='running-simulator' style={{ display: hidden ? "none" : "block"}}>Running</div>
               <LogoutButton />
           </>
         }
