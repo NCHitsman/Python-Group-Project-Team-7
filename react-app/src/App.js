@@ -12,6 +12,8 @@ import User from "./components/User/index";
 import StockPage from "./components/StockPage";
 import TeamsList from "./components/TeamsList/index";
 import { authenticate } from "./store/session";
+import {newArticle} from './store/articles'
+import {makeStockHistory, updateStock} from './store/stocks'
 
 function App() {
   const dispatch = useDispatch();
@@ -20,13 +22,56 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
 
   const currentUser = useSelector((state) => state.session.user)
+
+  const loop = async () => {
+    let teamIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+
+    while (teamIds.length) {
+
+      let home = teamIds.splice(Math.floor(Math.random() * teamIds.length), 1)
+
+      let away = teamIds.splice(Math.floor(Math.random() * teamIds.length), 1)
+
+      home.push(Math.round(Math.random() * (125 - 75) + 75))
+      away.push(Math.round(Math.random() * (125 - 75) + 75))
+      let diff;
+
+      if (home[1] > away[1]) {
+        await dispatch(newArticle(home[0], away[0], home[1], away[1]))
+        diff = home[1] - away[1]
+        home.push(true)
+      } else {
+        await dispatch(newArticle(away[0], home[0], away[1], home[1]))
+        diff = away[1] - home[1]
+        home.push(true)
+      }
+
+      console.log(home, away, diff)
+
+      console.log()
+      await dispatch(makeStockHistory(home[0]))
+      await dispatch(makeStockHistory(away[0]))
+
+      await dispatch(updateStock(home[0], diff, home[2]))
+      await dispatch(updateStock(away[0], diff, away[2]))
+
+    }
+  }
+
+
+  useEffect(() =>
+    loop()
+  , [dispatch])
+
+
+
 
   if (!loaded) {
     return null;
@@ -48,22 +93,22 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path="/buy" exact={true}>
-          <TeamsList/>
+          <TeamsList />
         </Route>
         <Route path="/users" exact={true}>
-          <UsersList/>
+          <UsersList />
         </Route>
         <Route path="/users/edit-account" exact={true}>
-          <EditUserForm/>
+          <EditUserForm />
         </Route>
         <Route path="/users/:userId" exact={true}>
           <User />
         </Route>
         <Route path="/stock/:stockId" exact={true}>
-          <StockPage currentUser={currentUser}/>
+          <StockPage currentUser={currentUser} />
         </Route>
         <Route path="/" exact={true}>
-        <Home />
+          <Home />
         </Route>
       </Switch>
       <Footer />
