@@ -22,7 +22,8 @@ const GraphCanvas = ({ history }) => {
         ],
     };
 
-    for (let i in history) {
+
+    for (let i = history?.length - 1; i >=0 ; i--) {
         data.labels.push(`${history[i].date.slice(8 , 11)}  ${history[i].date.slice(5, 7)}`)
         data.datasets[0].data.push(history[i].price)
     }
