@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./teams-list.css"
 
 function TeamsList() {
-    const [teams, setTeams] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch("/api/teams/");
-            const responseData = await response.json();
-            setTeams(responseData.teams);
-        }
-        fetchData();
-    }, []);
+    const teams = useSelector((state) => state.stocks.allStocks)
 
     return (
         <div class="content buy-page">
@@ -43,7 +35,7 @@ function TeamsList() {
                     <p>Page</p>
                 </div>
             </div>
-            {teams.map((team) => {
+            {Object.values(teams).map((team) => {
                 return (
                     <div key={team.id} class="team-container">
                         <div class="team-icon">
