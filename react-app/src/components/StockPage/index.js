@@ -29,7 +29,6 @@ const StockPage= ({currentUser}) => {
                 <GraphCanvas history={history}/>
                 <StockPageInfo stockId={stockId}/>
             </div>
-        </div>
     )
 }
 
