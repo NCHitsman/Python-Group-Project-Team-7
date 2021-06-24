@@ -14,7 +14,7 @@ function TeamsList() {
     return (
         <div class="content buy-page">
             <div className="GreetUser BrowseTeamHeader">Browse Teams</div>
-            <div class="team-container">
+            <div class="team-container head">
                 <div class="team-icon">
                     <p>Team</p>
                 </div>
