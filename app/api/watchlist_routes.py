@@ -11,10 +11,10 @@ def get_watchlist(id):
     print('>>>>>>', id)
     list = Watchlist.query.filter(Watchlist.user_id == id).first()
     print('<><><><><>', list)
-    return jsonify(list)
+    return list
 
 @watchlist_routes.route('/add', methods=['post'])
-# @login_required
+@login_required
 def new_watchlist():
 
     team = Watchlist(**request.json)

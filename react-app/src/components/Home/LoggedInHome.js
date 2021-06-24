@@ -13,7 +13,7 @@ const LoggedInHome = () => {
     const user = useSelector(state => state.session.user)
 
     return (
-        <div className="content">
+        <div className="content logged-in-homepage">
             <div className="GreetUser">{user.username}'s Portfolio</div>
             <div className="section-headers">
                 <h2>Stocks</h2>
