@@ -27,7 +27,7 @@ nav .right {
 }
 
 nav a {
-    margin: 0 5%;
+    margin: 0 3%;
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -45,7 +45,7 @@ nav .active {
 
 #logout {
     border: 0px;
-    margin: 0 5%;
+    margin: 0 5% 0 3%;
     color: #fff;
     font-size: 18px;
     font-family: 'Josefin Sans', sans-serif;
@@ -63,6 +63,13 @@ nav .active {
     background: #FFAA01;
     padding: 15px;
     border-radius: 35px;
+}
+
+#running-simulator {
+    margin-left: 3%;
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
 }
 
 .search-form {
@@ -158,6 +165,7 @@ button {
     border: 0px;
     border-radius: 35px;
     background: #097A00;
+    font-family: 'Josefin Sans', sans-serif;
     color: #fff;
     font-size: 18px;
 }
