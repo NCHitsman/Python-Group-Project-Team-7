@@ -1,19 +1,24 @@
-import React from "react"
-import { useSelector } from "react-redux"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import TeamStockCard from '../TeamStockCard'
 import ArticleDataCard from "../ArticleCard"
+import { getUserList } from '../../store/watchlist'
 
 
 const LoggedInHome = () => {
 
     const stocks = useSelector((state) => state.stocks.allStocks)
-
     const articles = useSelector((state) => state.articles)
-
     const user = useSelector(state => state.session.user)
+    // const dispatch = useDispatch()
+
+    // useEffect(() => {
+    //     dispatch(getUserList(user.id))
+    //   }, [dispatch]);
+
 
     return (
-        <div className="content">
+        <div className="content logged-in-homepage">
             <div className="GreetUser">{user.username}'s Portfolio</div>
             <div className="section-headers">
                 <h2>Stocks</h2>
