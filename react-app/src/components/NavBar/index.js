@@ -91,10 +91,6 @@ const NavBar = () => {
         </>
         }
         <SearchBar />
-        <button
-        onClick={(e) => triggerSimulation()}
-        >{buttonText} Simulation</button>
-        <div style={{ display: hidden ? "none" : "block", color: 'red'}}>Running</div>
       </div>
       <div className="right">
         {!isLoggedin ?
@@ -110,6 +106,10 @@ const NavBar = () => {
               <NavLink to="/users/edit-account" exact={true} activeClassName="active">
                 Account
               </NavLink>
+          <button id='simulator'
+          onClick={(e) => triggerSimulation()}
+          >{buttonText} Simulation</button>
+          <div id='running-simulator' style={{ display: hidden ? "none" : "block"}}>Running</div>
               <LogoutButton />
           </>
         }

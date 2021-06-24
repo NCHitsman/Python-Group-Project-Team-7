@@ -53,7 +53,7 @@ const GraphCanvas = ({ history }) => {
 
     return (
         <>
-            <Line style={{ backgroundColor: 'white' }} data={data} options={options} />
+            <Line style={{ backgroundColor: 'white', color: 'black' }} data={data} options={options} />
         </>
     )
 }
