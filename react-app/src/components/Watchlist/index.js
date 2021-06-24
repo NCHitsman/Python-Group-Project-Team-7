@@ -29,7 +29,7 @@ export const Watchlist = (userId) => {
                     )
                 }):
                 <div className="empty-list">
-                    <h3>You're watchlist is empty.</h3>
+                    <h3>Your watchlist is empty.</h3>
                     <a href="/buy"><button>Add Stocks</button></a>
                 </div>}
             </div>

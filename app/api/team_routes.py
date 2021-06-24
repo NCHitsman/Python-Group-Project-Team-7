@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import User, Team, Event, UserShare, History
 from app import db
+from sqlalchemy import desc
 import datetime
 
 team_routes = Blueprint('teams', __name__)
@@ -34,8 +35,13 @@ def make_article():
     loser_score = request.json['loser_score']
     newDate = datetime.date.today()
 
-    new_event = Event(winner_id=winner_id, winner_score=winner_score, loser_id=loser_id, loser_score=loser_score, date=newDate)
-
+    new_event = Event(
+        winner_id=winner_id,
+        winner_score=winner_score,
+        loser_id=loser_id,
+        loser_score=loser_score,
+        date=newDate
+    )
 
     db.session.add(new_event)
     db.session.commit()
@@ -44,16 +50,13 @@ def make_article():
     return {"articles": [article.to_dict() for article in articles]}
 
 
-
 @team_routes.route('/')
 def teams():
     teams = Team.query.all()
     return {"teams": [team.to_dict() for team in teams]}
 
 
-
-
-@team_routes.route('/editPrice/<int:stockId>',methods=['PUT'])
+@team_routes.route('/editPrice/<int:stockId>', methods=['PUT'])
 def edit_teams(stockId):
 
     price = request.json['price']
@@ -69,20 +72,27 @@ def edit_teams(stockId):
     return {"teams": [team.to_dict() for team in teams]}
 
 
-
-
 @team_routes.route('/userShares/<int:userId>/<int:stockId>')
-# @login_required
 def userShare(userId, stockId):
-    sserShare = UserShare.query.filter(UserShare.user_id == userId).filter(UserShare.team_id == stockId).one()
+    sserShare = UserShare.query.filter(
+        UserShare.user_id == userId
+    ).filter(
+        UserShare.team_id == stockId
+    ).one()
     return sserShare.to_dict()
+
 
 @team_routes.route('/history/<int:stockId>')
 def history(stockId):
-    historys = History.query.filter(History.team_id == stockId).order_by(History.id.desc()).all()
+    historys = History.query.filter(
+        History.team_id == stockId
+    ).order_by(
+        History.id.desc()
+    ).all()
     return {"history": [history.to_dict() for history in historys]}
 
-@team_routes.route('/history/create',methods=['POST'])
+
+@team_routes.route('/history/create', methods=['POST'])
 def make_history():
     team_id = request.json['team_id']
     price = request.json['price']
