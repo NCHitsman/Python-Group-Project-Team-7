@@ -67,6 +67,7 @@ export const getAllStocks = () => async (dispatch) => {
 export const getUserShares = (userId, stockId) => async (dispatch) => {
     const response = await fetch(`/api/teams/userShares/${userId}/${stockId}`)
     const data = await response.json()
+    console.log(data)
     dispatch(userShares(data))
     return data
 }
@@ -105,7 +106,7 @@ const reducer = (state = { currentStock: null, allStocks: {}, userShares: null, 
             newState.currentStock = action.payload
             return newState
         case ALL_STOCKS:
-            newState = { currentStock: state.stock, allStocks: {}, userShares: state.userShares, history: state.history }
+            newState = { currentStock: state.currentStock, allStocks: {}, userShares: state.userShares, history: state.history }
             action.payload.teams.forEach(stock => {
                 newState.allStocks[stock.id] = stock
             })
