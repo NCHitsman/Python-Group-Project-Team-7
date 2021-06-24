@@ -146,6 +146,10 @@ img.icon {
 }
 
 /* Global Styles */
+#root {
+    background: #000;
+}
+
 .content {
     padding-top: 65px;
     background: #000;

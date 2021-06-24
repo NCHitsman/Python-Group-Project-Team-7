@@ -58,6 +58,9 @@ function App() {
         <Route path="/join" exact={true}>
           <SignUpForm />
         </Route>
+        <Route path="./logout">
+          <LoginForm />
+        </Route>
         <Route path="/buy" exact={true}>
           <TeamsList />
         </Route>
@@ -71,9 +74,9 @@ function App() {
         <Route path="/users/edit-account" exact={true}>
           <EditUserForm />
         </Route>
-        <Route path="/users/:userId" exact={true}>
+        {/* <Route path="/users/:userId" exact={true}>
           <User />
-        </Route>
+        </Route> */}
         <Route path="/stock/:stockId" exact={true}>
           <StockPage currentUser={currentUser} />
         </Route>

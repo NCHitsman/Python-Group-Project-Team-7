@@ -1,6 +1,13 @@
 .watchlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background: #000;
     text-align: center;
+}
+
+.watchlist > div {
+    margin: 2% 3%;
 }
 
 .empty-list {
