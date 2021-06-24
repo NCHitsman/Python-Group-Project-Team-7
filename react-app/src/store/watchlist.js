@@ -27,9 +27,7 @@ export const getUserList = (user) => async (dispatch) => {
           'Content-Type': 'application/json'
         }
       });
-      console.log("++++++", response)
     const list = await response.json()
-    console.log('##########', list)
     dispatch(getList(list))
     return list
 }
@@ -60,7 +58,7 @@ const initialState = {}
 export default function reducer(state=initialState, action) {
     switch (action.type) {
         case GET_LIST:
-            return {...state, watching: [action.payload]}
+            return {...state, ...action.payload}
         case ADD_TO:
             return {...state, watchlist: [action.payload, ...state.watchlist]}
         case REMOVE_FROM:

@@ -17,6 +17,7 @@ import {newArticle} from './store/articles'
 import {makeStockHistory, updateStock} from './store/stocks'
 import { getAllStocks } from "./store/stocks.js"
 import { getArticles } from './store/articles'
+import { getUserList } from './store/watchlist';
 
 function App() {
   const dispatch = useDispatch();

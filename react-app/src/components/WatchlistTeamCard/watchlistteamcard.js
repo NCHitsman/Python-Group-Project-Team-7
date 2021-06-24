@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-// import "../TeamStockCard/"
+import "../TeamStockCard/teamstockcard.css"
+import "./watchlistteamcard.css"
 import {useHistory} from 'react-router-dom'
-import { getAStock } from '../../store/stocks';
 
 const WatchlistTeamCard = ({teamId}) => {
     const history = useHistory()
-    const dispatch = useDispatch()
-    const [loaded, setLoaded] = useState(false);
 
-    console.log('&&&&&&&&', teamId)
     let team = useSelector(state => state.stocks.allStocks[`${teamId}`])
 
     return (
