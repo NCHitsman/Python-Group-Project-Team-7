@@ -13,11 +13,6 @@ import User from "./components/User/index";
 import StockPage from "./components/StockPage";
 import TeamsList from "./components/TeamsList/index";
 import { authenticate } from "./store/session";
-import {newArticle} from './store/articles'
-import {makeStockHistory, updateStock} from './store/stocks'
-import { getAllStocks } from "./store/stocks.js"
-import { getArticles } from './store/articles'
-import { getUserList } from './store/watchlist';
 
 function App() {
   const dispatch = useDispatch();
@@ -69,9 +64,10 @@ function App() {
         <Route path="/users" exact={true}>
           <UsersList />
         </Route>
-        <Route path={`/watchlist/${currentUser.id}`} exact={true}>
+        {currentUser ? <Route path={`/watchlist/${currentUser.id}`} exact={true}>
           <Watchlist userId={currentUser.id}/>
-        </Route>
+        </Route> : <></>
+        }
         <Route path="/users/edit-account" exact={true}>
           <EditUserForm />
         </Route>
