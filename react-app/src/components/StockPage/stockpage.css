@@ -32,6 +32,7 @@
 .info__stock__name,
 .info__stock__conference,
 .info__stock__short_name,
+.info__stock__shares,
 .info__stock__price,
 .info__stock__icon {
     display: flex;
@@ -49,8 +50,13 @@
 }
 
 .info__stock__conference,
-.info__stock__short_name {
+.info__stock__short_name,
+.info__stock__shares {
     font-size: 16pt;
+}
+
+.info__stock__shares {
+    margin-top: 30px;
 }
 
 .info__stock__price {

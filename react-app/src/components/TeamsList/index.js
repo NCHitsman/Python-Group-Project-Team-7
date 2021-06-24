@@ -53,7 +53,7 @@ function TeamsList() {
                             <p>{team.conference}</p>
                         </div>
                         <div class="team-shares">
-                            <p>{team.shares}</p>
+                            <p>{new Intl.NumberFormat().format(team.shares)}</p>
                         </div>
                         <div class="team-price">
                             <p>{formatter.format(team.price)}</p>

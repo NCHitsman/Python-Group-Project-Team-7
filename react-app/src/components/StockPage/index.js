@@ -50,6 +50,7 @@ const StockPage= ({currentUser}) => {
                             <div className='info__stock__name'>{stock?.name}</div>
                             <div className='info__stock__conference'>{stock?.conference}</div>
                             <div className='info__stock__short_name'>{stock?.short_name}</div>
+                            <div className='info__stock__shares'>{new Intl.NumberFormat().format(stock?.shares)} shares</div>
                             <div className='info__stock__price'>{formatter.format(stock?.price)}</div>
                             <div className='info__stock__icon'>
                                 <img src={placeholder}></img>
