@@ -80,7 +80,7 @@ export const authenticate = () => async(dispatch) => {
     return {}
   }
 
-  export const logout = () => async (dispatch) => {
+export const logout = () => async (dispatch) => {
     const response = await fetch("/api/auth/logout", {
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +88,6 @@ export const authenticate = () => async(dispatch) => {
     });
 
     await response.json();
-
     dispatch(removeUser())
   };
 

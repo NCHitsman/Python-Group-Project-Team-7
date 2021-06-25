@@ -10,7 +10,7 @@ watchlist_routes = Blueprint("watchlists", __name__)
 @login_required
 def get_watchlist(id):
     lists = Watchlist.query.filter(Watchlist.user_id == id).all()
-    return jsonify([list.to_dict() for list in lists])
+    return jsonify([item.to_dict() for item in lists])
 
 
 @watchlist_routes.route('/add', methods=['post'])
@@ -23,10 +23,12 @@ def new_watchlist():
     return team.to_dict()
 
 
-@watchlist_routes.route('/delete/<int:id>', methods=['delete'])
+@watchlist_routes.route('/delete/<int:userId>/<int:teamId>', methods=['delete'])
 @login_required
-def delete_watchlist(id):
-    watchlist = Watchlist.query.get(id)
-    db.session.delete(watchlist)
+def delete_watchlist(userId, teamId):
+    team = Watchlist.query.filter(Watchlist.team_id == teamId and Watchlist.user_id == userId).first()
+    jsonify(team.to_dict())
+    db.session.delete(team)
     db.session.commit()
-    return watchlist.to_dict()
+    lists = Watchlist.query.filter(Watchlist.user_id == userId).all()
+    return jsonify([item.to_dict() for item in lists])

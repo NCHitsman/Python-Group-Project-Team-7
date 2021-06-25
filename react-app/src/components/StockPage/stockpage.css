@@ -1,13 +1,25 @@
-.parent__cont {
+.parent-container {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.graph__cont {
-    width: 60%;
-    height: 60%;
+canvas {
+    height: 50%;
+    max-width: 50%;
 }
+
+.parent__cont {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+}
+
+/* .graph__cont {
+    width: 40%;
+    height: 60%;
+} */
 
 .info__buy__sell__parent__cont {
     display: flex;
@@ -22,7 +34,7 @@
     justify-content: center;
     flex-direction: column;
     width: 40%;
-    margin: 20px;
+    margin: 5%;
 }
 
 .info__cont div {
@@ -37,11 +49,13 @@
 .info__stock__icon {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .info__stock__name {
     font-weight: bold;
     font-size: 30pt;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .info__stock__short_name {
@@ -53,14 +67,17 @@
 .info__stock__short_name,
 .info__stock__shares {
     font-size: 16pt;
+    font-family: 'Roboto', sans-serif;
 }
 
 .info__stock__shares {
     margin-top: 30px;
+
 }
 
 .info__stock__price {
     font-size: 24pt;
+    font-family: 'Roboto', sans-serif;
 }
 
 .info__stock__icon img {
@@ -85,6 +102,8 @@
 .sell__cont div {
     padding: 5px;
     font-size: 16pt;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 
 .buy__title,
@@ -96,4 +115,43 @@
 .sell__quant__input {
     padding: 5px;
     margin: 0px;
+}
+
+@media screen and (max-width: 1335px) {
+    .parent-container {
+        display: block;
+    }
+
+    canvas {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .parent__cont {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .buy__sell__cont {
+        display: block;
+    }
+
+    .buy__cont,
+    .sell__cont {
+        display: block;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .parent__cont {
+        display: block;
+    }
+    .graph__cont {
+        width: 100%;
+        height: auto;
+    }
 }

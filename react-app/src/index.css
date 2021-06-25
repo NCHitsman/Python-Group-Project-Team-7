@@ -6,7 +6,7 @@ body {
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     width: 100%;
     background: #000;
@@ -27,7 +27,7 @@ nav .right {
 }
 
 nav a {
-    margin: 0 5%;
+    margin: 0 3%;
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -45,7 +45,7 @@ nav .active {
 
 #logout {
     border: 0px;
-    margin: 0 5%;
+    margin: 0 5% 0 3%;
     color: #fff;
     font-size: 18px;
     font-family: 'Josefin Sans', sans-serif;
@@ -63,6 +63,18 @@ nav .active {
     background: #FFAA01;
     padding: 15px;
     border-radius: 35px;
+}
+
+#sign-up.active {
+    color: #000;
+    background: #FFAA01;
+}
+
+#running-simulator {
+    margin-left: 3%;
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
 }
 
 .search-form {
@@ -139,6 +151,10 @@ img.icon {
 }
 
 /* Global Styles */
+#root {
+    background: #000;
+}
+
 .content {
     padding-top: 65px;
     background: #000;
@@ -158,6 +174,7 @@ button {
     border: 0px;
     border-radius: 35px;
     background: #097A00;
+    font-family: 'Josefin Sans', sans-serif;
     color: #fff;
     font-size: 18px;
 }
@@ -166,7 +183,6 @@ button:hover {
     transition: .5s;
     color: #000;
     background: #FFAA01;
-    padding: 15px;
     border-radius: 35px;
 }
 
