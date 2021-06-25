@@ -79,7 +79,6 @@ def userShare(userId, stockId):
     ).filter(
         UserShare.team_id == stockId
     ).one()
-
     return sserShare.to_dict()
 
 
