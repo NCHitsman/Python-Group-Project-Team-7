@@ -1,14 +1,15 @@
 .watchlist {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     background: #000;
     text-align: center;
-    margin: 2% 3%;
+    overflow-x: scroll;
+    /* margin: 2% 3%; */
 }
 
 .watchlist > div {
-    margin: 2% 3%;
+    margin: 2% 3% 4%;
 }
 
 .empty-list {

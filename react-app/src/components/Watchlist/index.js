@@ -20,7 +20,7 @@ export const Watchlist = (userId) => {
         <div className="content">
             <div className="GreetUser">Watchlist</div>
             <div className="watchlist">
-                {list ? Object.values(list).map(stock => {
+                {list['0'] ? Object.values(list).map(stock => {
                     return (
                         <div key={stock.id}>
                             <WatchlistTeamCard teamId={stock.team_id} />
