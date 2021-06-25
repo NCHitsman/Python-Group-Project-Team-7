@@ -5,7 +5,7 @@ import LogoutButton from '../auth/LogoutButton';
 import SearchBar from "../Search/index";
 import logo from '../../images/robinhoop-logo-light.png';
 import { getAllStocks, makeStockHistory, updateStock } from "../../store/stocks.js"
-import { getArticles, newArticle } from '../../store/articles.js'
+import { newArticle } from '../../store/articles.js'
 
 const NavBar = () => {
   const dispatch = useDispatch()
@@ -66,7 +66,6 @@ const NavBar = () => {
 
         }
         dispatch(getAllStocks())
-        dispatch(getArticles())
       }, 5000))
     }
   }

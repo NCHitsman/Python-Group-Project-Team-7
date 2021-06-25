@@ -10,7 +10,7 @@ const StockPageInfo = ({ stockId }) => {
 
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
 
-    const userShare = useSelector((state) => state.stocks.userShares)
+    // const userShare = useSelector((state) => state.stocks.userShares)
 
     const buyHandler = () => {
 
@@ -36,7 +36,7 @@ const StockPageInfo = ({ stockId }) => {
                     <div className='info__stock__shares'>{new Intl.NumberFormat().format(stock?.shares)} shares</div>
                     <div className='info__stock__price'>{formatter.format(stock?.price)}</div>
                     <div className='info__stock__icon'>
-                        <img src={placeholder}></img>
+                        <img src={placeholder} alt={'placeholder'}></img>
                     </div>
                 </div>
                 <div className='buy__sell__cont'>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./teams-list.css"

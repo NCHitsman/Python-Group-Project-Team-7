@@ -3,15 +3,12 @@ import LoggedOutHome from "./LoggedOutHome"
 import LoggedInHome from "./LoggedInHome"
 import { useSelector, useDispatch } from "react-redux"
 import { getAllStocks, removeHistory } from "../../store/stocks.js"
-import { getArticles } from '../../store/articles'
 
 const Home = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getAllStocks())
-        dispatch(getArticles())
-        dispatch(removeHistory())
     }, [dispatch])
 
     const user = useSelector((state) => state.session.user)

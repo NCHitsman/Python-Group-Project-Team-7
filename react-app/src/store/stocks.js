@@ -4,7 +4,7 @@ const GET_STOCK = 'stocks/GET_STOCK'
 const ALL_STOCKS = 'stocks/ALL_STOCKS'
 const USER_SHARES = 'stocks/USER_SHARES'
 const GET_HISTORY = 'stocks/GET_HISTORY'
-const REMOVE_HISTORY = 'stocks/REMOVE_HISTORY   '
+const ADD_HISTORY = 'stocks/ADD_HISTORY'
 
 const getStock = (stock) => ({
     type: GET_STOCK,
@@ -26,8 +26,10 @@ const getHistory = (history) => ({
     payload: history
 })
 
-const rmHistory = () => ({
-    type: REMOVE_HISTORY,
+
+const addHistory = (history) => ({
+    type: ADD_HISTORY,
+    payload: history
 })
 
 export const getAStock = (stockId) => async (dispatch) => {
@@ -72,7 +74,6 @@ export const getAllStocks = () => async (dispatch) => {
 export const getUserShares = (userId, stockId) => async (dispatch) => {
     const response = await fetch(`/api/teams/userShares/${userId}/${stockId}`)
     const data = await response.json()
-    console.log(data)
     dispatch(userShares(data))
     return data
 }
@@ -87,23 +88,13 @@ export const getStockHistory = (stockId) => async (dispatch) => {
 export const makeStockHistory = (stockId) => async (dispatch) => {
     const response = await fetch(`/api/teams/${stockId}`)
     const stockData = await response.json()
-    const res = await fetch('/api/teams/history/create', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
+    dispatch(addHistory({
             team_id: stockId,
-            price: stockData.price
-        })
-    })
-    const data = await res.json()
-    return data
+            price: stockData.price,
+            date: 'hi'
+        }))
 }
 
-export const removeHistory = () => async (dispatch) => {
-    dispatch(rmHistory())
-}
 
 
 const reducer = (state = { currentStock: null, allStocks: {}, userShares: null, history: {} }, action) => {
@@ -128,8 +119,14 @@ const reducer = (state = { currentStock: null, allStocks: {}, userShares: null, 
             newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {} }
             newState.history = action.payload
             return newState
-        case REMOVE_HISTORY:
-            newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {} }
+        case ADD_HISTORY:
+            newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: state.history }
+            const id = action.payload.team_id
+            if (newState.history[id]) {
+                newState.history[id].push(action.payload)
+            } else {
+                newState.history[id] = [action.payload]
+            }
             return newState
         default:
             return state
