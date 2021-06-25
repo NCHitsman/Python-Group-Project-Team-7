@@ -32,17 +32,17 @@ export const getUserList = (user) => async (dispatch) => {
 }
 
 
-export const addToWatchlist = (user, team) => async (dispatch) => {
-    // console.log('=========', user.userId, "//", team)
+export const addToWatchlist = (userId, teamid) => async (dispatch) => {
+    console.log('=========', userId, "//", teamid)
 
-    const response = await fetch(`/api/watchlist/${user.userId}/${team}`, {
+    const response = await fetch(`/api/watchlist/add/${userId}/${teamid}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            team_id: team.id,
-            user_id: user.userId
+            team_id: teamid,
+            user_id: userId
         })
     })
     const team = response.json()
@@ -63,7 +63,6 @@ export const removeFromWatchlist = (userId, teamId) => async (dispatch) => {
         })
     })
     const team = await response.json()
-    console.log('#######', team)
     dispatch(removeFrom(team))
     return response
 }
@@ -78,7 +77,8 @@ export default function reducer(state={}, action) {
             newState = {...state, ...action.payload}
             return newState
         case ADD_TO:
-            return {...state, watchlist: [action.payload, ...state.watchlist]}
+            newState = {...state, ...action.payload}
+            return newState
         case REMOVE_FROM:
             newState = {...action.payload}
             return newState

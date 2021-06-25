@@ -14,7 +14,6 @@ const WatchlistTeamCard = ({teamId}) => {
 
     const removeItem = (e) => {
         dispatch(removeFromWatchlist(userId, teamId))
-
     }
 
     return (

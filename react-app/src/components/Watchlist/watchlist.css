@@ -4,8 +4,7 @@
     justify-content: space-evenly;
     background: #000;
     text-align: center;
-    overflow-x: scroll;
-    /* margin: 2% 3%; */
+    margin: 2% 3%;
 }
 
 .watchlist > div {

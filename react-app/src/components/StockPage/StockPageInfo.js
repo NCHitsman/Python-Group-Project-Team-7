@@ -1,13 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { addToWatchlist } from '../../store/watchlist';
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./stockpage.css"
 
 const StockPageInfo = ({ stockId }) => {
+    const dispatch = useDispatch()
     const [buyQuant, setBuyQuant] = useState('0')
     const [sellQuant, setSellQuant] = useState(0)
-
+    const userId = useSelector(state => state.session.user.id)
+    const watchlist = useSelector(state => state.watchlist)
+    const [isIn, setIsIn] = useState(false)
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
 
     const userShare = useSelector((state) => state.stocks.userShares)
@@ -25,6 +29,19 @@ const StockPageInfo = ({ stockId }) => {
         currency: 'USD'
     });
 
+    const addItem = (e) => {
+        dispatch(addToWatchlist(userId, stock.id))
+        setIsIn(true)
+    }
+
+    useEffect(() => {
+        for (let [key, value] of Object.entries(watchlist)) {
+            if (value.team_id == stock.id) {
+                setIsIn(true)
+            }
+        }
+    }, [])
+
 
     return (
         <div className='parent__cont'>
@@ -38,6 +55,11 @@ const StockPageInfo = ({ stockId }) => {
                     <div className='info__stock__icon'>
                         <img src={placeholder}></img>
                     </div>
+                    {isIn ? <a href={`/watchlist/${userId}`} className="watchlist-link">Watching</a> : <button className='add-button'
+                    onClick={(e) => addItem(e)}
+                    >
+                        <ion-icon name="eye-outline"></ion-icon> Watch
+                    </button>}
                 </div>
                 <div className='buy__sell__cont'>
                     <div className='buy__cont'>
