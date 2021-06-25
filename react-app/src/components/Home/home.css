@@ -125,7 +125,6 @@ form.demo-link button:hover {
 
 .TeamStockCard__carosel {
     display: flex;
-    flex-direction: column wrap;
     background: #000;
     overflow-x: scroll;
 }
