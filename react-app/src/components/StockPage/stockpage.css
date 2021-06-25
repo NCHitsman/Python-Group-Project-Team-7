@@ -1,4 +1,5 @@
 .parent__cont {
+    color: #fff;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -37,6 +38,7 @@
 .info__stock__icon {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .info__stock__name {

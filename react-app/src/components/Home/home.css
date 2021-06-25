@@ -50,6 +50,7 @@ form.demo-link button {
 
 form.demo-link button:hover {
     color: #FFAA01;
+    background: rgba(0, 0, 0, 0);
 }
 
 .material-icons {

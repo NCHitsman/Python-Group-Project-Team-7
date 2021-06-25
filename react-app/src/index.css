@@ -6,7 +6,7 @@ body {
 nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     width: 100%;
     background: #000;
@@ -63,6 +63,11 @@ nav .active {
     background: #FFAA01;
     padding: 15px;
     border-radius: 35px;
+}
+
+#sign-up.active {
+    color: #000;
+    background: #FFAA01;
 }
 
 #running-simulator {
@@ -178,7 +183,6 @@ button:hover {
     transition: .5s;
     color: #000;
     background: #FFAA01;
-    padding: 15px;
     border-radius: 35px;
 }
 

@@ -77,8 +77,8 @@ const LoginForm = () => {
             </div>
             <button type="submit">Login</button>
           </form>
-          <form class="demo" onSubmit={onDemoLogin}>
-            <button type="submit">Demo Login</button>
+          <form class="demo-link" onSubmit={onDemoLogin}>
+            <button type="submit"><ion-icon name="person-circle-outline"></ion-icon> Play as Demo User</button>
           </form>
         </div>
       </div>

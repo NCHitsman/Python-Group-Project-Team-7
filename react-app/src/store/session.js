@@ -88,7 +88,6 @@ export const logout = () => async (dispatch) => {
     });
 
     await response.json();
-
     dispatch(removeUser())
   };
 
