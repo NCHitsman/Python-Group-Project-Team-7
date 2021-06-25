@@ -4,8 +4,6 @@
     border-radius: 5px;
     margin: 10px;
     background: #fff;
-    /* height: 80%;
-    max-height: 100px; */
 }
 
 .ArticleCard__title {
@@ -24,6 +22,7 @@
 
 .ArticleCard__date {
     font-size: 14px;
+    font-family: 'Roboto', sans-serif;
 }
 
 @media screen and (max-width: 903px) {
