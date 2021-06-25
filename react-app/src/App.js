@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
@@ -58,28 +58,29 @@ function App() {
         <Route path="/join" exact={true}>
           <SignUpForm />
         </Route>
-        <Route path="/buy" exact={true}>
+        {currentUser ? <Route path="/buy" exact={true}>
           <TeamsList />
-        </Route>
-        <Route path="/users" exact={true}>
+        </Route> : <Redirect to="/login" />
+        }
+        {currentUser ? <Route path="/users" exact={true}>
           <UsersList />
-        </Route>
+        </Route> : <Redirect to="/login" />
+        }
         {currentUser ? <Route path={`/watchlist/${currentUser.id}`} exact={true}>
           <Watchlist userId={currentUser.id}/>
-        </Route> : <></>
+        </Route> : <Redirect to="/login" />
         }
-        <Route path="/users/edit-account" exact={true}>
+        {currentUser ? <Route path="/users/edit-account" exact={true}>
           <EditUserForm />
-        </Route>
-        <Route path="/users/:userId" exact={true}>
+          </Route> : <Redirect to="/login" />
+        }
+        {/* <Route path="/users/:userId" exact={true}>
           <User />
-        </Route>
-        <Route path="/stock/:stockId" exact={true}>
+        </Route> */}
+        {currentUser ? <Route path="/stock/:stockId" exact={true}>
           <StockPage currentUser={currentUser} />
-        </Route>
-        <Route path="/" exact={true}>
-          <Home />
-        </Route>
+          </Route> : <Redirect to="/login" />
+        }
       </Switch>
       <Footer />
     </BrowserRouter>

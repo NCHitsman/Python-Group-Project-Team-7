@@ -19,7 +19,7 @@ const LoggedOutHome = () => {
 
     return (
         <div className="content">
-          <div className='parent__cont'>
+          <div className='parent__content'>
             <div className='signup__info__parent__cont'>
                 <div className='signup__info__flexcont'>
                     <div className='signup__info__text__cont'>
@@ -38,8 +38,8 @@ const LoggedOutHome = () => {
                         <img src={graph} alt='graph' />
                     </div>
                     <div className='solo__info__text__cont'>
-                        <h2 className='solo__info__title__text'>Lorum Ipsum</h2>
-                        <p className='solo__info__body__text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h2 className='solo__info__title__text'>Run the Simulation</h2>
+                        <p className='solo__info__body__text'>Checkout the "Start Simluation" option in the logged in navigation to see how stock prices update.</p>
                     </div>
                 </div>
             </div>

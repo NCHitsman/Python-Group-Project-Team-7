@@ -1,7 +1,8 @@
 .parent__cont {
+    color: #fff;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .graph__cont {
@@ -22,7 +23,7 @@
     justify-content: center;
     flex-direction: column;
     width: 40%;
-    margin: 20px;
+    margin: 5%;
 }
 
 .info__cont div {
@@ -37,11 +38,13 @@
 .info__stock__icon {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .info__stock__name {
     font-weight: bold;
     font-size: 30pt;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .info__stock__short_name {
@@ -53,14 +56,17 @@
 .info__stock__short_name,
 .info__stock__shares {
     font-size: 16pt;
+    font-family: 'Roboto', sans-serif;
 }
 
 .info__stock__shares {
     margin-top: 30px;
+
 }
 
 .info__stock__price {
     font-size: 24pt;
+    font-family: 'Roboto', sans-serif;
 }
 
 .info__stock__icon img {
@@ -85,6 +91,8 @@
 .sell__cont div {
     padding: 5px;
     font-size: 16pt;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 
 .buy__title,
@@ -96,4 +104,26 @@
 .sell__quant__input {
     padding: 5px;
     margin: 0px;
+}
+
+@media screen and (max-width: 1335px) {
+    .buy__sell__cont {
+        display: block;
+    }
+
+    .buy__cont,
+    .sell__cont {
+        display: block;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .parent__cont {
+        display: block;
+    }
+    .graph__cont {
+        width: 100%;
+        height: auto;
+    }
 }
