@@ -27,8 +27,6 @@ export const getUserList = (user) => async (dispatch) => {
         }
       });
     const list = await response.json()
-    console.log('#######', list)
-
     dispatch(getList(list))
     return response
 }
@@ -53,6 +51,24 @@ export const addToWatchlist = (user, team) => async (dispatch) => {
 }
 
 
+export const removeFromWatchlist = (userId, teamId) => async (dispatch) => {
+    const response = await fetch(`/api/watchlist/delete/${userId}/${teamId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            team_id: teamId,
+            user_id: userId
+        })
+    })
+    const team = await response.json()
+    console.log('#######', team)
+    dispatch(removeFrom(team))
+    return response
+}
+
+
 // Reducer
 
 export default function reducer(state={}, action) {
@@ -64,7 +80,8 @@ export default function reducer(state={}, action) {
         case ADD_TO:
             return {...state, watchlist: [action.payload, ...state.watchlist]}
         case REMOVE_FROM:
-            return;
+            newState = {...action.payload}
+            return newState
         default:
             return state;
     }
