@@ -25,7 +25,7 @@ const StockPage= ({currentUser}) => {
     });
 
         return (
-            <div className="content">
+            <div className="content parent-container">
                 <GraphCanvas history={history}/>
                 <StockPageInfo stockId={stockId}/>
             </div>
