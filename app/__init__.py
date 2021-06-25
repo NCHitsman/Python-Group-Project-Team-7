@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.team_routes import team_routes
 from .api.watchlist_routes import watchlist_routes
+from api.buy_routes import buy_routes
 
 from .seeds import seed_commands
 
@@ -35,6 +36,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(team_routes, url_prefix="/api/teams")
 app.register_blueprint(watchlist_routes, url_prefix="/api/watchlist")
+app.register_blueprint(buy_routes, url_prefix="/api/buy")
 db.init_app(app)
 Migrate(app, db)
 

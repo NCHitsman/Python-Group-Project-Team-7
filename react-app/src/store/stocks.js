@@ -4,6 +4,7 @@ const GET_STOCK = 'stocks/GET_STOCK'
 const ALL_STOCKS = 'stocks/ALL_STOCKS'
 const USER_SHARES = 'stocks/USER_SHARES'
 const GET_HISTORY = 'stocks/GET_HISTORY'
+const REMOVE_HISTORY = 'stocks/REMOVE_HISTORY   '
 
 const getStock = (stock) => ({
     type: GET_STOCK,
@@ -23,6 +24,10 @@ const userShares = (shares) => ({
 const getHistory = (history) => ({
     type: GET_HISTORY,
     payload: history
+})
+
+const rmHistory = () => ({
+    type: REMOVE_HISTORY,
 })
 
 export const getAStock = (stockId) => async (dispatch) => {
@@ -96,6 +101,10 @@ export const makeStockHistory = (stockId) => async (dispatch) => {
     return data
 }
 
+export const removeHistory = () => async (dispatch) => {
+    dispatch(rmHistory())
+}
+
 
 const reducer = (state = { currentStock: null, allStocks: {}, userShares: null, history: {} }, action) => {
     let newState;
@@ -118,6 +127,9 @@ const reducer = (state = { currentStock: null, allStocks: {}, userShares: null, 
         case GET_HISTORY:
             newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {} }
             newState.history = action.payload
+            return newState
+        case REMOVE_HISTORY:
+            newState = { currentStock: state.currentStock, allStocks: state.allStocks, userShares: state.userShares, history: {} }
             return newState
         default:
             return state
