@@ -19,21 +19,7 @@ def load_shares(id):
 @login_required
 def buy_team(id):
 
-    jsonData = request.get_json()
-    data = jsonData['data']
-    buy = Team.query.filter(Team.id == id).one()
-
-    usershare = UserShare(
-        share_amount=data['share_amount'],
-        user_id=data['user_id'],
-        team_id=data['team_id']
-    )
-    
-    share_data = {
-
-    }
-
+    usershare = UserShare(**request.json)
     db.session.add(usershare)
     db.session.commit()
-
-    return share_data
+    return usershare.to_dict()
