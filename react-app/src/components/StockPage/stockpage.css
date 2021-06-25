@@ -1,14 +1,25 @@
+.parent-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+canvas {
+    height: 50%;
+    max-width: 50%;
+}
+
 .parent__cont {
     color: #fff;
     display: flex;
     align-items: center;
     flex-direction: row;
+    width: 50%;
 }
 
-.graph__cont {
-    width: 60%;
+/* .graph__cont {
+    width: 40%;
     height: 60%;
-}
+} */
 
 .info__buy__sell__parent__cont {
     display: flex;
@@ -107,6 +118,23 @@
 }
 
 @media screen and (max-width: 1335px) {
+    .parent-container {
+        display: block;
+    }
+
+    canvas {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .parent__cont {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+    }
+
     .buy__sell__cont {
         display: block;
     }

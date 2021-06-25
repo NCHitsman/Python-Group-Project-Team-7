@@ -6,26 +6,26 @@ def seed_watchlist():
 
     demoList1 = Watchlist(
         id=1,
-        team_id='1',
-        user_id='1'
+        team_id=1,
+        user_id=1
     )
 
     demoList2 = Watchlist(
         id=2,
-        team_id='2',
-        user_id='1'
+        team_id=2,
+        user_id=1
     )
 
     demoList3 = Watchlist(
         id=3,
-        team_id='30',
-        user_id='1'
+        team_id=30,
+        user_id=1
     )
 
     demoList4 = Watchlist(
         id=4,
-        team_id='27',
-        user_id='2'
+        team_id=27,
+        user_id=2
     )
 
     db.session.add(demoList1)

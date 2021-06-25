@@ -1,0 +1,8 @@
+button.remove-button {
+    background: rgba(0, 0, 0, 0);
+}
+
+button.remove-button:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
