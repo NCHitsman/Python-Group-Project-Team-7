@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import TeamStockCard from '../TeamStockCard'
 import { getUserList } from '../../store/watchlist'
 import WatchlistTeamCard from "../WatchlistTeamCard/watchlistteamcard";
 import "./watchlist.css"
