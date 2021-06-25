@@ -74,12 +74,17 @@ def edit_teams(stockId):
 
 @team_routes.route('/userShares/<int:userId>/<int:stockId>')
 def userShare(userId, stockId):
-    sserShare = UserShare.query.filter(
+
+    userSharex = UserShare.query.filter(
         UserShare.user_id == userId
     ).filter(
         UserShare.team_id == stockId
-    ).one()
-    return sserShare.to_dict()
+    ).one_or_none()
+
+    if userSharex is None:
+        return jsonify('not found')
+
+    return userSharex.to_dict()
 
 
 @team_routes.route('/history/<int:stockId>')

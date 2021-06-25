@@ -25,9 +25,9 @@ const GraphCanvas = ({ history }) => {
     };
 
     let lastHistory;
-    for (let i = history?.length - 1; i >=0 ; i--) {
+    for (let i = 0; i < history?.length; i++) {
         if (history[i].price !== lastHistory) {
-            data.labels.push(`${history[i].date.slice(8 , 11)}  ${history[i].date.slice(5, 7)}`)
+            data.labels.push(history[i].date)
             data.datasets[0].data.push(history[i].price)
             lastHistory = history[i].price
         }
@@ -68,6 +68,8 @@ const GraphCanvas = ({ history }) => {
         // },
         reponsive: true
     };
+
+    console.log(ref.current)
 
     return (
         <>

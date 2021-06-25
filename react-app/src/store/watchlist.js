@@ -33,7 +33,7 @@ export const getUserList = (user) => async (dispatch) => {
 
 
 export const addToWatchlist = (user, team) => async (dispatch) => {
-    // console.log('=========', user.userId, "//", team)
+
 
     const response = await fetch(`/api/watchlist/${user.userId}/${team}`, {
         method: 'POST',
@@ -45,8 +45,8 @@ export const addToWatchlist = (user, team) => async (dispatch) => {
             user_id: user.userId
         })
     })
-    const team = response.json()
-    dispatch(addTo(team))
+    const teamx = response.json()
+    dispatch(addTo(teamx))
     return response
 }
 
@@ -63,7 +63,7 @@ export const removeFromWatchlist = (userId, teamId) => async (dispatch) => {
         })
     })
     const team = await response.json()
-    console.log('#######', team)
+
     dispatch(removeFrom(team))
     return response
 }

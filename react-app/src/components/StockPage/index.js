@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {useParams} from 'react-router-dom'
-import { getAllStocks, getUserShares, getStockHistory } from '../../store/stocks'
+import { getUserShares} from '../../store/stocks'
 import StockPageInfo from './StockPageInfo'
 
 import "./stockpage.css"
@@ -12,17 +12,10 @@ const StockPage= ({currentUser}) => {
     const {stockId} = useParams()
 
     useEffect(() => {
-        dispatch(getAllStocks())
-        dispatch(getStockHistory(stockId))
         dispatch(getUserShares(currentUser.id, stockId))
-    }, [dispatch])
+    }, [dispatch, currentUser.id, stockId])
 
-    const history = useSelector((state) => state.stocks.history.history)
-
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    });
+    const history = useSelector((state) => state.stocks.history[stockId])
 
         return (
             <div className="container">
