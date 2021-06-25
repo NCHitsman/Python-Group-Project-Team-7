@@ -1,7 +1,7 @@
 # Robinhoop
 
 
-Access the app [here](herokulinkhere).
+Access the app [here](https://robinhoop.herokuapp.com/).
 
 
 Robinhoop is a simulated clone of the Robinhood Stock Trading appfocused on Basketball. With Robinhoop, users can invest in their favorite basketball teams (or the ones that are actually winning games :smirk:). Robinhoop users can buy, sell, and keep tabs on NBA basketball teams to see which ones they want to buy or sell their stock in.
