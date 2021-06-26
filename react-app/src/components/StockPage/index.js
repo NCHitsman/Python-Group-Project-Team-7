@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {useParams} from 'react-router-dom'
-import { getUserShares} from '../../store/stocks'
+import { getAllStocks, getUserShares} from '../../store/stocks'
 import StockPageInfo from './StockPageInfo'
 
 import "./stockpage.css"
@@ -12,6 +12,7 @@ const StockPage= ({currentUser}) => {
     const {stockId} = useParams()
 
     useEffect(() => {
+        dispatch(getAllStocks())
         dispatch(getUserShares(currentUser.id, stockId))
     }, [dispatch, currentUser.id, stockId])
 

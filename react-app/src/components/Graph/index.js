@@ -1,10 +1,9 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import './Graph.css'
 import { Line } from 'react-chartjs-2';
 
 const GraphCanvas = ({ history }) => {
 
-    const ref = useRef()
 
     const down = (context, value) => context.p0.parsed.y > context.p1.parsed.y ? value : undefined;
 
@@ -69,11 +68,9 @@ const GraphCanvas = ({ history }) => {
         reponsive: true
     };
 
-    console.log(ref.current)
-
     return (
         <>
-            <Line ref={ref} style={{ backgroundColor: 'white' }} data={data} options={options} />
+            <Line style={{ backgroundColor: 'white' }} data={data} options={options} />
         </>
     )
 }
