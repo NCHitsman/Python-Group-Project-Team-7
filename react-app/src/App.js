@@ -9,7 +9,6 @@ import Footer from "./components/Footer/index";
 import Home from "./components/Home/index"
 import Watchlist from "./components/Watchlist";
 import UsersList from "./components/User/UsersList";
-import User from "./components/User/index";
 import StockPage from "./components/StockPage";
 import TeamsList from "./components/TeamsList/index";
 import { authenticate } from "./store/session";

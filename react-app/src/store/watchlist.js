@@ -32,8 +32,13 @@ export const getUserList = (user) => async (dispatch) => {
 }
 
 
+<<<<<<< HEAD
 export const addToWatchlist = (userId, teamid) => async (dispatch) => {
     console.log('=========', userId, "//", teamid)
+=======
+export const addToWatchlist = (user, team) => async (dispatch) => {
+
+>>>>>>> main
 
     const response = await fetch(`/api/watchlist/add/${userId}/${teamid}`, {
         method: 'POST',
@@ -45,8 +50,8 @@ export const addToWatchlist = (userId, teamid) => async (dispatch) => {
             user_id: userId
         })
     })
-    const team = response.json()
-    dispatch(addTo(team))
+    const teamx = response.json()
+    dispatch(addTo(teamx))
     return response
 }
 
@@ -63,6 +68,10 @@ export const removeFromWatchlist = (userId, teamId) => async (dispatch) => {
         })
     })
     const team = await response.json()
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     dispatch(removeFrom(team))
     return response
 }
