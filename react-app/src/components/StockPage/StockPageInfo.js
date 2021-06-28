@@ -49,7 +49,6 @@ const StockPageInfo = ({ stockId }) => {
 
 
     return (
-<<<<<<< HEAD
         <div className='parent__cont'>
             <div className='info__buy__sell__parent__cont'>
                 <div className='info__cont'>
@@ -83,20 +82,6 @@ const StockPageInfo = ({ stockId }) => {
                             className='buy__button'
                             onClick={(e) => buyHandler()}
                         >Buy Now</button>
-=======
-        <>
-            <div className='parent__cont'>
-                <div className='info__buy__sell__parent__cont'>
-                    <div className='info__cont'>
-                        <div className='info__stock__name'>{stock?.name}</div>
-                        <div className='info__stock__conference'>{stock?.conference}</div>
-                        <div className='info__stock__short_name'>{stock?.short_name}</div>
-                        <div className='info__stock__shares'>{new Intl.NumberFormat().format(stock?.shares)} shares</div>
-                        <div className='info__stock__price'>{formatter.format(stock?.price)}</div>
-                        <div className='info__stock__icon'>
-                            <img src={placeholder} alt={'placeholder'}></img>
-                        </div>
->>>>>>> main
                     </div>
                     <div className='buy__sell__cont'>
                         <div className='buy__cont'>
