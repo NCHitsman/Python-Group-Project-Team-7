@@ -6,6 +6,7 @@ import SearchBar from "../Search/index";
 import logo from '../../images/robinhoop-logo-light.png';
 import { getAllStocks, makeStockHistory, updateStock } from "../../store/stocks.js"
 import { newArticle } from '../../store/articles.js'
+import {useHistory} from 'react-router-dom'
 
 const NavBar = () => {
   const dispatch = useDispatch()
@@ -14,6 +15,7 @@ const NavBar = () => {
   const [buttonText, setButtonText] = useState('Start')
   const [hidden, setHidden] = useState(true)
   const user = useSelector(state => state.session.user);
+  const history = useHistory()
 
   const demoTest = () => {
     return user.id === 1 ? false : true
@@ -78,7 +80,10 @@ const NavBar = () => {
       <div className='spacer'>a</div>
       <nav>
         <div className="left">
-          <a href="/"><img src={logo} alt='logo' /></a>
+          <div
+          style={{cursor: 'pointer'}}
+          onClick={() => history.push(`/`)}
+          ><img src={logo} alt='logo' /></div>
           {!user ?
           <></> :
           <>
