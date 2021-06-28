@@ -13,9 +13,11 @@ const NavBar = () => {
   const [simId, setSimId] = useState()
   const [buttonText, setButtonText] = useState('Start')
   const [hidden, setHidden] = useState(true)
-  const isLoggedin = useSelector(state => state.session.user);
+  const user = useSelector(state => state.session.user);
 
-
+  const demoTest = () => {
+    return user.id === 1 ? false : true
+  }
 
   const triggerSimulation = () => {
     if (simulation) {
@@ -77,7 +79,7 @@ const NavBar = () => {
       <nav>
         <div className="left">
           <a href="/"><img src={logo} alt='logo' /></a>
-          {!isLoggedin ?
+          {!user ?
           <></> :
           <>
             <NavLink to="/" exact={true} activeClassName="active">
@@ -86,7 +88,7 @@ const NavBar = () => {
             <NavLink to="/buy" exact={true} activeClassName="active">
               Buy
             </NavLink>
-            <NavLink to={`/watchlist/${isLoggedin.id}`} exact={true} activeClassName="active">
+            <NavLink to={`/watchlist/${user.id}`} exact={true} activeClassName="active">
               Watchlist
             </NavLink>
           </>
@@ -94,7 +96,7 @@ const NavBar = () => {
           <SearchBar />
         </div>
         <div className="right">
-          {!isLoggedin ?
+          {!user ?
           <>
             <NavLink to="/login" exact={true} activeClassName="active">
               Login
@@ -104,9 +106,9 @@ const NavBar = () => {
           </NavLink>
           </>
             : <>
-                <NavLink to="/users/edit-account" exact={true} activeClassName="active">
+                {demoTest() && <NavLink to="/users/edit-account" exact={true} activeClassName="active">
                   Account
-                </NavLink>
+                </NavLink>}
                 <button id='simulator'
                 onClick={(e) => triggerSimulation()}
                 >{buttonText} Simulation</button>
