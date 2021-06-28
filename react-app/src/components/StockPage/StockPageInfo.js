@@ -9,14 +9,9 @@ const StockPageInfo = ({ stockId }) => {
     const dispatch = useDispatch()
     const [buyQuant, setBuyQuant] = useState('0')
     const [sellQuant, setSellQuant] = useState(0)
-<<<<<<< HEAD
     const userId = useSelector(state => state.session.user.id)
     const watchlist = useSelector(state => state.watchlist)
     const [isIn, setIsIn] = useState(false)
-=======
-
-    console.log(stockId)
->>>>>>> main
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
 
     // const userShare = useSelector((state) => state.stocks.userShares)
@@ -121,7 +116,7 @@ const StockPageInfo = ({ stockId }) => {
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

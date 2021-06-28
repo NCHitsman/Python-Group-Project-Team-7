@@ -32,14 +32,7 @@ export const getUserList = (user) => async (dispatch) => {
 }
 
 
-<<<<<<< HEAD
 export const addToWatchlist = (userId, teamid) => async (dispatch) => {
-    console.log('=========', userId, "//", teamid)
-=======
-export const addToWatchlist = (user, team) => async (dispatch) => {
-
->>>>>>> main
-
     const response = await fetch(`/api/watchlist/add/${userId}/${teamid}`, {
         method: 'POST',
         headers: {
@@ -68,10 +61,6 @@ export const removeFromWatchlist = (userId, teamId) => async (dispatch) => {
         })
     })
     const team = await response.json()
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     dispatch(removeFrom(team))
     return response
 }
