@@ -52,6 +52,20 @@ canvas {
     text-align: center;
 }
 
+a.watchlist-link {
+    padding: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+}
+
+a.watchlist-link:hover {
+    transition: .5s;
+    color: #FFAA01;
+}
+
 .info__stock__name {
     font-weight: bold;
     font-size: 30pt;
