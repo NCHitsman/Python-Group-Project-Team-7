@@ -97,6 +97,10 @@ nav .active {
     flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
+
 .search-result {
     height: 40px;
     padding: 0px;
@@ -104,6 +108,7 @@ nav .active {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    color: white;
 }
 
 .search-result > p {
@@ -119,10 +124,6 @@ img.icon {
 .search-input {
     width: 226px;
     margin: 5px 0px;
-}
-
-.search-results {
-    display: none;
 }
 
 .search-input:focus ~ .search-results {
