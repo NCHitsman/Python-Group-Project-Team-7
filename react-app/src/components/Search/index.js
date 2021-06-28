@@ -60,10 +60,12 @@ const SearchBar = () => {
                 <div className="search-results">
                     <ul className="search-list">
                         {filteredTeams.map((team) => (
-                            <a key={team.id} href={`/teams/${team.id}`} className="search-result">
+                            <li
+                            onClick={() => history.push(`/stock/${team.id}`)}
+                            key={team.id} className="search-result">
                                 <img className="icon" src={placeholder} alt=""></img>
                                 <p>{team.name} ({team.short_name})</p>
-                            </a>
+                            </li>
                         ))}
                     </ul>
                 </div>
