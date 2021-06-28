@@ -49,15 +49,16 @@
 .team-details {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
-.team-details a {
+.team-details {
     color: #fff;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
 }
 
-.team-details a:hover {
+.team-details :hover {
     transition: .5s;
     color: #000;
 }

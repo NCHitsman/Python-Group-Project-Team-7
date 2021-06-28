@@ -14,42 +14,6 @@ def stock(stockId):
     return stocks.to_dict()
 
 
-# @team_routes.route('/<int:id>')
-# def team(id):
-#     team = Team.query.get(id)
-#     return team.to_dict()
-
-
-@team_routes.route('/articles')
-def articles():
-    articles = Event.query.order_by(Event.id.desc()).limit(9).all()
-    return {"articles": [article.to_dict() for article in articles]}
-
-
-
-@team_routes.route('/articles/new',methods=['POST'])
-def make_article():
-    winner_id = request.json['winner_id']
-    winner_score = request.json['winner_score']
-    loser_id = request.json['loser_id']
-    loser_score = request.json['loser_score']
-    newDate = datetime.date.today()
-
-    new_event = Event(
-        winner_id=winner_id,
-        winner_score=winner_score,
-        loser_id=loser_id,
-        loser_score=loser_score,
-        date=newDate
-    )
-
-    db.session.add(new_event)
-    db.session.commit()
-
-    articles = Event.query.order_by(Event.id.desc()).limit(9).all()
-    return {"articles": [article.to_dict() for article in articles]}
-
-
 @team_routes.route('/')
 def teams():
     teams = Team.query.all()
@@ -74,33 +38,14 @@ def edit_teams(stockId):
 
 @team_routes.route('/userShares/<int:userId>/<int:stockId>')
 def userShare(userId, stockId):
-    sserShare = UserShare.query.filter(
+
+    userSharex = UserShare.query.filter(
         UserShare.user_id == userId
     ).filter(
         UserShare.team_id == stockId
-    ).one()
-    return sserShare.to_dict()
+    ).one_or_none()
 
+    if userSharex is None:
+        return jsonify('not found')
 
-@team_routes.route('/history/<int:stockId>')
-def history(stockId):
-    historys = History.query.filter(
-        History.team_id == stockId
-    ).order_by(
-        History.id.desc()
-    ).all()
-    return {"history": [history.to_dict() for history in historys]}
-
-
-@team_routes.route('/history/create', methods=['POST'])
-def make_history():
-    team_id = request.json['team_id']
-    price = request.json['price']
-    newDate = datetime.date.today()
-
-    new_history = History(team_id=team_id, price=price, date=newDate)
-    db.session.add(new_history)
-    db.session.commit()
-
-    history = History.query.filter(History.team_id == team_id).limit(1).one()
-    return history.to_dict()
+    return userSharex.to_dict()

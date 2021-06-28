@@ -1,10 +1,9 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import './Graph.css'
 import { Line } from 'react-chartjs-2';
 
 const GraphCanvas = ({ history }) => {
 
-    const ref = useRef()
 
     const down = (context, value) => context.p0.parsed.y > context.p1.parsed.y ? value : undefined;
 
@@ -25,9 +24,9 @@ const GraphCanvas = ({ history }) => {
     };
 
     let lastHistory;
-    for (let i = history?.length - 1; i >=0 ; i--) {
+    for (let i = 0; i < history?.length; i++) {
         if (history[i].price !== lastHistory) {
-            data.labels.push(`${history[i].date.slice(8 , 11)}  ${history[i].date.slice(5, 7)}`)
+            data.labels.push(history[i].date)
             data.datasets[0].data.push(history[i].price)
             lastHistory = history[i].price
         }
@@ -62,16 +61,12 @@ const GraphCanvas = ({ history }) => {
                 radius: 1.5
             }
         },
-
-        // animation: {
-        //     duration: 0
-        // },
         reponsive: true
     };
 
     return (
         <>
-            <Line ref={ref} style={{ backgroundColor: 'white' }} data={data} options={options} />
+            <Line className='graph' style={{ backgroundColor: 'white' }} data={data} options={options} />
         </>
     )
 }
