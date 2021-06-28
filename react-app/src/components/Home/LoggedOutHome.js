@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/session";
 
@@ -7,14 +7,14 @@ import "./home.css"
 
 const LoggedOutHome = () => {
     const dispatch = useDispatch();
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
 
     const onDemoLogin = async (e) => {
         e.preventDefault();
-        const data = await dispatch(login("demo@aa.io", "password"));
-        if (data.errors) {
-          setErrors(data.errors);
-        }
+        await dispatch(login("demo@aa.io", "password"));
+        // if (data.errors) {
+        //   setErrors(data.errors);
+        // }
       }
 
     return (

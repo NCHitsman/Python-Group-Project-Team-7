@@ -12,10 +12,7 @@ const WatchlistTeamCard = ({teamId}) => {
     let team = useSelector(state => state.stocks.allStocks[`${teamId}`])
     let userId = useSelector(state => state.session.user.id)
 
-    const removeItem = (e) => {
-        dispatch(removeFromWatchlist(userId, teamId))
 
-    }
 
     return (
         <>
@@ -27,11 +24,7 @@ const WatchlistTeamCard = ({teamId}) => {
             <div className='TeamStockCard__conference'>Conference: {team.conference}</div>
             <div className='TeamStockCard__price'>${team.price}</div>
         </button>
-        <button className='remove-button'
-        onClick={(e) => removeItem(e)}
-        >
-            <ion-icon name="trash-outline"></ion-icon> Remove
-        </button>
+
         </>
     )
 }

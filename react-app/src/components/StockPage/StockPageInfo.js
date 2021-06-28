@@ -7,8 +7,6 @@ import "./stockpage.css"
 const StockPageInfo = ({ stockId }) => {
     const [buyQuant, setBuyQuant] = useState('0')
     const [sellQuant, setSellQuant] = useState(0)
-
-    console.log(stockId)
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
 
     // const userShare = useSelector((state) => state.stocks.userShares)

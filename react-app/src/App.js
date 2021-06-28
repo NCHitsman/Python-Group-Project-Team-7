@@ -12,6 +12,7 @@ import UsersList from "./components/User/UsersList";
 import StockPage from "./components/StockPage";
 import TeamsList from "./components/TeamsList/index";
 import { authenticate } from "./store/session";
+import { getAllStocks } from "./store/stocks";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      await dispatch(getAllStocks())
       setLoaded(true);
     })();
   }, [dispatch]);
