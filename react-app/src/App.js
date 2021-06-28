@@ -13,38 +13,27 @@ import StockPage from "./components/StockPage";
 import TeamsList from "./components/TeamsList/index";
 import { authenticate } from "./store/session";
 import { getAllStocks } from "./store/stocks";
+import { getUserList } from "./store/watchlist";
 
 function App() {
   const dispatch = useDispatch();
 
-  // const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
-      await dispatch(authenticate());
+      const userId = await dispatch(authenticate());
       await dispatch(getAllStocks())
+      if (userId) await dispatch(getUserList(userId))
       setLoaded(true);
     })();
   }, [dispatch]);
 
   const currentUser = useSelector((state) => state.session.user)
 
-  // const loop = () => {}
-
-
-  // useEffect(() =>
-  //   loop()
-  // , [dispatch, loop])
-
-
-
-
   if (!loaded) {
     return null;
   }
-
-
 
   return (
     <BrowserRouter>
@@ -75,9 +64,6 @@ function App() {
           <EditUserForm />
           </Route> : <Redirect to="/login" />
         }
-        {/* <Route path="/users/:userId" exact={true}>
-          <User />
-        </Route> */}
         {currentUser ? <Route path="/stock/:stockId" exact={true}>
           <StockPage currentUser={currentUser} />
           </Route> : <Redirect to="/login" />

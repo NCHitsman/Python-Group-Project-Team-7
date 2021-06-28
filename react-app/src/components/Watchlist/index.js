@@ -1,16 +1,14 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
-import { getUserList } from '../../store/watchlist'
+import React from "react";
+import { useSelector } from "react-redux"
+
 import TeamStockCard from "../TeamStockCard";
 import "./watchlist.css"
 
 
-export const Watchlist = (userId) => {
-    const dispatch = useDispatch()
+export const Watchlist = () => {
 
-    useEffect(() => {
-        dispatch(getUserList(userId))
-    }, [dispatch, userId]);
+
+
 
     const list = useSelector(state => state.watchlist)
     const allStocks = useSelector(state => state.stocks.allStocks)

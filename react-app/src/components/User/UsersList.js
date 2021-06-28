@@ -22,7 +22,7 @@ function UsersList() {
   });
 
   return (
-    <div class="content">
+    <div className="content">
       <h1>User List: </h1>
       <ul>{userComponents}</ul>
     </div>

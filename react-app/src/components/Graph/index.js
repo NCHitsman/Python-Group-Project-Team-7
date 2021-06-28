@@ -61,10 +61,6 @@ const GraphCanvas = ({ history }) => {
                 radius: 1.5
             }
         },
-
-        // animation: {
-        //     duration: 0
-        // },
         reponsive: true
     };
 

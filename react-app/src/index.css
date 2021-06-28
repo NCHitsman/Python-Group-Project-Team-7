@@ -12,6 +12,10 @@ nav {
     background: #000;
 }
 
+.spacer{
+    min-height: 70px;
+}
+
 nav .left {
     display: flex;
     flex-direction: row wrap;
@@ -156,7 +160,6 @@ img.icon {
 }
 
 .content {
-    padding-top: 65px;
     background: #000;
 }
 

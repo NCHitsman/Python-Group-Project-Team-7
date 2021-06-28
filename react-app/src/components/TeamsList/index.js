@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import {useHistory} from 'react-router-dom'
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./teams-list.css"
 
 function TeamsList() {
     const teams = useSelector((state) => state.stocks.allStocks)
-
-    console.log(teams)
+    const history = useHistory()
 
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -60,8 +60,8 @@ function TeamsList() {
                         <div className="team-price">
                             <p>{formatter.format(team.price)}</p>
                         </div>
-                        <div className="team-details">
-                            <a href={`/stock/${team.id}`}>Details</a>
+                        <div onClick={(e) => history.push(`/stock/${team.id}`)} className="team-details">
+                            Details
                         </div>
                     </div>
                 )

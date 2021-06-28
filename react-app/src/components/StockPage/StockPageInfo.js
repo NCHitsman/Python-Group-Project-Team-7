@@ -1,15 +1,17 @@
 import React from "react"
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import placeholder from "../../images/robinhoop-background-ball.jpg";
+import { addToWatchlist, getUserList, removeFromWatchlist } from "../../store/watchlist";
 import "./stockpage.css"
 
 const StockPageInfo = ({ stockId }) => {
+    const dispatch = useDispatch()
     const [buyQuant, setBuyQuant] = useState('0')
     const [sellQuant, setSellQuant] = useState(0)
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
-
-    // const userShare = useSelector((state) => state.stocks.userShares)
+    const user = useSelector((state) => state.session.user)
+    const watchlist = useSelector((state) => state.watchlist)
 
     const buyHandler = () => {
 
@@ -19,10 +21,29 @@ const StockPageInfo = ({ stockId }) => {
 
     }
 
+    const addWatch = async () => {
+        await dispatch(addToWatchlist(user.id, stockId))
+        await dispatch(getUserList(user.id))
+    }
+
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
     });
+
+    const removeItem = () => {
+        dispatch(removeFromWatchlist(user.id, stockId))
+    }
+
+    const checkWatch = () => {
+        let test = true
+        Object.values(watchlist).forEach(a => {
+            if (a.team_id === stock.id) {
+                test = false
+            }
+        })
+        return user && test ? true : false
+    }
 
 
     return (
@@ -74,7 +95,13 @@ const StockPageInfo = ({ stockId }) => {
                             >Sell Now</button>
                         </div>
                     </div>
-
+                    {checkWatch() ? <button
+                        onClick={() => addWatch()}
+                    >Add to Watchlist</button>
+                        :
+                        <button
+                            onClick={() => removeItem()}
+                        >Remove From Watchlist</button>}
                 </div>
             </div>
         </>

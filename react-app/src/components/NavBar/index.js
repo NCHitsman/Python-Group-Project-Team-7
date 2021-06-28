@@ -72,48 +72,51 @@ const NavBar = () => {
 
 
   return (
-    <nav>
-      <div className="left">
-        <a href="/"><img src={logo} alt='logo' /></a>
-        {!isLoggedin ?
-        <></> :
-        <>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Portfolio
-          </NavLink>
-          <NavLink to="/buy" exact={true} activeClassName="active">
-            Buy
-          </NavLink>
-          <NavLink to={`/watchlist/${isLoggedin.id}`} exact={true} activeClassName="active">
-            Watchlist
-          </NavLink>
-        </>
-        }
-        <SearchBar />
-      </div>
-      <div className="right">
-        {!isLoggedin ?
-        <>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-          <NavLink to="/join" exact={true} id="sign-up" activeClassName="active">
-           Join Now
-         </NavLink>
-        </>
-          : <>
-              <NavLink to="/users/edit-account" exact={true} activeClassName="active">
-                Account
-              </NavLink>
-              <button id='simulator'
-              onClick={(e) => triggerSimulation()}
-              >{buttonText} Simulation</button>
-              <div id='running-simulator' style={{ display: hidden ? "none" : "block"}}>Running</div>
-              <LogoutButton />
+    <>
+      <div className='spacer'>a</div>
+      <nav>
+        <div className="left">
+          <a href="/"><img src={logo} alt='logo' /></a>
+          {!isLoggedin ?
+          <></> :
+          <>
+            <NavLink to="/" exact={true} activeClassName="active">
+              Portfolio
+            </NavLink>
+            <NavLink to="/buy" exact={true} activeClassName="active">
+              Buy
+            </NavLink>
+            <NavLink to={`/watchlist/${isLoggedin.id}`} exact={true} activeClassName="active">
+              Watchlist
+            </NavLink>
           </>
-        }
-      </div>
-    </nav>
+          }
+          <SearchBar />
+        </div>
+        <div className="right">
+          {!isLoggedin ?
+          <>
+            <NavLink to="/login" exact={true} activeClassName="active">
+              Login
+            </NavLink>
+            <NavLink to="/join" exact={true} id="sign-up" activeClassName="active">
+            Join Now
+          </NavLink>
+          </>
+            : <>
+                <NavLink to="/users/edit-account" exact={true} activeClassName="active">
+                  Account
+                </NavLink>
+                <button id='simulator'
+                onClick={(e) => triggerSimulation()}
+                >{buttonText} Simulation</button>
+                <div id='running-simulator' style={{ display: hidden ? "none" : "block"}}>Running</div>
+                <LogoutButton />
+            </>
+          }
+        </div>
+      </nav>
+    </>
   );
 }
 

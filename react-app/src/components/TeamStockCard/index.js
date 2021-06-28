@@ -15,7 +15,7 @@ const TeamStockCard = ({teamStockData, watchlist}) => {
         currency: 'USD'
     });
 
-    const removeItem = (e) => {
+    const removeItem = () => {
         dispatch(removeFromWatchlist(user.id, teamStockData.id))
     }
 
@@ -31,7 +31,7 @@ const TeamStockCard = ({teamStockData, watchlist}) => {
             </button>
             {watchlist &&
                 <button className='remove-button'
-                onClick={(e) => removeItem(e)}
+                onClick={() => removeItem()}
                 >
                 <ion-icon name="trash-outline"></ion-icon> Remove
             </button>}
