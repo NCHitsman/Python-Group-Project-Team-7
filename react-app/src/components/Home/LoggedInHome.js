@@ -9,13 +9,6 @@ const LoggedInHome = () => {
     const stocks = useSelector((state) => state.stocks.allStocks)
     const articles = useSelector((state) => state.articles)
     const user = useSelector(state => state.session.user)
-    // const dispatch = useDispatch()
-
-    // useEffect(() => {
-    //     dispatch(getUserList(user.id))
-    //   }, [dispatch]);
-
-    const stockValues = Object.keys(stocks).map(a => stocks[a])
 
 
     return (
@@ -29,9 +22,7 @@ const LoggedInHome = () => {
                     {Object.values(stocks).map(stock => {
 
                         return (
-                            <div key={stock.id}>
-                                <TeamStockCard teamStockData={stock} />
-                            </div>
+                            <TeamStockCard key={stock.name} teamStockData={stock} />
                         )
                     })}
                 </div>
@@ -40,11 +31,9 @@ const LoggedInHome = () => {
                 </div>
                 {articles.length ?
                 <div className='Article__cont'>
-                    {Object.values(articles)?.map(article => {
+                    {Object.values(articles)?.map((article, i) => {
                         return (
-                            <div key={article.id}>
-                                <ArticleDataCard articleData={article} />
-                            </div>
+                            <ArticleDataCard key={i} articleData={article} />
                         )
                     })}
                 </div>

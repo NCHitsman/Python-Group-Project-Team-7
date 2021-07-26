@@ -38,10 +38,11 @@ export const getUserShares = (userId, stockId) => async (dispatch) => {
 export const makeStockHistory = (stockId) => async (dispatch) => {
     const response = await fetch(`/api/teams/${stockId}`)
     const stockData = await response.json()
+    const currentDate = new Date()
     dispatch(addHistory({
         team_id: stockId,
         price: stockData.price,
-        date: 'hi'
+        date: `${currentDate.getMonth()} / ${currentDate.getDate()}`
     }))
 }
 

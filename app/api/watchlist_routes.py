@@ -16,14 +16,16 @@ def get_watchlist(id):
 @watchlist_routes.route('/add/<int:userId>/<int:teamId>', methods=['POST'])
 @login_required
 def new_watchlist(userId, teamId):
-    team = Watchlist(
-        team_id=teamId,
-        user_id=userId
+
+    new_watch = Watchlist(
+        team_id = teamId,
+        user_id = userId
     )
-    db.session.add(team)
+
+    db.session.add(new_watch)
     db.session.commit()
-    lists = Watchlist.query.filter(Watchlist.user_id == userId).all()
-    return jsonify([item.to_dict() for item in lists])
+
+    return new_watch.to_dict()
 
 
 @watchlist_routes.route('/delete/<int:userId>/<int:teamId>', methods=['DELETE'])

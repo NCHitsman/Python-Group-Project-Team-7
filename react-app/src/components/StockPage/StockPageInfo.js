@@ -1,20 +1,17 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { addToWatchlist } from '../../store/watchlist';
+import { useDispatch, useSelector } from "react-redux"
 import placeholder from "../../images/robinhoop-background-ball.jpg";
+import { addToWatchlist, getUserList, removeFromWatchlist } from "../../store/watchlist";
 import "./stockpage.css"
 
 const StockPageInfo = ({ stockId }) => {
     const dispatch = useDispatch()
     const [buyQuant, setBuyQuant] = useState('0')
     const [sellQuant, setSellQuant] = useState(0)
-    const userId = useSelector(state => state.session.user.id)
-    const watchlist = useSelector(state => state.watchlist)
-    const [isIn, setIsIn] = useState(false)
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
-
-    // const userShare = useSelector((state) => state.stocks.userShares)
+    const user = useSelector((state) => state.session.user)
+    const watchlist = useSelector((state) => state.watchlist)
 
     const buyHandler = () => {
 
@@ -24,59 +21,44 @@ const StockPageInfo = ({ stockId }) => {
 
     }
 
+    const addWatch = async () => {
+        await dispatch(addToWatchlist(user.id, stockId))
+        await dispatch(getUserList(user.id))
+    }
+
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
     });
 
-    const addItem = (e) => {
-        dispatch(addToWatchlist(userId, stock.id))
-        setIsIn(true)
+    const removeItem = () => {
+        dispatch(removeFromWatchlist(user.id, stockId))
     }
 
-    useEffect(() => {
-        for (let [key, value] of Object.entries(watchlist)) {
-            if (value.team_id == stock.id) {
-                setIsIn(true)
+    const checkWatch = () => {
+        let test = true
+        Object.values(watchlist).forEach(a => {
+            if (a.team_id === stock.id) {
+                test = false
             }
-        }
-    }, [])
+        })
+        return user && test ? true : false
+    }
 
 
     return (
-        <div className='parent__cont'>
-            <div className='info__buy__sell__parent__cont'>
-                <div className='info__cont'>
-                    <div className='info__stock__name'>{stock?.name}</div>
-                    <div className='info__stock__conference'>{stock?.conference}</div>
-                    <div className='info__stock__short_name'>{stock?.short_name}</div>
-                    <div className='info__stock__shares'>{new Intl.NumberFormat().format(stock?.shares)} shares</div>
-                    <div className='info__stock__price'>{formatter.format(stock?.price)}</div>
-                    <div className='info__stock__icon'>
-                        <img src={placeholder}></img>
-                    </div>
-                    {isIn ? <a href={`/watchlist/${userId}`} className="watchlist-link">Watching</a> : <button className='add-button'
-                    onClick={(e) => addItem(e)}
-                    >
-                        <ion-icon name="eye-outline"></ion-icon> Watch
-                    </button>}
-                </div>
-                <div className='buy__sell__cont'>
-                    <div className='buy__cont'>
-                        <div className='buy__title'>Buy {stock?.name}</div>
-                        <input
-                            type='number'
-                            className='buy__quant__input'
-                            onChange={(e) => setBuyQuant(e.target.value)}
-                            value={buyQuant}
-                            min="0"
-                        >
-                        </input>
-                        <div className='buy__price__total'>{formatter.format(Number((buyQuant * stock?.price).toFixed(2)))}</div>
-                        <button
-                            className='buy__button'
-                            onClick={(e) => buyHandler()}
-                        >Buy Now</button>
+        <>
+            <div className='parent__cont'>
+                <div className='info__buy__sell__parent__cont'>
+                    <div className='info__cont'>
+                        <div className='info__stock__name'>{stock?.name}</div>
+                        <div className='info__stock__conference'>{stock?.conference}</div>
+                        <div className='info__stock__short_name'>{stock?.short_name}</div>
+                        <div className='info__stock__shares'>{new Intl.NumberFormat().format(stock?.shares)} shares</div>
+                        <div className='info__stock__price'>{formatter.format(stock?.price)}</div>
+                        <div className='info__stock__icon'>
+                            <img src={placeholder} alt={'placeholder'}></img>
+                        </div>
                     </div>
                     <div className='buy__sell__cont'>
                         <div className='buy__cont'>
@@ -113,10 +95,16 @@ const StockPageInfo = ({ stockId }) => {
                             >Sell Now</button>
                         </div>
                     </div>
-
+                    {checkWatch() ? <button
+                        onClick={() => addWatch()}
+                    >Add to Watchlist</button>
+                        :
+                        <button
+                            onClick={() => removeItem()}
+                        >Remove From Watchlist</button>}
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

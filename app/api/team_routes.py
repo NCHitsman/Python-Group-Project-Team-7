@@ -8,14 +8,16 @@ import datetime
 team_routes = Blueprint('teams', __name__)
 
 
+@team_routes.route('/<int:stockId>')
+def stock(stockId):
+    stocks = Team.query.get(stockId)
+    return stocks.to_dict()
 
 
 @team_routes.route('/')
 def teams():
     teams = Team.query.all()
     return {"teams": [team.to_dict() for team in teams]}
-
-
 
 
 @team_routes.route('/editPrice/<int:stockId>', methods=['PUT'])
@@ -32,8 +34,6 @@ def edit_teams(stockId):
 
     teams = Team.query.all()
     return {"teams": [team.to_dict() for team in teams]}
-
-
 
 
 @team_routes.route('/userShares/<int:userId>/<int:stockId>')

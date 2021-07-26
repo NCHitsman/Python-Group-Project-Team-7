@@ -20,8 +20,8 @@ const removeFrom = (team) => ({
 })
 
 //Thunks
-export const getUserList = (user) => async (dispatch) => {
-    const response = await fetch(`/api/watchlist/${user.userId}`, {
+export const getUserList = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/watchlist/${userId}`, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -32,14 +32,16 @@ export const getUserList = (user) => async (dispatch) => {
 }
 
 
-export const addToWatchlist = (userId, teamid) => async (dispatch) => {
-    const response = await fetch(`/api/watchlist/add/${userId}/${teamid}`, {
+export const addToWatchlist = (userId, teamId) => async (dispatch) => {
+
+
+    const response = await fetch(`/api/watchlist/add/${userId}/${teamId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            team_id: teamid,
+            team_id: teamId,
             user_id: userId
         })
     })
@@ -75,8 +77,7 @@ export default function reducer(state={}, action) {
             newState = {...state, ...action.payload}
             return newState
         case ADD_TO:
-            newState = {...state, ...action.payload}
-            return newState
+            return {...state, ...action.payload}
         case REMOVE_FROM:
             newState = {...action.payload}
             return newState
