@@ -61,16 +61,12 @@ const GraphCanvas = ({ history }) => {
                 radius: 1.5
             }
         },
-
-        // animation: {
-        //     duration: 0
-        // },
         reponsive: true
     };
 
     return (
         <>
-            <Line style={{ backgroundColor: 'white' }} data={data} options={options} />
+            <Line className='graph' style={{ backgroundColor: 'white' }} data={data} options={options} />
         </>
     )
 }
