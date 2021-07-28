@@ -105,6 +105,12 @@ form.demo {
     /* padding: 10% 0px; */
 }
 
+#errors p {
+    width: 100%;
+    padding: 12px;
+    margin: 0 0 10px 0;
+    background:rgba(353, 98, 41, .3);
+}
 
 @media screen and (max-width: 767px) {
     .left-side {
