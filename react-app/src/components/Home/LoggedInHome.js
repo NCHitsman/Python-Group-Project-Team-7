@@ -38,7 +38,9 @@ const LoggedInHome = () => {
                     })}
                 </div>
                 :
-                <div>Press Start Simulation</div>
+                <div id="simulation-text" className="message">Press Start Simulation<br/>
+                    (It may take a few seconds.)
+                </div>
                 }
             </div>
         </>

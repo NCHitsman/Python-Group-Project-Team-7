@@ -14,13 +14,10 @@
 
 .empty-list {
     margin: 0 auto;
-    padding: 10%;
-    height: 100%;
+    padding: 5%;
+    width: 100%;
 }
 
-.empty-list h3 {
-    font-size: 24px;
-    margin-top: 0;
-    color: #fff;
-    opacity: .7;
+.empty-list a button {
+    margin-bottom: 5%;
 }

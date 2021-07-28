@@ -89,9 +89,9 @@ form.demo-link button:hover {
 
 /* LOGGED In User Homepage */
 
-.logged-in-homepage {
+/* .logged-in-homepage {
 
-}
+} */
 
 .GreetUser {
     /* background: #F0E7E0; */
@@ -144,6 +144,10 @@ form.demo-link button:hover {
 .Article__cont > div {
     max-width: 450px;
     width: 100%;
+}
+
+#simulation-text {
+    padding-bottom: 4%;
 }
 
 @media screen and (max-width: 902px) {

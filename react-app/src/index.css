@@ -47,6 +47,10 @@ nav .active {
     color: #FFAA01;
 }
 
+button {
+    cursor: pointer;
+}
+
 #logout {
     border: 0px;
     margin: 0 5% 0 3%;
@@ -138,6 +142,15 @@ img.icon {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+
+.message {
+    padding-top: 4%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(255, 255, 255, .7);
+    font-size: 1.25em;
+    cursor: default;
 }
 
 @media screen and (max-width: 1100px) {
