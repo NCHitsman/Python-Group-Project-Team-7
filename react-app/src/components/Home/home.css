@@ -146,6 +146,10 @@ form.demo-link button:hover {
     width: 100%;
 }
 
+button#simulator {
+    margin: 2% auto;
+}
+
 #simulation-text {
     padding-bottom: 4%;
 }
