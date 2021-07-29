@@ -1,24 +1,23 @@
 .watchlist {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    height: 100%;
     background: #000;
     text-align: center;
-    margin: 2% 3%;
+    overflow-x: scroll;
 }
 
 .watchlist > div {
-    margin: 2% 3%;
+    height: 100%;
+    padding: 2% 3%;
 }
 
 .empty-list {
-    padding: 10%;
-    height: 100%;
+    margin: 0 auto;
+    padding: 5%;
+    width: 100%;
 }
 
-.empty-list h3 {
-    font-size: 24px;
-    margin-top: 0;
-    color: #fff;
-    opacity: .7;
+.empty-list a button {
+    margin-bottom: 5%;
 }

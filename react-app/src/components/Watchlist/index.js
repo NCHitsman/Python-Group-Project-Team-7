@@ -7,9 +7,6 @@ import "./watchlist.css"
 
 export const Watchlist = () => {
 
-
-
-
     const list = useSelector(state => state.watchlist)
     const allStocks = useSelector(state => state.stocks.allStocks)
     let stocks = Object.values(list).map((watchListItem) => {
@@ -20,7 +17,7 @@ export const Watchlist = () => {
         <div className="content">
             <div className="GreetUser">Watchlist</div>
             <div className="watchlist">
-                {list ? stocks?.map(stock => {
+                {!stocks.length == 0 ? stocks.map(stock => {
                     return (
                         <div key={stock.id}>
                             <TeamStockCard teamStockData={stock} watchlist={true}/>
@@ -28,7 +25,7 @@ export const Watchlist = () => {
                     )
                 }):
                 <div className="empty-list">
-                    <h3>Your watchlist is empty.</h3>
+                    <p className="message">Your watchlist is empty.</p>
                     <a href="/buy"><button>Add Stocks</button></a>
                 </div>}
             </div>

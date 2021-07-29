@@ -28,7 +28,7 @@ def new_watchlist(userId, teamId):
     return new_watch.to_dict()
 
 
-@watchlist_routes.route('/delete/<int:userId>/<int:teamId>', methods=['delete'])
+@watchlist_routes.route('/delete/<int:userId>/<int:teamId>', methods=['DELETE'])
 @login_required
 def delete_watchlist(userId, teamId):
     team = Watchlist.query.filter(Watchlist.team_id == teamId and Watchlist.user_id == userId).first()

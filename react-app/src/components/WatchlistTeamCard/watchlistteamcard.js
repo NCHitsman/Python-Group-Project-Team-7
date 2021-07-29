@@ -13,7 +13,6 @@ const WatchlistTeamCard = ({teamId}) => {
     let userId = useSelector(state => state.session.user.id)
 
 
-
     return (
         <>
         <button className='TeamStockCard__cont'

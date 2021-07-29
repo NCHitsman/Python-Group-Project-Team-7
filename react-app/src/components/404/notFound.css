@@ -1,0 +1,63 @@
+.container {
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+}
+
+#error-list > div {
+    background: rgba(353, 98, 41, .3) ;
+    padding: 5px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.left-side {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50%;
+}
+
+.left-side.not-found {
+    background-image: url("../../images/robinhoop-background-fans-leaving-image.jpg");
+}
+
+#not-found-message.right-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 767px) {
+    .left-side {
+        width: 100%;
+    }
+
+    #not-found-message.right-side {
+        width: 100%;
+        justify-content: center;
+    }
+
+    form > div {
+        max-width: 95%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .right-side {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}

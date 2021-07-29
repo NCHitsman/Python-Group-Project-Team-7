@@ -63,7 +63,6 @@ export const removeFromWatchlist = (userId, teamId) => async (dispatch) => {
         })
     })
     const team = await response.json()
-
     dispatch(removeFrom(team))
     return response
 }

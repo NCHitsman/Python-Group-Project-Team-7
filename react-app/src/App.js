@@ -11,6 +11,7 @@ import Watchlist from "./components/Watchlist";
 import UsersList from "./components/User/UsersList";
 import StockPage from "./components/StockPage";
 import TeamsList from "./components/TeamsList/index";
+import NotFound from "./components/404/notFound.js";
 import { authenticate } from "./store/session";
 import { getAllStocks } from "./store/stocks";
 import { getUserList } from "./store/watchlist";
@@ -68,6 +69,12 @@ function App() {
           <StockPage currentUser={currentUser} />
           </Route> : <Redirect to="/login" />
         }
+        <Route path="/404" exact={true}>
+          <NotFound />
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

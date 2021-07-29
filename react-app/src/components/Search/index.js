@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import { useHistory } from "react-router-dom";
+import './search.css'
 
 const SearchBar = () => {
 

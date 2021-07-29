@@ -1,8 +1,10 @@
-button.remove-button {
+button.remove-button,
+button.add-button {
     background: rgba(0, 0, 0, 0);
 }
 
-button.remove-button:hover {
+button.remove-button:hover,
+button.add-button:hover {
     transition: .5s;
     color: #FFAA01;
 }
