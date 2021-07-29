@@ -69,8 +69,8 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if User.query.filter(User.email).first():
-        return {'errors': 'Email already in use.'}
+    if User.query.filter(User.email == form.data['email']).first():
+        return {'errors': ['Email already in use']}, 409
     if form.validate_on_submit():
         user = User(
             username=form.data['username'],

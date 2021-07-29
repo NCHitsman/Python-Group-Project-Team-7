@@ -108,7 +108,7 @@ export const logout = () => async (dispatch) => {
     const data = await response.json();
 
     if (data.errors) {
-        return
+      return data.errors
     }
 
     dispatch(setUser(data))
