@@ -20,7 +20,7 @@ const StockPage= () => {
     const history = useSelector((state) => state.stocks.history[stockId])
 
         return (
-            <div className="container">
+            <div className="container stock">
                 <GraphCanvas history={history} stockId={stockId}/>
                 <StockPageInfo stockId={stockId > 30 ? 1 : stockId}/>
             </div>
