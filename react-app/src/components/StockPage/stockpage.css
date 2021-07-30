@@ -162,7 +162,7 @@ a.watchlist-link:hover {
 }
 
 @media screen and (max-width: 768px) {
-    .parent__cont {
+    .parent__cont, .buy__sell__cont {
         display: block;
     }
 

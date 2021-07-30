@@ -5,6 +5,7 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import EditUserForm from "./components/auth/EditUserForm";
 import NavBar from "./components/NavBar/index";
+import Mobile from './components/NavBar/mobile'
 import Footer from "./components/Footer/index";
 import Home from "./components/Home/index"
 import Watchlist from "./components/Watchlist";
@@ -38,7 +39,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      { window.innerWidth > 870 ? <NavBar /> : <Mobile />}
       <Switch>
         <Route path="/" exact={true}>
           <Home />
