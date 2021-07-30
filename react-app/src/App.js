@@ -52,7 +52,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      { isMobile ? <Mobile /> : <NavBar />}
+      {/* { isMobile ? <Mobile /> : <NavBar />} */}
+      <NavBar />
       <Switch>
         <Route path="/" exact={true}>
           <Home />
