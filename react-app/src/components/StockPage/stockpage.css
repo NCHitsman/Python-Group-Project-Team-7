@@ -18,6 +18,7 @@ canvas {
     align-items: center;
     flex-direction: row;
     width: 50%;
+    padding-bottom: 25px;
 }
 
 /* .graph__cont {
@@ -153,10 +154,6 @@ a.watchlist-link:hover {
         width: 100%;
     }
 
-    /* .buy__sell__cont {
-        display: block;
-    } */
-
     .buy__cont,
     .sell__cont {
         display: block;
@@ -168,6 +165,7 @@ a.watchlist-link:hover {
     .parent__cont {
         display: block;
     }
+
     .graph__cont {
         width: 100%;
         height: auto;
