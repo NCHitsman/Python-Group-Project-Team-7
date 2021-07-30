@@ -161,6 +161,10 @@ img.icon {
     #sign-up:hover, #logout:hover {
         padding: 10px;
     }
+
+    .spacer{
+        height: 0px;
+    }
 }
 
 /* Global Styles */
@@ -198,10 +202,9 @@ button:hover {
     border-radius: 35px;
 }
 
-@media screen and (max-width: 870px) {
-    .content {
-        padding-top: 68px;
-    }
+/* Mobile Styles */
+#mobile {
+    color: #fff;
 }
 
 /* Footer */

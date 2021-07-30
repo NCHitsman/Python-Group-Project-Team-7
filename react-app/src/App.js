@@ -19,8 +19,9 @@ import { getUserList } from "./store/watchlist";
 
 function App() {
   const dispatch = useDispatch();
-
   const [loaded, setLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
+  let listener = window.innerWidth;
 
   useEffect(() => {
     (async () => {
@@ -29,7 +30,19 @@ function App() {
       if (userId) await dispatch(getUserList(userId))
       setLoaded(true);
     })();
+
+    listener <= 870 ? setIsMobile(true) : setIsMobile(false);
+
   }, [dispatch]);
+
+
+  const checkForMobile = () => {
+    if (listener <= 870) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
 
   const currentUser = useSelector((state) => state.session.user)
 
@@ -39,7 +52,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      { window.innerWidth > 870 ? <NavBar /> : <Mobile />}
+      { isMobile ? <Mobile /> : <NavBar />}
       <Switch>
         <Route path="/" exact={true}>
           <Home />
