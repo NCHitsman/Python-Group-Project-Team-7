@@ -153,6 +153,8 @@ img.icon {
     cursor: default;
 }
 
+
+
 @media screen and (max-width: 870px) {
     #sign-up, #logout {
         padding: 10px;
@@ -162,9 +164,9 @@ img.icon {
         padding: 10px;
     }
 
-    .spacer{
-        height: 0px;
-    }
+    /* .spacer{
+        height: 35px;
+    } */
 }
 
 /* Global Styles */
