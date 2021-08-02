@@ -10,7 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.team_routes import team_routes
 from .api.watchlist_routes import watchlist_routes
-from api.buy_routes import buy_routes
+from .api.buy_routes import buy_routes
 
 from .seeds import seed_commands
 
