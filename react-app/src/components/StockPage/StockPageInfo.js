@@ -1,23 +1,33 @@
 import React from "react"
 import { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import placeholder from "../../images/robinhoop-background-ball.jpg";
 import "./stockpage.css"
+import * as buyReducer from "../../store/buy"
 
 const StockPageInfo = ({ stockId }) => {
     const [buyQuant, setBuyQuant] = useState('0')
     const [sellQuant, setSellQuant] = useState(0)
+    const user = useSelector(state => state.session.user)
+    const userId = user.id
+
 
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
-
+    const dispatch = useDispatch() 
     const userShare = useSelector((state) => state.stocks.userShares)
+    
+    const buyShare = useSelector(state => state.buy.currentBuy)
+    
+    const shares = buyShare
+    console.log('BUUUUUYSHARE', shares)
 
+    
     const buyHandler = () => {
-
+        dispatch(buyReducer.buyShares({shares, stockId, userId}))
     }
 
     const sellHandler = () => {
-
+        //dispatch(buyReducer.sellShares({id}))
     }
 
     const formatter = new Intl.NumberFormat('en-US', {

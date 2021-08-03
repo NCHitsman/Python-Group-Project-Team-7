@@ -7,22 +7,22 @@ buy_routes = Blueprint("usershares", __name__)
 
 
 @buy_routes.route('/<int:id>')
-@login_required
+# @login_required
 
 def load_shares(id):
-    usershares = UserShare.query.filter(UserShare.user_id == id).all()
-    return jsonify([usershare.to_dict() for usershare in usershares])
+    usershare = UserShare.query.get(id)
+    return usershare.to_dict() 
 
 
 
 @buy_routes.route('/',  methods=['post'])
-@login_required
+# @login_required
 def buy_team():
 
     data = request.json
-    newshares = UserShare(user = current_user,
+    newshares = UserShare(user_id = data['user_id'],
                          shares = data['shares'],   
-                         team_id = data['teamId'])
+                         team_id = data['team_id'])
     db.session.add(newshares)
     db.session.commit()
     return newshares.to_dict()

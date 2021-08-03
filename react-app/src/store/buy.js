@@ -31,14 +31,14 @@ export const loadShares = (id) => async (dispatch) => {
 
 
 export const buyShares = (data) => async (dispatch) => {
-    const {shares, userId, teamId} = data
+    const {shares, userId, stockId} = data
 
     const response = await fetch ('/api/buy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
             shares,
-            teamId
+            stockId
             
         })
     })
