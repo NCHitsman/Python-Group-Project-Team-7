@@ -153,19 +153,20 @@ img.icon {
     cursor: default;
 }
 
-@media screen and (max-width: 1100px) {
-    .search-container {
-        display: none;
-    }
-}
+
 
 @media screen and (max-width: 870px) {
     #sign-up, #logout {
         padding: 10px;
     }
+
     #sign-up:hover, #logout:hover {
         padding: 10px;
     }
+
+    /* .spacer{
+        height: 35px;
+    } */
 }
 
 /* Global Styles */
@@ -203,10 +204,9 @@ button:hover {
     border-radius: 35px;
 }
 
-@media screen and (max-width: 870px) {
-    .content {
-        padding-top: 68px;
-    }
+/* Mobile Styles */
+#mobile {
+    color: #fff;
 }
 
 /* Footer */

@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className='spacer'>a</div>
+      <div className='spacer'></div>
       <nav>
         <div className="left">
           <div

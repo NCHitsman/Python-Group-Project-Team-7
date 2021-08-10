@@ -106,7 +106,7 @@ const LoggedInHome = () => {
                     })}
                 </div>
                 :
-                <div id="simulation-text" className="message">Press Start Simulation<br/>
+                <div id="simulation-text" className="message">Press Button to Start Simulation<br/>
                     (It may take a few seconds.)
                 </div>
                 }

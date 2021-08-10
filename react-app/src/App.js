@@ -5,6 +5,7 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import EditUserForm from "./components/auth/EditUserForm";
 import NavBar from "./components/NavBar/index";
+import Mobile from './components/NavBar/mobile'
 import Footer from "./components/Footer/index";
 import Home from "./components/Home/index"
 import Watchlist from "./components/Watchlist";
@@ -18,8 +19,9 @@ import { getUserList } from "./store/watchlist";
 
 function App() {
   const dispatch = useDispatch();
-
   const [loaded, setLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
+  let listener = window.innerWidth;
 
   useEffect(() => {
     (async () => {
@@ -28,7 +30,19 @@ function App() {
       if (userId) await dispatch(getUserList(userId))
       setLoaded(true);
     })();
+
+    listener <= 870 ? setIsMobile(true) : setIsMobile(false);
+
   }, [dispatch]);
+
+
+  const checkForMobile = () => {
+    if (listener <= 870) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }
 
   const currentUser = useSelector((state) => state.session.user)
 
@@ -38,6 +52,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* { isMobile ? <Mobile /> : <NavBar /> } */}
       <NavBar />
       <Switch>
         <Route path="/" exact={true}>
