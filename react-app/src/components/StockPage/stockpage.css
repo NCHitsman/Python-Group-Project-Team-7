@@ -1,3 +1,7 @@
+.container.stock {
+    height: auto !important;
+}
+
 .parent-container {
     display: flex;
     flex-wrap: wrap;
@@ -14,6 +18,7 @@ canvas {
     align-items: center;
     flex-direction: row;
     width: 50%;
+    padding-bottom: 25px;
 }
 
 /* .graph__cont {
@@ -50,6 +55,20 @@ canvas {
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+a.watchlist-link {
+    padding: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+}
+
+a.watchlist-link:hover {
+    transition: .5s;
+    color: #FFAA01;
 }
 
 .info__stock__name {
@@ -117,7 +136,7 @@ canvas {
     margin: 0px;
 }
 
-@media screen and (max-width: 1335px) {
+@media screen and (max-width: 1366px) {
     .parent-container {
         display: block;
     }
@@ -135,10 +154,6 @@ canvas {
         width: 100%;
     }
 
-    .buy__sell__cont {
-        display: block;
-    }
-
     .buy__cont,
     .sell__cont {
         display: block;
@@ -147,9 +162,10 @@ canvas {
 }
 
 @media screen and (max-width: 768px) {
-    .parent__cont {
+    .parent__cont, .buy__sell__cont {
         display: block;
     }
+
     .graph__cont {
         width: 100%;
         height: auto;

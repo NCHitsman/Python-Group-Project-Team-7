@@ -1,34 +1,31 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
-import { getUserList } from '../../store/watchlist'
-import WatchlistTeamCard from "../WatchlistTeamCard/watchlistteamcard";
+import React from "react";
+import { useSelector } from "react-redux"
+
+import TeamStockCard from "../TeamStockCard";
 import "./watchlist.css"
 
 
-export const Watchlist = (userId) => {
+export const Watchlist = () => {
 
-    const dispatch = useDispatch()
     const list = useSelector(state => state.watchlist)
-
-    useEffect(() => {
-        (async() => {
-          await dispatch(getUserList(userId))
-        })();
-      }, [dispatch, userId]);
+    const allStocks = useSelector(state => state.stocks.allStocks)
+    let stocks = Object.values(list).map((watchListItem) => {
+        return allStocks[watchListItem.team_id]
+    })
 
     return (
         <div className="content">
             <div className="GreetUser">Watchlist</div>
             <div className="watchlist">
-                {list ? Object.values(list).map(stock => {
+                {!stocks.length == 0 ? stocks.map(stock => {
                     return (
                         <div key={stock.id}>
-                            <WatchlistTeamCard teamId={stock.team_id} />
+                            <TeamStockCard teamStockData={stock} watchlist={true}/>
                         </div>
                     )
                 }):
                 <div className="empty-list">
-                    <h3>Your watchlist is empty.</h3>
+                    <p className="message">Your watchlist is empty.</p>
                     <a href="/buy"><button>Add Stocks</button></a>
                 </div>}
             </div>

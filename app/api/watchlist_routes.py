@@ -13,17 +13,22 @@ def get_watchlist(id):
     return jsonify([item.to_dict() for item in lists])
 
 
-@watchlist_routes.route('/add', methods=['post'])
+@watchlist_routes.route('/add/<int:userId>/<int:teamId>', methods=['POST'])
 @login_required
-def new_watchlist():
+def new_watchlist(userId, teamId):
 
-    team = Watchlist(**request.json)
-    db.session.add(team)
+    new_watch = Watchlist(
+        team_id = teamId,
+        user_id = userId
+    )
+
+    db.session.add(new_watch)
     db.session.commit()
-    return team.to_dict()
+
+    return new_watch.to_dict()
 
 
-@watchlist_routes.route('/delete/<int:userId>/<int:teamId>', methods=['delete'])
+@watchlist_routes.route('/delete/<int:userId>/<int:teamId>', methods=['DELETE'])
 @login_required
 def delete_watchlist(userId, teamId):
     team = Watchlist.query.filter(Watchlist.team_id == teamId and Watchlist.user_id == userId).first()

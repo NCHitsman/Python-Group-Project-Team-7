@@ -1,33 +1,28 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {useParams} from 'react-router-dom'
-import { getAllStocks, getUserShares, getStockHistory } from '../../store/stocks'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import {useHistory, useParams} from 'react-router-dom'
 import StockPageInfo from './StockPageInfo'
 
 import "./stockpage.css"
 import GraphCanvas from '../Graph'
 
-const StockPage= ({currentUser}) => {
-    const dispatch = useDispatch()
+const StockPage= () => {
+
+    const redirectTo = useHistory()
+
     const {stockId} = useParams()
 
-    useEffect(() => {
-        dispatch(getAllStocks())
-        dispatch(getStockHistory(stockId))
-        dispatch(getUserShares(currentUser.id, stockId))
-    }, [dispatch])
+    if (stockId > 30) {
+        redirectTo.push('/404')
+    }
 
-    const history = useSelector((state) => state.stocks.history.history)
 
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    });
+    const history = useSelector((state) => state.stocks.history[stockId])
 
         return (
-            <div className="container">
+            <div className="container stock">
                 <GraphCanvas history={history} stockId={stockId}/>
-                <StockPageInfo stockId={stockId}/>
+                <StockPageInfo stockId={stockId > 30 ? 1 : stockId}/>
             </div>
     )
 }
