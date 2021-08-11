@@ -7,7 +7,7 @@ buy_routes = Blueprint("usershares", __name__)
 
 
 @buy_routes.route('/<int:id>')
-# @login_required
+@login_required
 
 def load_shares(id):
     usershare = UserShare.query.get(id)
@@ -16,11 +16,11 @@ def load_shares(id):
 
 
 @buy_routes.route('/',  methods=['post'])
-# @login_required
+@login_required
 def buy_team():
 
     data = request.json
-    newshares = UserShare(user_id = data['user_id'],
+    newshares = UserShare(user_id = current_user,
                          shares = data['shares'],   
                          team_id = data['team_id'])
     db.session.add(newshares)
@@ -32,8 +32,8 @@ def buy_team():
 @login_required
 def sell_team(id):
     sell = UserShare.query.get(id)
-    if sell.user_id != current_user.id:
-        return {}
+    # if sell.user_id != current_user.id:
+    #     return {}
     db.session.delete(sell)
     db.session.commit()
     return {}    
