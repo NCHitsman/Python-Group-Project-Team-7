@@ -4,12 +4,14 @@ import session from './session';
 import stocks from './stocks'
 import watchlist from './watchlist'
 import articles from './articles'
+import buy from './buy';
 
 const rootReducer = combineReducers({
     session,
     stocks,
     articles,
     watchlist,
+    buy,
 });
 let enhancer;
 

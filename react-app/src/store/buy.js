@@ -1,6 +1,6 @@
-const LOAD_SHARES='purchase/LOAD_SHARES'
-const BUY_TEAM = 'purchase/BUY_TEAM' 
-const SELL_TEAM= 'purchase/SELL_TEAM'
+const LOAD_SHARES='buy/LOAD_SHARES'
+const BUY_TEAM = 'buy/BUY_TEAM' 
+const SELL_TEAM= 'buy/SELL_TEAM'
 
 const loadIt = (purchase) => ({
     type: LOAD_SHARES,
@@ -12,10 +12,10 @@ const buyIt = (purchase) => ({
     payload: purchase
 })
 
-// const sellIt = () => ({
-//     type:SELL_TEAM,
-//     payload: purchase
-// })
+const sellIt = (id) => ({
+    type:SELL_TEAM,
+    payload: id
+})
 
 export const loadShares = (id) => async (dispatch) => {
     const response = await fetch (`/api/buy/${id}`)
@@ -31,15 +31,14 @@ export const loadShares = (id) => async (dispatch) => {
 
 
 export const buyShares = (data) => async (dispatch) => {
-    const {shares, userId, teamId} = data
+    const {shares, stockId} = data
 
     const response = await fetch ('/api/buy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
-            share_amount: shares,
-            user_id: userId,
-            team_id: teamId
+            shares,
+            team_id: stockId
             
         })
     })
@@ -52,26 +51,45 @@ export const buyShares = (data) => async (dispatch) => {
     }
 }
 
+export const sellShares = (id) => async (dispatch) => {
+    const response = await fetch(`/api/buy/${id}`, {
+        method: 'DELETE',
+    })
+
+    if (response.ok) {
+        dispatch(sellIt(id))
+    }
+}
+
 
 const initialState = {}
 
-export default buyReducer = (state = initialState, action) => {
+const buyReducer = (state = initialState, action) => {
     let newState = {}
     switch (action.type) {
         case LOAD_SHARES: {
-            action.purchase.forEach((purchase) => {
-                newState[purchase.id] = purchase
-            })
-            return{...newState, ...state}
+            newState = {...state}
+            newState.currentBuy = action.payload
+            return{... newState}
         }
 
         case BUY_TEAM: {
-            return {...state, [action.purchase.id]: action.purchase}
+            newState = {...state}
+            newState.currentBuy = {...newState.currentBuy}
+            newState.currentBuy[action.payload.id] = action.payload
+            return newState
         }    
             
-    
+        case SELL_TEAM: {
+            newState = {...state}
+            delete newState.currentBuy[action.payload]
+            newState.currentBuy = {...newState.currentBuy}
+            return newState
+        }
         default:
             return state;
             
     }
 }
+
+export default buyReducer
