@@ -68,9 +68,13 @@ const buyReducer = (state = initialState, action) => {
     let newState = {}
     switch (action.type) {
         case LOAD_SHARES: {
-            newState = {...state}
-            newState.currentBuy = action.payload
-            return{... newState}
+            action.payload.forEach(buy => {
+                newState.currentBuy[buy.id] = buy
+            });
+            // newState = {...state}
+            // newState.currentBuy = action.payload
+            
+            return{...newState, ...state}
         }
 
         case BUY_TEAM: {
