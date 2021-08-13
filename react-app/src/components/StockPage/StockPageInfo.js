@@ -23,13 +23,13 @@ const StockPageInfo = ({ stockId }) => {
         
     const buyHandler = () => {
         dispatch(buyReducer.buyShares({shares, stockId, userId}))
-        window.alert(`Succesfully bought ${shares} shares from ${stock.name}`)
+        window.alert(`Succesfully bought ${shares} shares from the ${stock.name}`)
         setShares(0)
     }
 
     const sellHandler = () => {
         //dispatch(buyReducer.sellShares({id}))
-        window.alert(`Succesfully sold ${shares} shares from ${stock.name}`)
+        window.alert(`Succesfully sold ${shares} shares from the ${stock.name}`)
         setShares(0)
     }
 
