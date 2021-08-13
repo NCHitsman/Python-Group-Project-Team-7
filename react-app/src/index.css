@@ -12,6 +12,10 @@ nav {
     background: #000;
 }
 
+.spacer{
+    min-height: 70px;
+}
+
 nav .left {
     display: flex;
     flex-direction: row wrap;
@@ -43,6 +47,10 @@ nav .active {
     color: #FFAA01;
 }
 
+button {
+    cursor: pointer;
+}
+
 #logout {
     border: 0px;
     margin: 0 5% 0 3%;
@@ -71,7 +79,7 @@ nav .active {
 }
 
 #running-simulator {
-    margin-left: 3%;
+    margin-bottom: 3%;
     font-size: 16px;
     font-family: 'Josefin Sans', sans-serif;
     color: #fff;
@@ -93,6 +101,10 @@ nav .active {
     flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
+
 .search-result {
     height: 40px;
     padding: 0px;
@@ -100,6 +112,7 @@ nav .active {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    color: white;
 }
 
 .search-result > p {
@@ -117,10 +130,6 @@ img.icon {
     margin: 5px 0px;
 }
 
-.search-results {
-    display: none;
-}
-
 .search-input:focus ~ .search-results {
     display: block;
 }
@@ -135,19 +144,29 @@ img.icon {
     width: 1px;
 }
 
-@media screen and (max-width: 1100px) {
-    .search-container {
-        display: none;
-    }
+.message {
+    padding-top: 4%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(255, 255, 255, .7);
+    font-size: 1.25em;
+    cursor: default;
 }
+
+
 
 @media screen and (max-width: 870px) {
     #sign-up, #logout {
         padding: 10px;
     }
+
     #sign-up:hover, #logout:hover {
         padding: 10px;
     }
+
+    /* .spacer{
+        height: 35px;
+    } */
 }
 
 /* Global Styles */
@@ -156,7 +175,6 @@ img.icon {
 }
 
 .content {
-    padding-top: 65px;
     background: #000;
 }
 
@@ -186,10 +204,9 @@ button:hover {
     border-radius: 35px;
 }
 
-@media screen and (max-width: 870px) {
-    .content {
-        padding-top: 68px;
-    }
+/* Mobile Styles */
+#mobile {
+    color: #fff;
 }
 
 /* Footer */

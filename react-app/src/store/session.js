@@ -34,7 +34,7 @@ export const authenticate = () => async(dispatch) => {
 
     dispatch(setUser(data))
 
-    return true;
+    return data.id;
   }
 
   export const login = (email, password) => async (dispatch) => {
@@ -108,7 +108,7 @@ export const logout = () => async (dispatch) => {
     const data = await response.json();
 
     if (data.errors) {
-        return
+      return data.errors
     }
 
     dispatch(setUser(data))

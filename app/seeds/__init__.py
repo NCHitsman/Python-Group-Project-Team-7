@@ -2,7 +2,6 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .teams import seed_team, undo_team
 from .events import seed_event, undo_event
-from .watchlist import seed_watchlist, undo_watchlist
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -15,7 +14,6 @@ def seed():
     seed_users()
     seed_team()
     seed_event()
-    seed_watchlist()
     # Add other seed functions here
 
 
@@ -25,5 +23,4 @@ def undo():
     undo_users()
     undo_team()
     undo_event()
-    undo_watchlist()
     # Add other undo functions here

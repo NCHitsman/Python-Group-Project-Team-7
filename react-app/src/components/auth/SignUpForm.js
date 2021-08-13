@@ -11,11 +11,17 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([])
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+        const newUser = await dispatch(signUp(username, email, password));
+        if (newUser.length > 0) {
+          setErrors(newUser)
+        }
+    } else {
+      setErrors(['Passwords do not match.'])
     }
   };
 
@@ -49,6 +55,9 @@ const SignUpForm = () => {
             <h1>Join Robinhoop</h1>
             <p>Already have a Robinhoop account? <a href="/login">Login</a></p>
           </div>
+          <div id="errors">
+            {errors ? errors.map(err => <p>{err}</p>) : <></>}
+          </div>
           <div>
             <label>User Name</label>
             <input
@@ -57,6 +66,7 @@ const SignUpForm = () => {
               placeholder="User Name"
               onChange={updateUsername}
               value={username}
+              required={true}
             ></input>
           </div>
           <div>
@@ -67,6 +77,7 @@ const SignUpForm = () => {
               placeholder="Email"
               onChange={updateEmail}
               value={email}
+              required={true}
             ></input>
           </div>
           <div>
