@@ -17,6 +17,8 @@ const LoggedInHome = () => {
     const [simId, setSimId] = useState()
     const [buttonText, setButtonText] = useState('Start')
     const [hidden, setHidden] = useState(true)
+    let scores = JSON.parse(sessionStorage.getItem('scores'))
+    console.log('>>>>>', scores)
 
     useEffect(() => {
         dispatch(getUserList(user.id))
@@ -73,6 +75,7 @@ const LoggedInHome = () => {
             dispatch(getAllStocks())
           }, 5000))
         }
+        sessionStorage.setItem('scores', JSON.stringify(articles))
       }
 
     return (
@@ -84,7 +87,6 @@ const LoggedInHome = () => {
                 </div>
                 <div className='TeamStockCard__carosel'>
                     {Object.values(stocks).map(stock => {
-
                         return (
                             <TeamStockCard key={stock.name} teamStockData={stock} />
                         )
@@ -98,17 +100,26 @@ const LoggedInHome = () => {
                     <div id='running-simulator' style={{ display: hidden ? "none" : "block"}}>Running</div>
                 </div>
                 {articles.length ?
-                <div className='Article__cont'>
+                  <div className='Article__cont'>
                     {Object.values(articles)?.map((article, i) => {
-                        return (
-                            <ArticleDataCard key={i} articleData={article} />
+                      return (
+                        <ArticleDataCard key={i} articleData={article} />
                         )
-                    })}
-                </div>
-                :
-                <div id="simulation-text" className="message">Press Button to Start Simulation<br/>
-                    (It may take a few seconds.)
-                </div>
+                      })}
+                  </div>
+                  :
+                  ( scores ?
+                    <div className='Article__cont'>
+                      {Object.values(scores)?.map((article, i) => {
+                      return (
+                          <ArticleDataCard key={i} articleData={article} />
+                        )
+                      })}
+                    </div>
+                    : <div id="simulation-text" className="message">Press Button to Start Simulation<br/>
+                  (It may take a few seconds.)
+                  </div>
+                  )
                 }
             </div>
         </>

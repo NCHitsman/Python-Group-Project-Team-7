@@ -16,20 +16,18 @@ const StockPageInfo = ({ stockId }) => {
     const stock = useSelector((state) => state.stocks.allStocks[stockId])
     const user = useSelector((state) => state.session.user)
     const watchlist = useSelector((state) => state.watchlist)
-    
+
     const userId = user.id
 
-   
-    const dispatch = useDispatch() 
     const userShare = useSelector((state) => state.stocks.userShares)
-    
+
     const buyShare = useSelector(state => state.buy.currentBuy)
-    
+
     const shares = buyShare
     //console.log('BUUUUUYSHARE', shares)
 
 
-    
+
     const buyHandler = () => {
         dispatch(buyReducer.buyShares({shares, stockId, userId}))
     }
