@@ -18,7 +18,6 @@ const LoggedInHome = () => {
     const [buttonText, setButtonText] = useState('Start')
     const [hidden, setHidden] = useState(true)
     let scores = JSON.parse(sessionStorage.getItem('scores'))
-    console.log('>>>>>', scores)
 
     useEffect(() => {
         dispatch(getUserList(user.id))

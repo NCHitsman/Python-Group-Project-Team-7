@@ -6,6 +6,7 @@ const LogoutButton = () => {
   const dispatch = useDispatch();
   const onLogout = async (e) => {
     await dispatch(logout());
+    sessionStorage.clear()
   };
 
   return <button onClick={onLogout} id="logout">Logout</button>;
