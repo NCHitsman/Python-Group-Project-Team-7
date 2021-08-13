@@ -31,15 +31,15 @@ export const loadShares = (id) => async (dispatch) => {
 
 
 export const buyShares = (data) => async (dispatch) => {
-    const {shares, stockId} = data
+    const {shares, stockId, userId} = data
 
     const response = await fetch ('/api/buy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
             shares,
-            team_id: stockId
-            
+            team_id: stockId,
+            user_id: userId
         })
     })
 
@@ -68,9 +68,13 @@ const buyReducer = (state = initialState, action) => {
     let newState = {}
     switch (action.type) {
         case LOAD_SHARES: {
-            newState = {...state}
-            newState.currentBuy = action.payload
-            return{... newState}
+            action.payload.forEach(buy => {
+                newState.currentBuy[buy.id] = buy
+            });
+            // newState = {...state}
+            // newState.currentBuy = action.payload
+            
+            return{...newState, ...state}
         }
 
         case BUY_TEAM: {
