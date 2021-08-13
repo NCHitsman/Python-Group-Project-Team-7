@@ -16,7 +16,7 @@ const StockPageInfo = ({ stockId }) => {
     const dispatch = useDispatch() 
     const userShare = useSelector((state) => state.stocks.userShares)
     
-    const buyShare = useSelector(state => state.buy.currentBuy)
+    //const buyShare = useSelector(state => state.buy.currentBuy)
     
     const shares = buyShare
     console.log('BUUUUUYSHARE', shares)
