@@ -69,18 +69,32 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if User.query.filter(User.email == form.data['email']).first():
-        return {'errors': ['Email already in use']}, 409
+    # if user:
+    #     print('>>>>>>>>>>>>>>>>>>>>>>>> HERE <<<<<<<<<<<<<<<<<<<<<<<<<<<')
+    #     return {'errors': ['Email already in use']}, 409
+
     if form.validate_on_submit():
+        print('####################### HERE ######################')
         user = User(
             username=form.data['username'],
             email=form.data['email'],
             password=form.data['password']
         )
+
+        # if db.session.query(User.email).filter_by(email={user.email}).first():
+        #     print('>>>>>>>>>>>>>>>>>>>>>>>> HERE <<<<<<<<<<<<<<<<<<<<<<<<<<<')
+        #     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+        # if User.query.filter(User.username).first():
+        #     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@ HERE @@@@@@@@@@@@@@@@@@@@@@@@@@@')
+        #     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
         db.session.add(user)
         db.session.commit()
         login_user(user)
+        print('$$$$$$$$$$$$$$$$$$$$$$$ HERE $$$$$$$$$$$$$$$$$$$$$$$')
         return user.to_dict()
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
