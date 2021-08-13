@@ -75,7 +75,6 @@ const LoggedInHome = () => {
             dispatch(getAllStocks())
           }, 5000))
         }
-        sessionStorage.setItem('scores', JSON.stringify(articles))
       }
 
     return (
@@ -102,6 +101,7 @@ const LoggedInHome = () => {
                 {articles.length ?
                   <div className='Article__cont'>
                     {Object.values(articles)?.map((article, i) => {
+                      sessionStorage.setItem('scores', JSON.stringify(articles))
                       return (
                         <ArticleDataCard key={i} articleData={article} />
                         )
