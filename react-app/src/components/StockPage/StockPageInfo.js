@@ -25,7 +25,7 @@ const StockPageInfo = ({ stockId }) => {
     const buyHandler = () => {
         // setShares(buyQuant)
         dispatch(buyReducer.buyShares({shares, stockId, userId}))
-        setConfirmation(`Succesfully bought ${buyQuant} shares from the ${stock.name}`)
+        setConfirmation(`Succesfully bought ${buyQuant} share(s) from the ${stock.name}`)
         setShares(shares + buyQuant)
         setBuyQuant(0)
     }
@@ -33,7 +33,7 @@ const StockPageInfo = ({ stockId }) => {
     const sellHandler = () => {
         // setShares(sellQuant)
         dispatch(buyReducer.sellShares({shares, stockId, userId}))
-        setConfirmation(`Succesfully sold ${sellQuant} shares from the ${stock.name}`)
+        setConfirmation(`Succesfully sold ${sellQuant} share(s) from the ${stock.name}`)
         setShares(shares - sellQuant)
         setSellQuant(0)
     }
