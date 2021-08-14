@@ -46,14 +46,14 @@ const LoginForm = () => {
       <div className="right-side">
         <div className="form-container">
           <form onSubmit={onLogin}>
+            <div className="greeting">
+              <h1>Sign in</h1>
+              <p>Don't have a Robinhoop account? <a href="/join">Join Now</a></p>
+            </div>
             <div id="error-list">
               {errors.map((error) => (
                 <div>{error}</div>
             ))}
-            </div>
-            <div className="greeting">
-              <h1>Sign in</h1>
-              <p>Don't have a Robinhoop account? <a href="/join">Join Now</a></p>
             </div>
             <div>
               <label htmlFor="email">Email</label>

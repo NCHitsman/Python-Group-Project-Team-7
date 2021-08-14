@@ -108,7 +108,6 @@ export const logout = () => async (dispatch) => {
     const data = await response.json();
 
     if (data.errors) {
-      console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$', data.errors)
       return data.errors
     }
 
