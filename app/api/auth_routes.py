@@ -14,7 +14,7 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f"{field} : {error}")
+            errorMessages.append(f"{error}")
     return errorMessages
 
 
@@ -69,18 +69,29 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if User.query.filter(User.email == form.data['email']).first():
-        return {'errors': ['Email already in use']}, 409
-    if form.validate_on_submit():
-        user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password']
-        )
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return user.to_dict()
+
+    existing_email = User.query.filter(User.email == form.data['email']).first();
+    existing_username = User.query.filter(User.username == form.data['username']).first();
+
+    if existing_email and existing_username:
+        return {'errors': ["This email is already in use.", "This username is already in use."]}, 409
+    elif existing_username:
+        return {'errors': ["This username is already in use."]}, 409
+    elif existing_email:
+        return {'errors': ["This email is already in use."]}, 409
+    else:
+        if form.validate_on_submit():
+            user = User(
+                username=form.data['username'],
+                email=form.data['email'],
+                password=form.data['password']
+            )
+
+            db.session.add(user)
+            db.session.commit()
+            login_user(user)
+            return user.to_dict()
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

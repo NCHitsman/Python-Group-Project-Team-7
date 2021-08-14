@@ -104,6 +104,14 @@ a.watchlist-link:hover {
     width: 100px;
 }
 
+#confirmation p {
+    background: #FFAA01;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0px;
+}
+
 .buy__sell__cont {
     display: flex;
     justify-content: space-around;

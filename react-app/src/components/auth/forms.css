@@ -17,6 +17,10 @@ html, body, #root {
     color: #fff;
 }
 
+#error-list > div:last-of-type {
+    margin-bottom: 16px;
+}
+
 .left-side {
     background-position: center center;
     background-size: cover;
@@ -103,13 +107,6 @@ form.demo {
     display: flex;
     justify-content: center;
     /* padding: 10% 0px; */
-}
-
-#errors p {
-    width: 100%;
-    padding: 12px;
-    margin: 0 0 10px 0;
-    background:rgba(353, 98, 41, .3);
 }
 
 @media screen and (max-width: 767px) {

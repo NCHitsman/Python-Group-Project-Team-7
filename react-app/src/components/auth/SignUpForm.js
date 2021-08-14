@@ -17,7 +17,8 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
         const newUser = await dispatch(signUp(username, email, password));
-        if (newUser.length > 0) {
+
+        if (newUser.length) {
           setErrors(newUser)
         }
     } else {
@@ -55,8 +56,8 @@ const SignUpForm = () => {
             <h1>Join Robinhoop</h1>
             <p>Already have a Robinhoop account? <a href="/login">Login</a></p>
           </div>
-          <div id="errors">
-            {errors ? errors.map(err => <p>{err}</p>) : <></>}
+          <div id="error-list">
+            {errors ? errors.map(err => <div>{err}</div>) : <></>}
           </div>
           <div>
             <label>User Name</label>

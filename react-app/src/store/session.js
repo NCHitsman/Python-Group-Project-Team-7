@@ -112,6 +112,7 @@ export const logout = () => async (dispatch) => {
     }
 
     dispatch(setUser(data))
+    return {}
   }
 
 
